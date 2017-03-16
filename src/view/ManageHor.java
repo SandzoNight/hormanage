@@ -5,7 +5,7 @@
  */
 package view;
 
-import controller.DBConnector;
+import model.DBConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
