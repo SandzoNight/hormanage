@@ -5,16 +5,19 @@
  */
 package view;
 
+import controller.DormInfo;
+
 /**
  *
  * @author fluke
  */
 public class NewJFrame extends javax.swing.JFrame {
-
+    DormInfo dorm = new DormInfo();
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame() {
+        
         initComponents();
     }
 
@@ -28,12 +31,18 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         dormName_label = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Dormitory Manager");
 
         dormName_label.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         dormName_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dormName_label.setText("Dormitory");
+        dormName_label.setText(dorm.getDormName());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText(dorm.getDormAddress());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -41,7 +50,9 @@ public class NewJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(101, 101, 101)
-                .addComponent(dormName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dormName_label, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -49,10 +60,12 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(dormName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(431, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(408, Short.MAX_VALUE))
         );
 
-        dormName_label.getAccessibleContext().setAccessibleName("dormName_label");
+        dormName_label.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,5 +107,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dormName_label;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
