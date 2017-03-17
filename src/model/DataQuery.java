@@ -19,9 +19,9 @@ public class DataQuery {
     DBConnector dbc = new DBConnector();
     Connection connect = dbc.connect();
     Statement s;
+    ResultSet rec = null;
     
     public ResultSet query(String tableName){
-        ResultSet rec = null;
         String sql = "SELECT * FROM "+tableName;
         try{
             s = connect.createStatement();
@@ -33,11 +33,9 @@ public class DataQuery {
     }
     
     public ResultSet query(String tableName,String columnName,String columnValue){
-        Statement s = null;
-        Connection connect = null;
-        ResultSet rec = null;
-        String sql = "SELECT * FROM "+tableName+" WHERE "+columnName+"="+columnValue;
+        String sql = "SELECT * FROM "+tableName+" WHERE "+columnName+"='"+columnValue+"'";
         try{
+            s = connect.createStatement();
             rec = s.executeQuery(sql);
         }catch(SQLException e){
             e.printStackTrace();

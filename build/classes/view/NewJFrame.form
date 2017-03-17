@@ -28,15 +28,15 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="416" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <Component id="jTabbedPane1" min="-2" pref="604" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="416" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="51" max="32767" attributes="0"/>
@@ -115,9 +115,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="111" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="111" max="-2" attributes="0"/>
-                      <EmptySpace pref="349" max="32767" attributes="0"/>
+                      <EmptySpace pref="476" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -125,11 +123,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton2" pref="41" max="32767" attributes="0"/>
-                          <Component id="jButton1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="304" max="32767" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace pref="302" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -139,11 +134,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="jButton1"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jButton2"/>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="javax.swing.JButton[] jButtons = new javax.swing.JButton[3];&#xa;for(int i=0;i&lt;jButtons.length;i++){&#xa;    jButtons[i].setText(&quot;ROOM&quot;);&#xa;}"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

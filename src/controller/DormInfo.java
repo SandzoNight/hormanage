@@ -28,9 +28,8 @@ public class DormInfo {
     
     public DormInfo(){
         DataQuery dq = new DataQuery();
-        ResultSet res = dq.query("dormitory");
-        ResultSet rec = null;
-        String sql = "SELECT * FROM dormitory";
+        ResultSet res = dq.query("dormitory","User_userId","123456789");
+//        ResultSet res = dq.query("dormitory");
         try{
             while(res!=null && res.next()){
                 dormName = res.getString("dormName");
