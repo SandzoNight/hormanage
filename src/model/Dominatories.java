@@ -91,38 +91,38 @@ public class Dominatories {
         this.visitorNo = visitorNo;
     }
     
-    public static ArrayList<Dominatories> domListing(){
-        ArrayList<Dominatories> info = new ArrayList<>();
-        Dominatories dorm;
-        try {
-            Connection con = ConnectionBuilder.getConnection();
-            PreparedStatement pstm = con.prepareStatement("select * from dormitory");
-            ResultSet rs = pstm.executeQuery();
-            while (rs.next()) {                
-                dorm = new Dominatories();
-                dorm.dormID = rs.getString("dormId");
-                dorm.dormName = rs.getString("dormName");
-                dorm.dormType =rs.getString("dormType");
-                dorm.dormAddress = rs.getString("dormAddress");
-                dorm.countRoom =rs.getInt("countRoom");
-                dorm.facilityDormId = rs.getString("facilityDormId");
-                dorm.facilityRoomId = rs.getString("facilityRoomId");
-                info.add(dorm);
-            }
-            con.close();
-            pstm.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Dominatories.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return info;
-    }
-    
-    public static void main(String[] args) {
-        ArrayList<Dominatories> d = Dominatories.domListing();
-        for (Dominatories dominatories : d) {
-            System.out.println(dominatories.getDormID()+" : "+dominatories.getDormName());
-            System.out.println(dominatories.getDormAddress());
-            
-        }
-    }
+//    public static ArrayList<Dominatories> domListing(){
+//        ArrayList<Dominatories> info = new ArrayList<>();
+//        Dominatories dorm;
+//        try {
+//            Connection con = ConnectionBuilder.getConnection();
+//            PreparedStatement pstm = con.prepareStatement("select * from dormitory");
+//            ResultSet rs = pstm.executeQuery();
+//            while (rs.next()) {                
+//                dorm = new Dominatories();
+//                dorm.dormID = rs.getString("dormId");
+//                dorm.dormName = rs.getString("dormName");
+//                dorm.dormType =rs.getString("dormType");
+//                dorm.dormAddress = rs.getString("dormAddress");
+//                dorm.countRoom =rs.getInt("countRoom");
+//                dorm.facilityDormId = rs.getString("facilityDormId");
+//                dorm.facilityRoomId = rs.getString("facilityRoomId");
+//                info.add(dorm);
+//            }
+//            con.close();
+//            pstm.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Dominatories.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return info;
+//    }
+//    
+//    public static void main(String[] args) {
+//        ArrayList<Dominatories> d = Dominatories.domListing();
+//        for (Dominatories dominatories : d) {
+//            System.out.println(dominatories.getDormID()+" : "+dominatories.getDormName());
+//            System.out.println(dominatories.getDormAddress());
+//            
+//        }
+//    }
 }

@@ -19,12 +19,33 @@ import javafx.application.Application;
  *
  * @author fluke
  */
-public class DormMain extends Application{
-    public void start(Stage primaryStage){
-        
-    }
+public class DormMain extends HorProject{
+    static Stage window;
+    static Scene defaultScene;
     
-    public static void main(String[] args) {
+    public void start(Stage primaryStage) {
+        window = primaryStage;
+        window.setTitle("HOR Manager Application");
+        defaultScene = DormSelecDorm.open();
         
+        //Call Exit Confirm Box when trying to close the program
+        window.setOnCloseRequest(e -> {
+            e.consume();
+            closeProgram();
+        });
+        
+        window.setScene(defaultScene);
+        window.show();
+    }
+
+//    public void closeProgram(){
+//        boolean answer = ExitConfirmBox.display();
+//        if(answer){
+//            window.close();
+//        }
+//    }
+//    
+    public static void main(String[] args) {
+        launch(args);
     }
 }

@@ -18,6 +18,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.DBConnector;
 
 /**
  *
@@ -46,6 +47,8 @@ public class HorProject extends Application {
     public void closeProgram(){
         boolean answer = ExitConfirmBox.display();
         if(answer){
+            DBConnector dbc = new DBConnector();
+            dbc.disconnect();
             window.close();
         }
     }

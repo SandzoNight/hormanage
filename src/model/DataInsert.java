@@ -6,7 +6,6 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -14,33 +13,31 @@ import java.sql.Statement;
  *
  * @author fluke
  */
-public class DataQuery{
-    
+public class DataInsert {
     DBConnector dbc = new DBConnector();
     Connection connect = dbc.connect();
     Statement s;
-    ResultSet rec = null;
     
-    public ResultSet query(String tableName){
-        String sql = "SELECT * FROM "+tableName;
+    public void insert(String tableName, String columnNames, String values){
+        String sql = "INSERT INTO "+tableName+" ("+columnNames+") VALUES ("+values+")";
         try{
+            System.out.println("Inserting record to '"+tableName+"'");
             s = connect.createStatement();
-            rec = s.executeQuery(sql);
+            s.executeUpdate(sql);
         }catch(SQLException e){
-            e.printStackTrace();
+            e.printStackTrace();            
         }
-        return rec;
     }
     
-    public ResultSet query(String tableName,String columnName,String columnValue){
-        String sql = "SELECT * FROM "+tableName+" WHERE "+columnName+"='"+columnValue+"'";
+    public void insert(String tableName, String values){
+        String sql = "INSERT INTO "+tableName+" VALUES ("+values+")";
         try{
+            System.out.println("Inserting record to '"+tableName+"'");
             s = connect.createStatement();
-            rec = s.executeQuery(sql);
+            s.executeUpdate(sql);
         }catch(SQLException e){
-            e.printStackTrace();
+            e.printStackTrace();            
         }
-        return rec;
     }
     
     public void disconnect(){

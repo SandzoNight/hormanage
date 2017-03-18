@@ -57,6 +57,8 @@ public class DBConnector {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }else{
+            System.out.println("Connection was Empty!");
         }
     }
 }

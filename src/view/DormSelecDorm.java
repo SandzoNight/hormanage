@@ -5,6 +5,9 @@
  */
 package view;
 
+import controller.DormAdd;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,22 +16,22 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
+import model.DataInsert;
+import model.DataQuery;
+import static view.HorProject.window;
 
 /**
  *
  * @author fluke
  */
-public class MainMenu extends HorProject{
-    public Scene open(){        
-        Label label = new Label("Main Menu");
+public class DormSelecDorm {
+    public static Scene open(){
+        Label label = new Label("Select Your Dorm");
         label.setFont(new Font("Tahoma",24));
         
         HBox buttonLayout = new HBox(50);
         Button loginBtn = new Button("Login");
         Button regisBtn = new Button("Register");
-        loginBtn.setOnAction(e -> {
-            window.setScene(Login.open(this.open()));
-        });
         
         buttonLayout.getChildren().addAll(loginBtn,regisBtn);
         
@@ -38,6 +41,16 @@ public class MainMenu extends HorProject{
         layout.getChildren().addAll(label,buttonLayout);
         
         Scene scene = new Scene(layout,640,480);
+        
+        //Test Insert into DB
+        DataQuery dq = new DataQuery();
+        ResultSet res = dq.query("dormitory");
+        DataInsert di = new DataInsert();
+//        di.disconnect();
+        //Values pattern --> dormName,dormType,dormAddress,countRoom,visitorNo,User_userId
+        DormAdd.add("TestDorm", "Male", "Bangkok", "10", "0", "123456789");
+        //di.insert("dormitory", "dormId,dormName,dormType,dormAddress,countRoom,facilityDormId,facilityRoomId,visitorNo,User_userId", "'"+nextDormId+"', 'Hornai', 'Female', 'KMUTT', '100', '0"+nextDormId+"', '0"+nextDormId+"', '0', '123456789'");
+        
         return scene;
     }
 }
