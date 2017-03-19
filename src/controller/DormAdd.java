@@ -26,6 +26,8 @@ public class DormAdd {
             }
         }catch(SQLException e){
             e.printStackTrace();
+        }finally{
+            System.out.println("Exception caught!");
         }
         int nextDormId = Integer.parseInt(currentDormId)+1;
         
