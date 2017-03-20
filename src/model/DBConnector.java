@@ -20,7 +20,6 @@ public class DBConnector {
     private static final String DB_USERNAME = "b1b89ef60c23ca";
     private static final String DB_PASS = "596f01df";
     private static final String DB_MAX_POOL = "250";
-    private static final String PJ="EYE";
     
     private Properties properties;
     private Connection connection;
@@ -58,6 +57,8 @@ public class DBConnector {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }else{
+            System.out.println("Connection was Empty!");
         }
     }
 }

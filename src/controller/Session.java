@@ -11,8 +11,13 @@ package controller;
  */
 public class Session {
     private static String _userId;
+    private static String _dormId="0";
     
     public Session(String userId){
         _userId = userId;
+    }
+    
+    public static void setDormId(String dormId){
+        _dormId = dormId;
     }
 }

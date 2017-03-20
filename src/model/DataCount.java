@@ -14,33 +14,41 @@ import java.sql.Statement;
  *
  * @author fluke
  */
-public class DataQuery{
+public class DataCount {
     
     DBConnector dbc = new DBConnector();
     Connection connect = dbc.connect();
     Statement s;
     ResultSet rec = null;
     
-    public ResultSet query(String tableName){
-        String sql = "SELECT * FROM "+tableName;
+    public int count(String tableName){
+        String sql = "SELECT COUNT(*) FROM "+tableName;
+        int count = 0;
         try{
             s = connect.createStatement();
             rec = s.executeQuery(sql);
+            while(rec.next() && rec != null){
+                count = rec.getInt("*");
+            }
         }catch(SQLException e){
             e.printStackTrace();
         }
-        return rec;
+        return count;
     }
     
-    public ResultSet query(String tableName,String columnName,String columnValue){
-        String sql = "SELECT * FROM "+tableName+" WHERE "+columnName+"='"+columnValue+"'";
+    public int count(String tableName,String columnName,String columnValue){
+        String sql = "SELECT COUNT("+columnName+") AS count FROM "+tableName+" WHERE "+columnName+"='"+columnValue+"'";
+        int count = 0;
         try{
             s = connect.createStatement();
             rec = s.executeQuery(sql);
+            while(rec.next() && rec != null){
+                count = rec.getInt("count");
+            }
         }catch(SQLException e){
             e.printStackTrace();
         }
-        return rec;
+        return count;
     }
     
     public void disconnect(){
