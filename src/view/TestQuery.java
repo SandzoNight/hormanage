@@ -17,7 +17,7 @@ public class TestQuery {
     public static void main(String[] args) throws SQLException{
         DataQuery dq = new DataQuery();
         ResultSet res = dq.query("dormitory");
-        
+        System.out.println("######## TestQuery ########");
         while(res.next()){
             System.out.println(res.getString("dormId"));
         }

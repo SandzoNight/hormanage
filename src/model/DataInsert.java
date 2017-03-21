@@ -13,19 +13,22 @@ import java.sql.Statement;
  *
  * @author fluke
  */
-public class DataInsert {
+public class DataInsert extends DBConnector{
     DBConnector dbc = new DBConnector();
-    Connection connect = dbc.connect();
+//    Connection connect = dbc.connect();
     Statement s;
     
     public void insert(String tableName, String columnNames, String values){
         String sql = "INSERT INTO "+tableName+" ("+columnNames+") VALUES ("+values+")";
         try{
             System.out.println("Inserting record to '"+tableName+"'");
-            s = connect.createStatement();
+            s = connection.createStatement();
             s.executeUpdate(sql);
         }catch(SQLException e){
             e.printStackTrace();            
+        }finally{
+            System.out.println("[DataInsert]Disconnect from DB");
+            disconnect();
         }
     }
     
@@ -33,14 +36,17 @@ public class DataInsert {
         String sql = "INSERT INTO "+tableName+" VALUES ("+values+")";
         try{
             System.out.println("Inserting record to '"+tableName+"'");
-            s = connect.createStatement();
+            s = connection.createStatement();
             s.executeUpdate(sql);
         }catch(SQLException e){
             e.printStackTrace();            
+        }finally{
+            System.out.println("[DataInsert]Disconnect from DB");
+            disconnect();
         }
     }
     
-    public void disconnect(){
-        dbc.disconnect();
-    }
+//    public void disconnect(){
+//        dbc.disconnect();
+//    }
 }
