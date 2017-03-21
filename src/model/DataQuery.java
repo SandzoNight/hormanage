@@ -14,36 +14,39 @@ import java.sql.Statement;
  *
  * @author fluke
  */
-public class DataQuery{
-    
-    DBConnector dbc = new DBConnector();
-    Connection connect = dbc.connect();
-    Statement s;
-    ResultSet rec = null;
+public class DataQuery extends DBConnector{
     
     public ResultSet query(String tableName){
         String sql = "SELECT * FROM "+tableName;
+        ResultSet rec = null;
         try{
+            DBConnector dbc = new DBConnector();
+            Connection connect = dbc.connect();
+            Statement s;
             s = connect.createStatement();
             rec = s.executeQuery(sql);
         }catch(SQLException e){
             e.printStackTrace();
+        }finally{
+            disconnect();
         }
         return rec;
     }
     
     public ResultSet query(String tableName,String columnName,String columnValue){
         String sql = "SELECT * FROM "+tableName+" WHERE "+columnName+"='"+columnValue+"'";
+        ResultSet rec = null;
         try{
+            DBConnector dbc = new DBConnector();
+            Connection connect = dbc.connect();
+            Statement s;
             s = connect.createStatement();
             rec = s.executeQuery(sql);
         }catch(SQLException e){
             e.printStackTrace();
+        }finally{
+            disconnect();
         }
         return rec;
-    }
-    
-    public void disconnect(){
-        dbc.disconnect();
     }
 }

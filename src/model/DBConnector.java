@@ -54,6 +54,7 @@ public class DBConnector {
             try {
                 connection.close();
                 connection = null;
+                System.out.println("Disconnected form database!");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
