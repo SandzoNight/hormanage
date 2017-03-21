@@ -22,7 +22,7 @@ public class DBConnector {
     private static final String DB_MAX_POOL = "250";
     
     private Properties properties;
-    private Connection connection;
+    protected Connection connection;
     
     private Properties getProperties() {
         if (properties == null) {
@@ -34,19 +34,20 @@ public class DBConnector {
         return properties;
     }
     
-    public Connection connect(){
+//    public Connection connect(){
+    public void connect(){
         if(connection == null){
-            System.out.println("Connecting to database...");
+            System.out.println("[DBConnector]Connecting to database...");
             try{
                 Class.forName(DB_DRIVER);
                 connection = DriverManager.getConnection(DB_URL, getProperties());
-                System.out.println("Connection successful!");
+                System.out.println("[DBConnector]Connection successful!");
             }catch(SQLException | ClassNotFoundException e){
                 e.printStackTrace();
             }
         }
         
-        return connection;
+//        return connection;
     }
     
     public void disconnect() {
@@ -54,11 +55,12 @@ public class DBConnector {
             try {
                 connection.close();
                 connection = null;
+                System.out.println("[DBConnector]Disconnected form database!");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }else{
-            System.out.println("Connection was Empty!");
+            System.out.println("[DBConnector]Connection was Empty!");
         }
     }
 }

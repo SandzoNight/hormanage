@@ -20,8 +20,6 @@ import javafx.application.Application;
  * @author fluke
  */
 public class DormMain extends HorProject{
-    static Stage window;
-    static Scene defaultScene;
     
     public void start(Stage primaryStage) {
         window = primaryStage;
@@ -44,7 +42,7 @@ public class DormMain extends HorProject{
 //            window.close();
 //        }
 //    }
-//    
+    
     public static void main(String[] args) {
         launch(args);
     }

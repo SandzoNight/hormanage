@@ -34,6 +34,6 @@ public class DormAdd {
         DataInsert di = new DataInsert();
         //Values pattern --> dormId,dormName,dormType,dormAddress,countRoom,facilityDormId,facilityRoomId,visitorNo,User_userId
         di.insert("dormitory", "'"+nextDormId+"','"+dormName+"','"+dormType+"','"+dormAddress+"','"+countRoom+"','"+"0"+nextDormId+"','"+"0"+nextDormId+"','"+visitorNo+"','"+User_userId+"'");
-        di.disconnect();
+        //di.disconnect();
     }
 }
