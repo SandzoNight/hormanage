@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author fluke
  */
 public class DataQuery extends DBConnector{
-    String calling_str,querying_str,queried_str,error_str,disconnect_str;
+    static String calling_str,querying_str,queried_str,error_str,disconnect_str;
     private ResultSet rec = null;
     public ResultSet query(String tableName){
         calling_str = "[DataQuery]Calling DBConnector to connect the database";
@@ -46,7 +46,7 @@ public class DataQuery extends DBConnector{
         return rec;
     }
     
-    public ResultSet query(String tableName,String columnName,String columnValue){
+    public static ResultSet query(String tableName,String columnName,String columnValue){
         calling_str = "[DataQuery]Calling DBConnector to connect the database";
         queried_str = "[DataQuery]Querying successful!";
         error_str = "[DataQuery]Error occured! Disconnecting from DB";
@@ -65,11 +65,14 @@ public class DataQuery extends DBConnector{
             System.out.println(queried_str);
         }catch(SQLException e){
             System.out.println(error_str);
-            e.printStackTrace();
-        }finally{
-            System.out.println(disconnect_str);
             disconnect();
+            e.printStackTrace();
         }
         return rec;
+    }
+    
+    public static void disconnect(){
+        System.out.println(disconnect_str);
+        DBConnector.disconnect();
     }
 }

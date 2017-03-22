@@ -16,10 +16,13 @@ import model.DataQuery;
  */
 public class TestCount {
     public static void main(String[] args) throws SQLException{
-        DataCount dc = new DataCount();
-        int count = dc.count("dormitory","dormName","Hornai");
+//        int count = dc.count("dormitory","dormName","Cosmo' OR '1=1"); //SQL Injection Statement
+        int count = DataCount.count("dormitory","dormName","Hornai");
+        int count1 = DataCount.count("user");
 //        int count = dc.count("dormitory");
-        System.out.println("######## TestQuery ########");
+        System.out.println("######## TestCount ########");
         System.out.println(count);
+        System.out.println(count1);
+        DataCount.disconnect();
     }
 }

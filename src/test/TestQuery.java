@@ -15,12 +15,13 @@ import model.DataQuery;
  */
 public class TestQuery {
     public static void main(String[] args) throws SQLException{
-        DataQuery dq = new DataQuery();
+//        DataQuery dq = new DataQuery();
 //        ResultSet res = dq.query("dormitory");
-        ResultSet res = dq.query("dormitory","dormId","3");
+        ResultSet res = DataQuery.query("dormitory","dormId","3");
         System.out.println("######## TestQuery ########");
         while(res.next()){
-            System.out.println(res.getString("dormId"));
+            System.out.println(res.getString("dormName"));
         }
+        DataQuery.disconnect();
     }
 }

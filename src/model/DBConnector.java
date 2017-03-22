@@ -21,10 +21,10 @@ public class DBConnector {
     private static final String DB_PASS = "596f01df";
     private static final String DB_MAX_POOL = "250";
     
-    private Properties properties;
-    protected Connection connection;
+    private static Properties properties;
+    protected static Connection connection;
     
-    private Properties getProperties() {
+    private static Properties getProperties() {
         if (properties == null) {
             properties = new Properties();
             properties.setProperty("user", DB_USERNAME);
@@ -35,7 +35,7 @@ public class DBConnector {
     }
     
 //    public Connection connect(){
-    public void connect(){
+    public static void connect(){
         if(connection == null){
             System.out.println("[DBConnector]Connecting to database...");
             try{
@@ -50,7 +50,7 @@ public class DBConnector {
 //        return connection;
     }
     
-    public void disconnect() {
+    public static void disconnect() {
         if (connection != null) {
             try {
                 connection.close();
