@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="view.DetailHorGuiController">
+   <children>
+      <Text layoutX="223.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่ารายละเอียดหอ" textAlignment="CENTER" wrappingWidth="153.13671875">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="26.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อหอ" textAlignment="CENTER">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <TextFlow layoutX="100.0" layoutY="39.0" prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <TextFlow prefHeight="40.0" prefWidth="200.0" style="-fx-border-color: Gray; -fx-background-color: white;" />
+         </children>
+      </TextFlow>
+   </children>
+</AnchorPane>
