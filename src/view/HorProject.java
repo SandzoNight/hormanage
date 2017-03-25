@@ -38,8 +38,7 @@ public class HorProject extends Application {
     public void closeProgram(){
         boolean answer = ExitConfirmBox.display();
         if(answer){
-            DBConnector dbc = new DBConnector();
-            dbc.disconnect();
+            DBConnector.disconnect();
             window.close();
         }
     }

@@ -14,7 +14,7 @@ import java.util.Properties;
  *
  * @author fluke
  */
-public class DBConnector {
+public abstract class DBConnector {
     private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://ap-cdbr-azure-southeast-b.cloudapp.net:3306/managehor_db";
     private static final String DB_USERNAME = "b1b89ef60c23ca";
@@ -34,7 +34,6 @@ public class DBConnector {
         return properties;
     }
     
-//    public Connection connect(){
     public static void connect(){
         if(connection == null){
             System.out.println("[DBConnector]Connecting to database...");
@@ -46,8 +45,6 @@ public class DBConnector {
                 e.printStackTrace();
             }
         }
-        
-//        return connection;
     }
     
     public static void disconnect() {

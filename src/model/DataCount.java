@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DataCount extends DBConnector{
+public abstract class DataCount extends DBConnector{
     
     static PreparedStatement ps;
     static String calling_str,counting_str,counted_str;
@@ -22,7 +22,7 @@ public class DataCount extends DBConnector{
             connect();
             ps = connection.prepareStatement(sql);
             System.out.println(counting_str);
-            ResultSet rec = ps.executeQuery(sql);
+            ResultSet rec = ps.executeQuery();
             while(rec.next() && rec != null){
                 count = rec.getInt("count");
             }

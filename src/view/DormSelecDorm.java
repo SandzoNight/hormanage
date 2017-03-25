@@ -43,8 +43,7 @@ public class DormSelecDorm {
         Scene scene = new Scene(layout,640,480);
         
         //Test Insert into DB
-        DataQuery dq = new DataQuery();
-        ResultSet res = dq.query("dormitory");
+        ResultSet res = DataQuery.query("dormitory");
         DataInsert di = new DataInsert();
         //Values pattern --> dormName,dormType,dormAddress,countRoom,visitorNo,User_userId
         DormAdd.add("TestDorm", "Male", "Bangkok", "10", "0", "123456789");

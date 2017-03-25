@@ -15,7 +15,7 @@ import java.sql.Statement;
  *
  * @author fluke
  */
-public class DataQuery extends DBConnector{
+public abstract class DataQuery extends DBConnector{
     static String calling_str,querying_str,queried_str,error_str,disconnect_str;
     private ResultSet rec = null;
     public static ResultSet query(String tableName){
@@ -80,6 +80,32 @@ public class DataQuery extends DBConnector{
             PreparedStatement ps;
             ps = connection.prepareStatement(sql);
             ps.setString(1,username);
+            System.out.println(querying_str);
+            rec = ps.executeQuery();
+            System.out.println(queried_str);
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return rec;
+    }
+    
+    public static ResultSet queryRoom(String dormId,String floor){
+        calling_str = "[DataQuery]Calling DBConnector to connect the database";
+        queried_str = "[DataQuery]Querying successful!";
+        error_str = "[DataQuery]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataQuery]Disconnect from DB";
+        querying_str = "[DataQuery]Querying from user";
+        String sql = "SELECT * FROM room WHERE Dormitory_dormId = ? AND roomNo LIKE ?";
+        ResultSet rec = null;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            ps.setString(1,dormId);
+            ps.setString(2,floor);
             System.out.println(querying_str);
             rec = ps.executeQuery();
             System.out.println(queried_str);

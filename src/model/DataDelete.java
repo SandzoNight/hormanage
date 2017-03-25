@@ -16,7 +16,7 @@ import static model.DataQuery.disconnect;
  *
  * @author fluke
  */
-public class DataDelete extends DBConnector{
+public abstract class DataDelete extends DBConnector{
     static String calling_str,delete_str,deleted_str,error_str,disconnect_str,nodeleted_str;
     private static int updated = 0;
     public static int delete(String tableName,String columnName,String columnValue){
