@@ -13,16 +13,12 @@ import model.DataQuery;
  *
  * @author fluke
  */
-public class TestQuery {
+public class TestQueryLogin {
     public static void main(String[] args) throws SQLException{
-        ResultSet res1 = DataQuery.query("dormitory","dormId","3");
-        System.out.println("######## TestQuery ########");
+        ResultSet res1 = DataQuery.queryLogin("123456789");
+        System.out.println("######## TestQueryLogin ########");
         while(res1.next()){
-            System.out.println(res1.getString("dormName"));
-        }
-        ResultSet res2 = DataQuery.query("user");
-        while(res2.next()){
-            System.out.println(res2.getString("userEmail"));
+            System.out.println(res1.getString("password"));
         }
         DataQuery.disconnect();
     }

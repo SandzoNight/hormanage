@@ -18,13 +18,14 @@ import java.sql.Statement;
 public class DataQuery extends DBConnector{
     static String calling_str,querying_str,queried_str,error_str,disconnect_str;
     private ResultSet rec = null;
-    public ResultSet query(String tableName){
+    public static ResultSet query(String tableName){
         calling_str = "[DataQuery]Calling DBConnector to connect the database";
-        querying_str = "[DataQuery]Querying from "+tableName;
         queried_str = "[DataQuery]Querying successful!";
         error_str = "[DataQuery]Error occured! Disconnecting from DB";
         disconnect_str = "[DataQuery]Disconnect from DB";
+        querying_str = "[DataQuery]Querying from "+tableName;
         String sql = "SELECT * FROM "+tableName;
+        ResultSet rec = null;
         try{
             System.out.println(calling_str);
             connect();
@@ -32,12 +33,7 @@ public class DataQuery extends DBConnector{
             ps = connection.prepareStatement(sql);
             System.out.println(querying_str);
             rec = ps.executeQuery();
-//            while(rec.next()){
-//                System.out.println(rec.getString("dormId"));
-//            }
             System.out.println(queried_str);
-//            System.out.println("[DataQuery]Disconnect from DB");
-//            disconnect();
         }catch(SQLException e){
             System.out.println(error_str);
             disconnect();
@@ -51,7 +47,6 @@ public class DataQuery extends DBConnector{
         queried_str = "[DataQuery]Querying successful!";
         error_str = "[DataQuery]Error occured! Disconnecting from DB";
         disconnect_str = "[DataQuery]Disconnect from DB";
-//        querying = "[DataQuery]Querying from "+tableName+" Where "+columnName+"="+columnValue;
         querying_str = "[DataQuery]Querying from "+tableName;
         String sql = "SELECT * FROM "+tableName+" WHERE "+columnName+"='"+columnValue+"'";
         ResultSet rec = null;
@@ -60,6 +55,31 @@ public class DataQuery extends DBConnector{
             connect();
             PreparedStatement ps;
             ps = connection.prepareStatement(sql);
+            System.out.println(querying_str);
+            rec = ps.executeQuery();
+            System.out.println(queried_str);
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return rec;
+    }
+    
+    public static ResultSet queryLogin(String username){
+        calling_str = "[DataQuery]Calling DBConnector to connect the database";
+        queried_str = "[DataQuery]Querying successful!";
+        error_str = "[DataQuery]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataQuery]Disconnect from DB";
+        querying_str = "[DataQuery]Querying from user";
+        String sql = "SELECT * FROM user WHERE EXISTS (SELECT * FROM dormitory WHERE user.userId = ?);";
+        ResultSet rec = null;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            ps.setString(1,username);
             System.out.println(querying_str);
             rec = ps.executeQuery();
             System.out.println(queried_str);
