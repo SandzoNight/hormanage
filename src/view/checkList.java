@@ -9,6 +9,6 @@ package view;
  *
  * @author CBC
  */
-class typechoiceBox {
+class checkList {
     
 }

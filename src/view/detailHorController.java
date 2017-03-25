@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -22,6 +23,7 @@ import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -49,23 +51,32 @@ public class detailHorController extends Application {
 
         Text technologiesLabel = new Text("Technologies Known");
 
-        CheckBox javaCheckBox = new CheckBox("Java");
-        javaCheckBox.setIndeterminate(false);
-
-        CheckBox dotnetCheckBox = new CheckBox("DotNet");
-        javaCheckBox.setIndeterminate(false);
-
         Text facilityDormLabel = new Text("สิ่งอำนวยความสะดวกในหอ");
 
-        ObservableList<String> dorm = FXCollections.observableArrayList(
-                "Engineering", "MCA", "MBA", "Graduation", "MTECH", "Mphil", "Phd");
-        ListView<String> facilityDormView = new ListView<>(dorm);
+        CheckBox javaCheckBox1 = new CheckBox("Security");
+        javaCheckBox1.setIndeterminate(false);
+        CheckBox box2 = new CheckBox("Car Park");
+        javaCheckBox1.setIndeterminate(false);
+        CheckBox box3 = new CheckBox("Swimming Pool");
+        javaCheckBox1.setIndeterminate(false);
+        CheckBox box4 = new CheckBox("Park");
+        javaCheckBox1.setIndeterminate(false);
         
-        Text facilityRoomLabel = new Text("สิ่งอำนวยความสะดวกในหอ");
+        Text facilityRoomLabel = new Text("สิ่งอำนวยความสะดวกในห้อง");
 
-        ObservableList<String> room = FXCollections.observableArrayList(
-                "Engineering", "MCA", "MBA", "Graduation", "MTECH", "Mphil", "Phd");
-        ListView<String> facilityRoomView = new ListView<>(room);
+        CheckBox javaCheckBox2 = new CheckBox("Furniture");
+       javaCheckBox2.setIndeterminate(false);
+        CheckBox box5 = new CheckBox("Air Condition");
+        javaCheckBox2.setIndeterminate(false);
+        CheckBox box6 = new CheckBox("Fan");
+        javaCheckBox2.setIndeterminate(false);
+        CheckBox box7 = new CheckBox("Table");
+        javaCheckBox2.setIndeterminate(false);
+         CheckBox box8 = new CheckBox("Chair");
+        javaCheckBox2.setIndeterminate(false);
+
+
+
 
         Button buttonRegister = new Button("Register");
 
@@ -85,32 +96,41 @@ public class detailHorController extends Application {
 
         gridPane.add(typeLabel, 0, 1);
         gridPane.add(typechoiceBox, 1, 1);
-        
+
         gridPane.add(addressLabel, 0, 2);
         gridPane.add(addressText, 1, 2);
-      
-        gridPane.add(countRoomLabel, 0, 3);
-        gridPane.add(countRoomText, 1, 3);
-        
-        gridPane.add(facilityDormLabel, 0, 4) ; 
-        gridPane.add(facilityDormView, 1, 4) ;   
 
+        gridPane.add(facilityDormLabel, 0, 3);
         
-        gridPane.add(facilityRoomLabel, 0, 5) ; 
-        gridPane.add(facilityRoomView, 1, 5) ;   
+        gridPane.add(javaCheckBox1, 0, 4);
+        gridPane.add(box2, 1, 4);
+        gridPane.add(box3, 2, 4);
+        gridPane.add(box4, 3, 4);
+        
+        gridPane.add(facilityRoomLabel, 0, 5);
+        
+        gridPane.add(javaCheckBox2, 0, 6);
+        gridPane.add(box5, 1, 6);
+        gridPane.add(box6, 2, 6);
+        gridPane.add(box7, 3, 6);
+        gridPane.add(box8, 4, 6);
 
-        gridPane.add(buttonRegister, 2, 8);
+
+        gridPane.add(countRoomLabel, 0, 7);
+        gridPane.add(countRoomText, 1, 7);
+        
+        gridPane.add(buttonRegister, 0, 8);
 
         buttonRegister.setStyle(
-                "-fx-background-color: darkslateblue; -fx-textfill: white;");
+                "-fx-background-color: white; -fx-textfill: white;");
 
         nameLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
         typeLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
         addressLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
         countRoomLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
-        facilityDormLabel.setStyle("-fx-font: normal bold 15px 'serif' ") ; 
-        facilityRoomLabel.setStyle("-fx-font: normal bold 15px 'serif' ") ; 
+        facilityDormLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
 
+        
         gridPane.setStyle("-fx-background-color: BEIGE;");
 
         Scene scene = new Scene(gridPane);

@@ -8,23 +8,36 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="view.DetailHorGuiController">
+<AnchorPane id="AnchorPane" prefHeight="448.0" prefWidth="289.0" style="-fx-background-color: #DCDCDC; -fx-border-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DetailHorGuiController">
    <children>
-      <Text layoutX="223.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่ารายละเอียดหอ" textAlignment="CENTER" wrappingWidth="153.13671875">
+      <Text layoutX="68.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่ารายละเอียดหอ" textAlignment="CENTER" wrappingWidth="153.13671875">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="26.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อหอ" textAlignment="CENTER">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-      <TextFlow layoutX="100.0" layoutY="39.0" prefHeight="40.0" prefWidth="200.0">
+      <Text layoutX="42.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อหอ" textAlignment="CENTER" />
+      <TextFlow layoutX="73.0" layoutY="36.0" prefHeight="40.0" prefWidth="200.0">
          <children>
-            <TextFlow prefHeight="40.0" prefWidth="200.0" style="-fx-border-color: Gray; -fx-background-color: white;" />
+            <TextFlow prefHeight="25.0" prefWidth="200.0" style="-fx-border-color: Gray; -fx-background-color: white;" />
          </children>
       </TextFlow>
+      <CheckBox layoutX="19.0" layoutY="241.0" mnemonicParsing="false" text="Security" />
+      <CheckBox layoutX="100.0" layoutY="241.0" mnemonicParsing="false" text="Swimmimg Pool" />
+      <CheckBox layoutX="19.0" layoutY="268.0" mnemonicParsing="false" text="Park" />
+      <Label layoutX="45.0" layoutY="76.0" text="ที่อยู่" />
+      <TextFlow layoutX="73.0" layoutY="76.0" prefHeight="51.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-background-color: white;" />
+      <Label layoutX="18.0" layoutY="146.0" text="ชนิดของหอ" />
+      <ChoiceBox layoutX="75.0" layoutY="142.0" prefWidth="150.0" />
+      <Label layoutX="16.0" layoutY="215.0" text="สิ่งอำนวยความสะดวกในหอ" />
+      <CheckBox layoutX="100.0" layoutY="268.0" mnemonicParsing="false" text="Car Park" />
+      <Label layoutX="19.0" layoutY="298.0" text="สิ่งอำนวยความสะดวกในห้อง" />
+      <CheckBox layoutX="19.0" layoutY="323.0" mnemonicParsing="false" text="Furniture" />
+      <CheckBox layoutX="100.0" layoutY="323.0" mnemonicParsing="false" text="Air Condition" />
+      <CheckBox layoutX="19.0" layoutY="349.0" mnemonicParsing="false" text="Fan" />
+      <CheckBox layoutX="100.0" layoutY="349.0" mnemonicParsing="false" text="Table" />
+      <CheckBox layoutX="19.0" layoutY="377.0" mnemonicParsing="false" text="Chair" />
+      <Label layoutX="18.0" layoutY="185.0" text="จำนวนห้อง" />
+      <TextFlow layoutX="73.0" layoutY="181.0" prefHeight="25.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-background-color: white;" />
+      <Button layoutX="118.0" layoutY="409.0" mnemonicParsing="false" text="Register" />
    </children>
 </AnchorPane>
