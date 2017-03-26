@@ -14,17 +14,17 @@ import java.util.Properties;
  *
  * @author fluke
  */
-public class DBConnector {
+public abstract class DBConnector {
     private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://ap-cdbr-azure-southeast-b.cloudapp.net:3306/managehor_db";
     private static final String DB_USERNAME = "b1b89ef60c23ca";
     private static final String DB_PASS = "596f01df";
     private static final String DB_MAX_POOL = "250";
     
-    private Properties properties;
-    private Connection connection;
+    private static Properties properties;
+    protected static Connection connection;
     
-    private Properties getProperties() {
+    private static Properties getProperties() {
         if (properties == null) {
             properties = new Properties();
             properties.setProperty("user", DB_USERNAME);
@@ -34,31 +34,30 @@ public class DBConnector {
         return properties;
     }
     
-    public Connection connect(){
+    public static void connect(){
         if(connection == null){
-            System.out.println("Connecting to database...");
+            System.out.println("[DBConnector]Connecting to database...");
             try{
                 Class.forName(DB_DRIVER);
                 connection = DriverManager.getConnection(DB_URL, getProperties());
-                System.out.println("Connection successful!");
+                System.out.println("[DBConnector]Connection successful!");
             }catch(SQLException | ClassNotFoundException e){
                 e.printStackTrace();
             }
         }
-        
-        return connection;
     }
     
-    public void disconnect() {
+    public static void disconnect() {
         if (connection != null) {
             try {
                 connection.close();
                 connection = null;
+                System.out.println("[DBConnector]Disconnected form database!");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }else{
-            System.out.println("Connection was Empty!");
+            System.out.println("[DBConnector]Connection was Empty!");
         }
     }
 }
