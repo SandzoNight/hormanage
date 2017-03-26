@@ -6,15 +6,14 @@
 package test;
 
 import controller.RoomManage;
-import model.DataInsert;
 
 /**
  *
  * @author fluke
  */
-public class TestInsertRoom {
+public class TestDeleteRoom {
     public static void main(String[] args) {
-        System.out.println("######## TestInsertRoom ########");
-        RoomManage.create("1", "2002", "123456789", "1");
+        System.out.println("######## TestDeleteRoom ########");
+        RoomManage.delete("10");
     }
 }

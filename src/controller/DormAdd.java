@@ -17,16 +17,16 @@ import model.DataQuery;
 public class DormAdd {
     //This method will get the next value of dormId for you
     public static void add(String dormName,String dormType,String dormAddress,String countRoom,String visitorNo,String User_userId){
-        String currentDormId = "";
+        int currentDormId = 0;
         ResultSet res = DataQuery.query("dormitory");
         try{
             while(res.next()){
-                currentDormId = res.getString("dormId");
+                currentDormId = res.getInt("dormId");
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
-        int nextDormId = Integer.parseInt(currentDormId)+1;
+        int nextDormId = currentDormId+1;
         
         DataInsert di = new DataInsert();
         //Values pattern --> dormId,dormName,dormType,dormAddress,countRoom,facilityDormId,facilityRoomId,visitorNo,User_userId
