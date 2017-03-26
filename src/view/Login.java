@@ -18,9 +18,11 @@ import javafx.stage.Stage;
  * @author fluke
  */
 public class Login extends HorProject{
-    public static Scene open(Scene s){        
+    public static Scene open(Scene s){ 
+       
         Label label = new Label("Manager Login");
         label.setFont(new Font("Tahoma",24));
+        
         
         Label userLabel = new Label("Username:");
         Label passLabel = new Label(" Password:");
