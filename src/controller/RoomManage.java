@@ -7,6 +7,7 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.DataDelete;
 import model.DataInsert;
 import model.DataQuery;
 
@@ -14,9 +15,9 @@ import model.DataQuery;
  *
  * @author fluke
  */
-public class RoomCreateRoom {
+public class RoomManage {
     public static void create(String dormId, String roomNo, String userId, String chargeId){
-        System.out.println("[RoomCreateRoom]Getting next roomId...");
+        System.out.println("[RoomManage]Getting next roomId...");
         ResultSet res = DataQuery.query("room");
         int nextRoomId = 0;
         try{
@@ -27,11 +28,17 @@ public class RoomCreateRoom {
             e.printStackTrace();
         }
         DataQuery.disconnect();
-        System.out.println("[RoomCreateRoom]Inserting new room...");
+        System.out.println("[RoomManage]Inserting new room...");
         DataInsert di = new DataInsert();
         di.insertRoom(nextRoomId, dormId, roomNo, userId, chargeId);
         di.disconnect();
-        System.out.println("[RoomCreateRoom]Room Inserted!");
-        
+        System.out.println("[RoomManage]Room Inserted!");
+    }
+    
+    public static void delete(String roomId){
+        System.out.println("[RoomManage]Deleteing room...");
+        DataDelete.delete("room", "roomId", roomId);
+        DataDelete.disconnect();
+        System.out.println("[RoomManage]Room deleted!");
     }
 }
