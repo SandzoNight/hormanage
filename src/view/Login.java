@@ -5,25 +5,25 @@
  */
 package view;
 
-import javafx.application.*;
-import javafx.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
+import model.DataQuery;
 /**
  *
  * @author fluke
  */
 public class Login extends HorProject{
     public static Scene open(Scene s){ 
-       
         Label label = new Label("Manager Login");
         label.setFont(new Font("Tahoma",24));
-        
-        
         Label userLabel = new Label("Username:");
         Label passLabel = new Label(" Password:");
         TextField username = new TextField();
@@ -32,7 +32,6 @@ public class Login extends HorProject{
         userRow.getChildren().addAll(userLabel,username);
         HBox passRow = new HBox(10);
         passRow.getChildren().addAll(passLabel,password);
-        
         HBox buttonLayout = new HBox(50);
         Button loginBtn = new Button("Login");
         Button backBtn = new Button("Return to main menu");

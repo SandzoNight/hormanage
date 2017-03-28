@@ -9,7 +9,7 @@ import model.DataQuery;
 
 public class ConnectdbTest {
     public static void main(String[] args) {
-        DataQuery dq = new DataQuery();
+        DataQuery dq = new DataQuery() {};
         try{
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver Registed");
