@@ -46,7 +46,6 @@ public class DormSelecDorm {
         ResultSet res = DataQuery.query("dormitory");
         DataInsert di = new DataInsert();
         //Values pattern --> dormName,dormType,dormAddress,countRoom,visitorNo,User_userId
-        DormAdd.add("TestDorm", "Male", "Bangkok", "10", "0", "123456789");
         //di.insert("dormitory", "dormId,dormName,dormType,dormAddress,countRoom,facilityDormId,facilityRoomId,visitorNo,User_userId", "'"+nextDormId+"', 'Hornai', 'Female', 'KMUTT', '100', '0"+nextDormId+"', '0"+nextDormId+"', '0', '123456789'");
         
         return scene;

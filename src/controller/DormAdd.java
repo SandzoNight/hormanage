@@ -16,7 +16,8 @@ import model.DataQuery;
  */
 public class DormAdd {
     //This method will get the next value of dormId for you
-    public static void add(String dormName,String dormType,String dormAddress,String countRoom,String visitorNo,String User_userId){
+    public static void add(String dormName,String dormType,String dormAddress,int countRoom
+            ,String facilityDormId,String facilityRoomId,int visitorNo,long User_userId){
         int currentDormId = 0;
         ResultSet res = DataQuery.query("dormitory");
         try{
@@ -30,7 +31,7 @@ public class DormAdd {
         
         DataInsert di = new DataInsert();
         //Values pattern --> dormId,dormName,dormType,dormAddress,countRoom,facilityDormId,facilityRoomId,visitorNo,User_userId
-        di.insert("dormitory", "'"+nextDormId+"','"+dormName+"','"+dormType+"','"+dormAddress+"','"+countRoom+"','"+"0"+nextDormId+"','"+nextDormId+"','"+visitorNo+"','"+User_userId+"'");
-        //di.disconnect();
+        di.insertDorm(nextDormId+"",dormName,dormType,dormAddress,countRoom,facilityDormId,facilityRoomId,visitorNo,User_userId);
+        di.disconnect();
     }
 }
