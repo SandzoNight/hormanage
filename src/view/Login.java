@@ -41,25 +41,32 @@ public class Login extends HorProject{
         loginBtn.setOnAction(e -> {
             String user = username.getText();
             String pass = password.getText();
+            System.out.println("Matching username and password");
             try{ 
                 if(user.length()==0 || pass.length()==0){
                     //ให้ขึ้นข้อความว่าใส่ข้อมูลให้ครบทุกช่อง
                     System.out.println("user or pass has emtpy field");
-                }
-                else{
+                }else{
                     ResultSet res = DataQuery.queryLogin(user);
-                    while(res.next()){
-                        if(pass.equals(res.getString("password"))&&(res!=null)){
-                            //เหลือเปลี่ยนไปที่หน้า DormMain
-                            System.out.println("goto DormMain Page");
+                    res.last();
+                    int nResult = res.getRow();
+                    if(nResult!=0){
+                        res.beforeFirst();
+                        while(res.next()){
+                            if(pass.equals(res.getString("password"))){
+                                //เหลือเปลี่ยนไปที่หน้า DormMain
+                                System.out.println("goto DormMain Page");
+                            }
                         }
-                        else{
-                            System.out.println("Incorect Username or Password");
-                        //ให้ขึ้นข้อความว่า Incorrect Username or Password
-                        }
+                    }else{
+                        System.out.println("Incorect Username or Password");
+                    //ให้ขึ้นข้อความว่า Incorrect Username or Password
                     }
+                    
                 }
+                
             }
+            
             catch(SQLException se){
                 se.printStackTrace();
             }
