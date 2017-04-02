@@ -68,7 +68,28 @@ public class DataInsert extends DBConnector{
             e.printStackTrace();
         }
     }
-    
+    public void insertDorm(String dormID,String dormName,String dormType,String dormAddress,int countRoom
+            ,String facilityDormId,String facilityRoomId,int visitorNo,long User_userId){
+        try{
+            System.out.println(inserting_str);
+            String sql ="INSERT INTO dormitory VALUES(?,?,?,?,?,?,?,?,?)";
+                    ps = connection.prepareStatement(sql);
+                    ps.setString(1, dormID);
+                    ps.setString(2, dormName);
+                    ps.setString(3, dormType);
+                    ps.setString(4, dormAddress);
+                    ps.setInt(5, countRoom);
+                    ps.setString(6, facilityDormId);
+                    ps.setString(7, facilityRoomId);
+                    ps.setInt(8, visitorNo);
+                    ps.setLong(9, User_userId);
+                    ps.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+                    
+                    
+        }
+    }
     
     public static void disconnect(){
         System.out.println(disconnect_str);
