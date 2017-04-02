@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package view;
-
+import javafx.scene.text.Text;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,6 +14,7 @@ import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.DataQuery;
 /**
@@ -26,10 +27,12 @@ public class Login extends HorProject{
         label.setFont(new Font("Tahoma",24));
         Label userLabel = new Label("Username:");
         Label passLabel = new Label(" Password:");
+        Text textShow = new Text();
+        textShow.setFill(Color.BLACK);
+        textShow.setFont(Font.font ("Verdana", 16));
+        textShow.setText("Please enter username and password");       
         TextField username = new TextField();
-        
         PasswordField password = new PasswordField();
-        
         HBox userRow = new HBox(10);
         userRow.getChildren().addAll(userLabel,username);
         HBox passRow = new HBox(10);
@@ -41,11 +44,10 @@ public class Login extends HorProject{
         loginBtn.setOnAction(e -> {
             String user = username.getText();
             String pass = password.getText();
-            System.out.println("Matching username and password");
             try{ 
                 if(user.length()==0 || pass.length()==0){
-                    //ให้ขึ้นข้อความว่าใส่ข้อมูลให้ครบทุกช่อง
-                    System.out.println("user or pass has emtpy field");
+                    textShow.setFill(Color.RED);
+                    textShow.setText("You can't enter an emtpy field");           
                 }else{
                     ResultSet res = DataQuery.queryLogin(user);
                     res.last();
@@ -54,19 +56,16 @@ public class Login extends HorProject{
                         res.beforeFirst();
                         while(res.next()){
                             if(pass.equals(res.getString("password"))){
-                                //เหลือเปลี่ยนไปที่หน้า DormMain
-                                System.out.println("goto DormMain Page");
+                                textShow.setFill(Color.GREEN);
+                                textShow.setText("Login Sucessfully !!");
                             }
                         }
                     }else{
-                        System.out.println("Incorect Username or Password");
-                    //ให้ขึ้นข้อความว่า Incorrect Username or Password
+                        textShow.setFill(Color.RED);
+                        textShow.setText("Incorrect username or password");
                     }
-                    
                 }
-                
             }
-            
             catch(SQLException se){
                 se.printStackTrace();
             }
@@ -75,9 +74,8 @@ public class Login extends HorProject{
         FlowPane layout = new FlowPane(10,10);
         layout.setAlignment(Pos.CENTER);
         layout.setOrientation(Orientation.VERTICAL);
-        layout.getChildren().addAll(label,userRow,passRow,buttonLayout);
+        layout.getChildren().addAll(label,userRow,passRow,buttonLayout,textShow);
         Scene scene = new Scene(layout,640,480);
         return scene;
     }
-    
 }
