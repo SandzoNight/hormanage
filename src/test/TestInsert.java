@@ -18,7 +18,7 @@ public class TestInsert {
         di.insert("testinsert", "'Pacharapol','Apitanapat','19','Fluke'");
         di.insert("testinsert", "'Pacharapol','Apitanapat','19','Fluke'");
         di.insert("testinsert", "'Pacharapol','Apitanapat','19','Fluke'");
-        di.insert("testinsert", "'Pacharapol','Apitanapat','19','Fluke'");
+        di.insert("testinsert", "'Pacharapol','อภิธนพัฒน์','19','Fluke'");
         di.disconnect();
     }
 }
