@@ -38,15 +38,4 @@ public class DormMain extends HorProject{
         window.setScene(defaultScene);
         window.show();
     }
-
-//    public void closeProgram(){
-//        boolean answer = ExitConfirmBox.display();
-//        if(answer){
-//            window.close();
-//        }
-//    }
-    
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

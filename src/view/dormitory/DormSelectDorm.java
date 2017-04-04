@@ -63,12 +63,14 @@ public class DormSelectDorm extends DormMain{
         }catch(SQLException e){
             e.printStackTrace();
         }
-
-        ScrollPane dormlistContainer = new ScrollPane();
-        dormlistContainer.setContent(dormlist);
         
         StackPane centerContainer = new StackPane();
-        centerContainer.getChildren().add(dormlistContainer);
+        centerContainer.getChildren().add(dormlist);
+        
+        ScrollPane dormlistContainer = new ScrollPane();
+        dormlistContainer.setContent(centerContainer);
+        
+        
         
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);
