@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.dialog;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,26 +17,38 @@ import javafx.stage.Stage;
  *
  * @author fluke
  */
-public class AlertBox {
-    public static void display(String title,String message){
+public class ExitConfirmBox {
+    static boolean answer = false;
+    public static Boolean display(){
+        
         Stage window = new Stage();
         
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle(title);
+        window.setTitle("Confirm");
         window.setMinWidth(300);
         window.setMinHeight(200);
         
         Label label = new Label();
-        label.setText(message);
-        Button closeButton = new Button("Close");
-        closeButton.setOnAction(e -> window.close());
+        label.setText("Are you sure you want to exit the program?");
+        Button yesBtn = new Button("Yes");
+        Button noBtn = new Button("No");
+        
+        yesBtn.setOnAction(e -> {
+            answer = true;
+            window.close();
+        });
+        noBtn.setOnAction(e ->{
+           window.close(); 
+        });
         
         VBox layout = new VBox(30);
-        layout.getChildren().addAll(label,closeButton);
+        layout.getChildren().addAll(label,yesBtn,noBtn);
         layout.setAlignment(Pos.CENTER);
         
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
+        
+        return answer;
     }
 }

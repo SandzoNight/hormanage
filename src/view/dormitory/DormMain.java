@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.dormitory;
 
+import view.home.HorProject;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,11 +21,13 @@ import javafx.application.Application;
  * @author fluke
  */
 public class DormMain extends HorProject{
+    static String userId;
     
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage,String userId) {
+        this.userId = userId;
         window = primaryStage;
         window.setTitle("HOR Manager Application");
-        defaultScene = DormSelecDorm.open();
+        defaultScene = DormSelectDorm.open(userId);
         
         //Call Exit Confirm Box when trying to close the program
         window.setOnCloseRequest(e -> {
