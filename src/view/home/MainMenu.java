@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.home;
 
-import controller.DormAdd;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import view.home.HorProject;
+import view.home.Login;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,22 +15,22 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
-import model.DataInsert;
-import model.DataQuery;
-import static view.HorProject.window;
 
 /**
  *
  * @author fluke
  */
-public class DormSelecDorm {
-    public static Scene open(){
-        Label label = new Label("Select Your Dorm");
+public class MainMenu extends HorProject{
+    public Scene open(){        
+        Label label = new Label("Main Menu");
         label.setFont(new Font("Tahoma",24));
         
         HBox buttonLayout = new HBox(50);
         Button loginBtn = new Button("Login");
         Button regisBtn = new Button("Register");
+        loginBtn.setOnAction(e -> {
+            window.setScene(Login.open(this.open()));
+        });
         
         buttonLayout.getChildren().addAll(loginBtn,regisBtn);
         
@@ -41,13 +40,6 @@ public class DormSelecDorm {
         layout.getChildren().addAll(label,buttonLayout);
         
         Scene scene = new Scene(layout,640,480);
-        
-        //Test Insert into DB
-        ResultSet res = DataQuery.query("dormitory");
-        DataInsert di = new DataInsert();
-        //Values pattern --> dormName,dormType,dormAddress,countRoom,visitorNo,User_userId
-        //di.insert("dormitory", "dormId,dormName,dormType,dormAddress,countRoom,facilityDormId,facilityRoomId,visitorNo,User_userId", "'"+nextDormId+"', 'Hornai', 'Female', 'KMUTT', '100', '0"+nextDormId+"', '0"+nextDormId+"', '0', '123456789'");
-        
         return scene;
     }
 }

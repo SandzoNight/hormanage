@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.home;
 import javafx.scene.text.Text;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,6 +17,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.DataQuery;
+import view.dormitory.DormSelectDorm;
 /**
  *
  * @author fluke
@@ -58,6 +59,7 @@ public class Login extends HorProject{
                             if(pass.equals(res.getString("password"))){
                                 textShow.setFill(Color.GREEN);
                                 textShow.setText("Login Sucessfully !!");
+                                window.setScene(DormSelectDorm.open(user));
                             }
                         }
                     }else{

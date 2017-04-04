@@ -1,4 +1,4 @@
-package view;
+package view.home;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -14,11 +14,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.DBConnector;
+import view.dialog.ExitConfirmBox;
 
 public class HorProject extends Application {
     
-    static Stage window;
-    static Scene defaultScene;
+    protected static Stage window;
+    protected static Scene defaultScene;
     
     public void start(Stage primaryStage) {
         window = primaryStage;
