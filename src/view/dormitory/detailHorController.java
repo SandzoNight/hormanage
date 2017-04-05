@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.dormitory;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -30,10 +30,9 @@ import javafx.stage.Stage;
  *
  * @author CBC
  */
-public class detailHorController extends Application {
+public class detailHorController extends DormMain {
 
-    @Override
-    public void start(Stage stage) {
+    public Scene open(Stage stage) {
         
 
         Text nameLabel = new Text("ชื่อหอ");
@@ -143,12 +142,7 @@ public class detailHorController extends Application {
         gridPane.setStyle("-fx-background-color: BEIGE;");
 
         Scene scene = new Scene(gridPane);
-
-        stage.setTitle("Registration Form");
-
-        stage.setScene(scene);
-
-        stage.show();
+        return scene;
     }
 
     public static void main(String args[]) {
