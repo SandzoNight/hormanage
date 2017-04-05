@@ -4,15 +4,17 @@
  * and open the template in the editor.
  */
 package test;
-import controller.DormAdd;
 
+import controller.DormManage;
 
-public class testDorm {
+/**
+ *
+ * @author fluke
+ */
+public class TestRemoveDorm {
     public static void main(String[] args) {
-        System.out.println("TEST INSERT DORM");
-        DormAdd.add("PJ","หอหญิง","บนโลก",20,"01","02", 2, 123456789);
+        System.out.println("TEST REMOVE DORM");
+        DormManage.remove("5", 123456789);
         
     }
- 
-    
 }

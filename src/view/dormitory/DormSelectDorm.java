@@ -6,7 +6,6 @@
 package view.dormitory;
 
 import view.dormitory.DormMain;
-import controller.DormAdd;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.geometry.HPos;

@@ -41,4 +41,11 @@ public class RoomManage {
         DataDelete.disconnect();
         System.out.println("[RoomManage]Room deleted!");
     }
+    
+    public static ResultSet list(String dormId,String floor){
+        ResultSet rec;
+        String floorSQLWildcard = floor+"%";
+        rec = DataQuery.queryRoom(dormId,floorSQLWildcard);
+        return rec;
+    }
 }
