@@ -68,22 +68,45 @@ public class DataInsert extends DBConnector{
             e.printStackTrace();
         }
     }
-    public void insertDorm(String dormID,String dormName,String dormType,String dormAddress,int countRoom
-            ,String facilityDormId,String facilityRoomId,int visitorNo,long User_userId){
+    public void insertDorm(String dormID,String dormName,String dormType,String dormAddress,int countFloor,String[] facilityDormId,String[] facilityRoomId,long User_userId){
         try{
             System.out.println(inserting_str);
-            String sql ="INSERT INTO dormitory VALUES(?,?,?,?,?,?,?,?,?)";
-                    ps = connection.prepareStatement(sql);
-                    ps.setString(1, dormID);
-                    ps.setString(2, dormName);
-                    ps.setString(3, dormType);
-                    ps.setString(4, dormAddress);
-                    ps.setInt(5, countRoom);
-                    ps.setString(6, facilityDormId);
-                    ps.setString(7, facilityRoomId);
-                    ps.setInt(8, visitorNo);
-                    ps.setLong(9, User_userId);
-                    ps.executeUpdate();
+            String sql ="INSERT INTO dormitory VALUES(?,?,?,?,?,?,?,?)";
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, dormID);
+            ps.setString(2, dormName);
+            ps.setString(3, dormType);
+            ps.setString(4, dormAddress);
+            ps.setInt(5, 0);
+            ps.setInt(6, countFloor);
+//                    ps.setString(6, facilityDormId);
+//                    ps.setString(7, facilityRoomId);
+            ps.setInt(7, 0);
+            ps.setLong(8, User_userId);
+            ps.executeUpdate();
+            
+            int numOfRecordDormFacility = facilityDormId.length;
+            String sql2 ="INSERT INTO dormitoryfacilitydorm_has_dormitory VALUES (?,?,?)";
+            ps = connection.prepareStatement(sql2);
+            for(int i=0;i<numOfRecordDormFacility;i++){
+                ps.setString(1, facilityDormId[i]);
+                ps.setString(2, dormID);
+                ps.setLong(3, User_userId);
+                ps.executeUpdate();
+            }
+            
+            
+            int numOfRecordRoomFacility = facilityRoomId.length;
+            String sql3 = "INSERT INTO dormitoryfacilityroom_has_dormitory VALUES (?,?,?)";
+            ps = connection.prepareStatement(sql3);
+            for(int i=0;i<numOfRecordRoomFacility;i++){
+                ps.setString(1, facilityRoomId[i]);
+                ps.setString(2, dormID);
+                ps.setLong(3, User_userId);
+                ps.executeUpdate();
+            }
+            
+             
         }catch(SQLException e){
             e.printStackTrace();
                     

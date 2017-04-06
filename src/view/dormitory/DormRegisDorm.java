@@ -3,43 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.dormitory;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
+
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.layout.VBox;
+
 import javafx.stage.Stage;
 
 /**
  *
  * @author CBC
  */
-public class detailHorController extends Application {
+public class DormRegisDorm extends Application {
 
-    @Override
+//    public Scene open(Stage stage, String userId) {
     public void start(Stage stage) {
-        
 
         Text nameLabel = new Text("ชื่อหอ");
 
         TextField nameText = new TextField();
-        
+
         Text typeLabel = new Text("ชนิดของหอ");
         ChoiceBox typechoiceBox = new ChoiceBox();
         typechoiceBox.getItems().addAll("หอชาย", "หอหญิง", "หอรวม");
@@ -86,13 +79,9 @@ public class detailHorController extends Application {
             int visitorNo;
             long User_userId;
             dormName = nameText.getText();
-            dormType= typechoiceBox.getValue().toString();
+            dormType = typechoiceBox.getValue().toString();
             dormAddress = addressText.getText();
             countRoom = Integer.parseInt(countRoomText.getText());
-            
-            
-            
-            
         });
         GridPane gridPane = new GridPane();
 
@@ -143,15 +132,17 @@ public class detailHorController extends Application {
         gridPane.setStyle("-fx-background-color: BEIGE;");
 
         Scene scene = new Scene(gridPane);
+//        return scene;
+        
 
-        stage.setTitle("Registration Form");
-
-        stage.setScene(scene);
-
-        stage.show();
+        //To View GUI//////////////////
+        Stage thisstage = new Stage();
+        thisstage.setScene(scene);
+        thisstage.show();
+        ///////////////////////////////
     }
-
-    public static void main(String args[]) {
+    
+    public static void main(String[] args) {
         launch(args);
     }
 }
