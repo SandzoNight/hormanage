@@ -32,6 +32,7 @@ public class DormRegisDorm extends Application {
         Text nameLabel = new Text("ชื่อหอ");
 
         TextField nameText = new TextField();
+        
 
         Text typeLabel = new Text("ชนิดของหอ");
         ChoiceBox typechoiceBox = new ChoiceBox();
@@ -129,17 +130,16 @@ public class DormRegisDorm extends Application {
         countRoomLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
         facilityDormLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
 
-        gridPane.setStyle("-fx-background-color: BEIGE;");
+        gridPane.setStyle("-fx-background-color: white;");
 
         Scene scene = new Scene(gridPane);
 //        return scene;
         
 
-        //To View GUI//////////////////
+
         Stage thisstage = new Stage();
         thisstage.setScene(scene);
         thisstage.show();
-        ///////////////////////////////
     }
     
     public static void main(String[] args) {
