@@ -130,7 +130,6 @@ public class DormRegisDorm extends Application {
         countRoomLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
         facilityDormLabel.setStyle("-fx-font: normal bold 15px 'serif' ");
 
-        gridPane.setStyle("-fx-background-color: white;");
 
         Scene scene = new Scene(gridPane);
 //        return scene;
