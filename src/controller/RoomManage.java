@@ -44,8 +44,7 @@ public class RoomManage {
     
     public static ResultSet list(String dormId,String floor){
         ResultSet rec;
-        String floorSQLWildcard = floor+"%";
-        rec = DataQuery.queryRoom(dormId,floorSQLWildcard);
+        rec = DataQuery.queryRoom(dormId,floor);
         return rec;
     }
 }

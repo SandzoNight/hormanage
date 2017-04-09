@@ -39,11 +39,11 @@ public class DormSelectDorm extends DormMain{
         dormlist.setHgap(100);
         dormlist.setVgap(20);
         dormlist.alignmentProperty();
-        int totalDorm = DataCount.count("dormitory", "User_userId", userId);
+        int totalDorm = DataCount.count("dormitory", "Userdormowner_userId", userId);
         Label[] lbDormNumber = new Label[totalDorm];
         Label[] lbDormName = new Label[totalDorm];
         Button[] btnView = new Button[totalDorm];
-        ResultSet userDorm = DataQuery.query("dormitory", "User_userId", userId);
+        ResultSet userDorm = DataQuery.query("dormitory", "Userdormowner_userId", userId);
         int i=0;
         try{
             while(userDorm.next() && i<5){

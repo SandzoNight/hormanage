@@ -1,0 +1,39 @@
+.main-content{
+    -fx-background-color: white;
+}
+.page-title-container{
+    -fx-alignment: center-left;
+    /*-fx-max-height: 160px;*/
+}
+.page-title{
+    -fx-font-size: 48px;
+}
+.adddorm-btn{
+    -fx-font-size: 18px;
+}
+.dorm-number-container{
+    -fx-alignment: center;
+    -fx-font-size: 24px;
+}
+.dorm-info-container{
+    -fx-alignment: center-left;
+}
+.dorm-name{
+    -fx-font-size: 24px;
+}
+.dorm-addr{
+    -fx-font-size: 18px;
+}
+.dorm-room-container{
+    -fx-alignment: center;
+    -fx-font-size: 24px;
+}
+.dorm-button-container{
+    -fx-alignment: center;
+}
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+.scroll-container{
+    -fx-background-color: white;
+}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,19 +20,22 @@ import view.dialog.ExitConfirmBox;
 public class HorProject extends Application {
     
     protected static Stage window;
+    protected Parent root;
     protected static Scene defaultScene;
     
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         window = primaryStage;
         window.setTitle("HOR Manager Application");
-        defaultScene = new MainMenu().open();
+//        defaultScene = new MainMenu().open();
+        defaultScene = new Scene(root);
         
         //Call Exit Confirm Box when trying to close the program
         window.setOnCloseRequest(e -> {
             e.consume();
             closeProgram();
         });
-        
+        window.setResizable(false);
         window.setScene(defaultScene);
         window.show();
     }

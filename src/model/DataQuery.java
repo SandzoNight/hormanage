@@ -72,7 +72,7 @@ public abstract class DataQuery extends DBConnector{
         error_str = "[DataQuery]Error occured! Disconnecting from DB";
         disconnect_str = "[DataQuery]Disconnect from DB";
         querying_str = "[DataQuery]Querying from user";
-        String sql = "SELECT * FROM user WHERE EXISTS (SELECT * FROM dormitory WHERE user.userId = ?);";
+        String sql = "SELECT * FROM userdormowner WHERE userEmail = ?;";
         ResultSet rec = null;
         try{
             System.out.println(calling_str);
@@ -97,7 +97,7 @@ public abstract class DataQuery extends DBConnector{
         error_str = "[DataQuery]Error occured! Disconnecting from DB";
         disconnect_str = "[DataQuery]Disconnect from DB";
         querying_str = "[DataQuery]Querying from user";
-        String sql = "SELECT * FROM room WHERE Dormitory_dormId = ? AND roomNo LIKE ?";
+        String sql = "SELECT * FROM room WHERE Dormitory_dormId = ? AND roomFloorNumber = ?";
         ResultSet rec = null;
         try{
             System.out.println(calling_str);
