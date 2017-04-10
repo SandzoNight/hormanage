@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Kanit';
+    src: url('../fonts/Kanit-Regular.ttf');
+}
+.body{
+    -fx-font-family: 'Kanit';
+}
+.side-bar{
+    -fx-background-color: grey;
+}
+.back-btn{
+    -fx-background-image: url('../images/home-icon.png');
+    -fx-pref-width: 141px;
+    -fx-pref-height: 38px; 
+    -fx-max-width: 141px;
+    -fx-max-height: 38px; 
+}
+.back-btn:hover{
+    -fx-background-image: url('../images/home-icon-onhover.png');
+}

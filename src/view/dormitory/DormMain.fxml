@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormMainController">
+   <children>
+      <BorderPane prefHeight="200.0">
+         <top>
+            <FlowPane prefHeight="200.0" prefWidth="200.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
+               <children>
+                  <Label styleClass="page-title" text="Manager Portal" />
+               </children>
+            </FlowPane>
+         </top>
+      </BorderPane>
+      <HBox prefHeight="383.0" prefWidth="1000.0" styleClass="card-container">
+         <children>
+            <Hyperlink fx:id="manageDormBtn" focusTraversable="false" onAction="#gotoSelectDorm" prefHeight="372.0" prefWidth="308.0">
+               <graphic>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card-frame">
+                     <bottom>
+                        <FlowPane styleClass="card-text-container" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label styleClass="card-text" text="จัดการหอพัก" />
+                           </children>
+                        </FlowPane>
+                     </bottom>
+                  </BorderPane>
+               </graphic>
+               <HBox.margin>
+                  <Insets right="40.0" />
+               </HBox.margin>
+            </Hyperlink>
+            <Hyperlink fx:id="settingBtn" focusTraversable="false" layoutX="356.0" layoutY="99.0" prefHeight="372.0" prefWidth="308.0">
+               <graphic>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="card-frame">
+                     <bottom>
+                        <FlowPane styleClass="card-text-container" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label styleClass="card-text" text="ตั้งค่าบัญชีผู้ใช้" />
+                           </children>
+                        </FlowPane>
+                     </bottom>
+                  </BorderPane>
+               </graphic>
+            </Hyperlink>
+         </children>
+      </HBox>
+      <Label fx:id="testUserId" text="Label" />
+   </children>
+   <stylesheets>
+       <!-- Use these tag when compile -->
+      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/managerportalpage.css" />
+      <!-- /////////////////////////// -->
+      
+<!--      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/managerportalpage.css" />
+      -->
+   </stylesheets>
+</VBox>

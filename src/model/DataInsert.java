@@ -5,116 +5,159 @@
  */
 package model;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
  * @author fluke
  */
-public class DataInsert extends DBConnector{
-    static String calling_str,inserting_str,disconnect_str;
-    
+public class DataInsert extends DBConnector {
+
+    static String calling_str, inserting_str, disconnect_str;
+
     PreparedStatement ps;
-    public DataInsert(){
+
+    public DataInsert() {
         calling_str = "[DataInsert]Calling DBConnector to connect the database";
         inserting_str = "[DataInsert]Inserting data to table";
         disconnect_str = "[DataInsert]Disconnect from DB";
         System.out.println(calling_str);
         connect();
     }
-    
-    public void insert(String tableName, String columnNames, String values){
+
+    public void insert(String tableName, String columnNames, String values) {
 //        String sql = "INSERT INTO "+tableName+" ("+columnNames+") VALUES (?)";
-        String sql = "INSERT INTO "+tableName+" ("+columnNames+") VALUES ("+values+")";
-        try{
+        String sql = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
+        try {
             System.out.println(inserting_str);
             ps = connection.prepareStatement(sql);
 //            ps.setString(1, values);
             ps.executeUpdate();
-        }catch(SQLException e){
-            e.printStackTrace();            
-        }
-    }
-    
-    public void insert(String tableName, String values){
-//        String sql = "INSERT INTO "+tableName+" VALUES (?)";
-        String sql = "INSERT INTO "+tableName+" VALUES ("+values+")";
-        try{
-            System.out.println(inserting_str);
-            ps = connection.prepareStatement(sql);
-//            ps.setString(1, values);
-            ps.executeUpdate();
-        }catch(SQLException e){
-            e.printStackTrace();            
-        }
-    }
-    
-    public void insertRoom(int nextRoomId, String dormId, String roomNo, String userId, String chargeId){
-        try{
-            System.out.println(inserting_str);
-            String sql = "INSERT INTO room VALUES (?,?,?,?,?)";            
-            ps = connection.prepareStatement(sql);
-            ps.setInt(1, nextRoomId);
-            ps.setString(2, roomNo);
-            ps.setString(3, dormId);
-            ps.setString(4, userId);
-            ps.setString(5, chargeId);
-            ps.executeUpdate();
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void insertDorm(String dormID,String dormName,String dormType,String dormAddress,int countFloor,String[] facilityDormId,String[] facilityRoomId,long User_userId){
-        try{
+
+    public void insert(String tableName, String values) {
+//        String sql = "INSERT INTO "+tableName+" VALUES (?)";
+        String sql = "INSERT INTO " + tableName + " VALUES (" + values + ")";
+        try {
             System.out.println(inserting_str);
-            String sql ="INSERT INTO dormitory VALUES(?,?,?,?,?,?,?,?)";
+            ps = connection.prepareStatement(sql);
+//            ps.setString(1, values);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertRoom(long nextRoomId, String roomNo, int roomFloorNumber, long Roomtype_typeId, long Dormitory_dormId) {
+        try {
+            System.out.println(inserting_str);
+            String sql = "INSERT INTO room VALUES (?,?,?,?,?,?,?)";
+            ps = connection.prepareStatement(sql);
+            ps.setLong(1, nextRoomId);
+            ps.setString(2, roomNo);
+            ps.setInt(3, roomFloorNumber);
+            ps.setLong(4, Roomtype_typeId);
+            ps.setLong(5, Dormitory_dormId);
+            ps.setString(6, null);
+            ps.setInt(7, 0);
+            ps.executeUpdate();
+            
+            updateId("room", nextRoomId+"");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertRoomType(long nextRoomTypeId, String typeName, float price, long Dormitory_dormId) {
+        try {
+            System.out.println(inserting_str);
+            String sql = "INSERT INTO roomtype VALUES (?,?,?,?)";
+            ps = connection.prepareStatement(sql);
+            ps.setLong(1, nextRoomTypeId);
+            ps.setString(2, typeName);
+            ps.setFloat(3, price);
+            ps.setLong(4, Dormitory_dormId);
+            ps.executeUpdate();
+            
+            updateId("roomtype", nextRoomTypeId+"");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertDorm(String dormID, String dormName, String dormType, String dormAddress, int dormCountFloor, float waterRate, float elecRate, String[] facilityDormId, long User_userId) {
+        try {
+            System.out.println(inserting_str);
+            String sql = "INSERT INTO dormitory VALUES(?,?,?,?,?,?,?,?,?,?)";
             ps = connection.prepareStatement(sql);
             ps.setString(1, dormID);
             ps.setString(2, dormName);
             ps.setString(3, dormType);
             ps.setString(4, dormAddress);
             ps.setInt(5, 0);
-            ps.setInt(6, countFloor);
-//                    ps.setString(6, facilityDormId);
-//                    ps.setString(7, facilityRoomId);
+            ps.setInt(6, dormCountFloor);
             ps.setInt(7, 0);
-            ps.setLong(8, User_userId);
+            ps.setFloat(8, waterRate);
+            ps.setFloat(9, elecRate);
+            ps.setLong(10, User_userId);
             ps.executeUpdate();
-            
+
             int numOfRecordDormFacility = facilityDormId.length;
-            String sql2 ="INSERT INTO dormitoryfacilitydorm_has_dormitory VALUES (?,?,?)";
+            String sql2 = "INSERT INTO dormitoryfacilitydorm_has_dorm (Dormitoryfacilitydorm_facilityDormId,Dormitory_dormId) VALUES (?,?)";
             ps = connection.prepareStatement(sql2);
-            for(int i=0;i<numOfRecordDormFacility;i++){
+            for (int i = 0; i < numOfRecordDormFacility; i++) {
                 ps.setString(1, facilityDormId[i]);
                 ps.setString(2, dormID);
-                ps.setLong(3, User_userId);
                 ps.executeUpdate();
             }
-            
-            
-            int numOfRecordRoomFacility = facilityRoomId.length;
-            String sql3 = "INSERT INTO dormitoryfacilityroom_has_dormitory VALUES (?,?,?)";
-            ps = connection.prepareStatement(sql3);
-            for(int i=0;i<numOfRecordRoomFacility;i++){
-                ps.setString(1, facilityRoomId[i]);
-                ps.setString(2, dormID);
-                ps.setLong(3, User_userId);
-                ps.executeUpdate();
-            }
-            
-             
-        }catch(SQLException e){
+
+            updateId("dormitory", dormID);
+        } catch (SQLException e) {
             e.printStackTrace();
-                    
-                    
         }
     }
-    
-    public static void disconnect(){
+
+    public static void updateId(String table, String id) {
+        long nextId = Long.parseLong(id);
+        switch (table) {
+            case "dormitory": {
+                DataUpdate.updateNextRecordId("nextDormid", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "room": {
+                DataUpdate.updateNextRecordId("nextRoomid", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "dormitoryfacilitydorm": {
+                DataUpdate.updateNextRecordId("nextFacilityDormId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "roomtype": {
+                DataUpdate.updateNextRecordId("nextRoomTypeId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "renter": {
+                DataUpdate.updateNextRecordId("nextRenterId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "invoice": {
+                DataUpdate.updateNextRecordId("nextInvoiceId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+        }
+    }
+
+    public static void disconnect() {
         System.out.println(disconnect_str);
         DBConnector.disconnect();
     }

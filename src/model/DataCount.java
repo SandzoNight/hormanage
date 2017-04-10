@@ -59,6 +59,29 @@ public abstract class DataCount extends DBConnector{
         return count;
     }
     
+    public static int countAvailableRoom(String dormId){
+        calling_str = "[DataCount]Calling DBConnector to connect the database";
+        counting_str = "[DataCount]Counting from room";
+        counted_str = "[DataCount]Counting successful!";
+        String sql = "SELECT COUNT(*) AS count FROM room WHERE Dormitory_dormId = ? AND roomStatus = 0";
+        int count = 0;
+        try{
+            System.out.println(calling_str);
+            connect();
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, dormId);
+            System.out.println(counting_str);
+            ResultSet rec = ps.executeQuery();
+            while(rec.next()){
+                count = rec.getInt("count");
+            }
+            System.out.println(counted_str);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return count;
+    }
+    
     public static void disconnect(){
         DBConnector.disconnect();
     }

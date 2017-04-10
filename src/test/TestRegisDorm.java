@@ -14,10 +14,7 @@ public class TestRegisDorm {
         facilityDorm[0] = "1";
         facilityDorm[1] = "3";
         
-        facilityRoom[0] = "1";
-        facilityRoom[1] = "2";
-        
-        DormManage.add("SITMansion", "Male&Female", "KMUTT", 3, facilityDorm, facilityRoom, 123456789);
+        DormManage.add("SITMansion", "Male&Female", "KMUTT", 3, 3.5f, 4.9f, facilityDorm, 2);
         
     }
  

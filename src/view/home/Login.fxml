@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.net.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="loginPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.LoginController">
+   <children>
+      <BorderPane styleClass="body">
+         <center>
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="405.0" prefWidth="377.0" styleClass="login-box" BorderPane.alignment="CENTER">
+               <top>
+                  <FlowPane maxHeight="95.0" prefHeight="80.0" prefWidth="375.0" styleClass="pagetitle-container" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="72.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" styleClass="logo" />
+                        <FlowPane prefHeight="108.0" prefWidth="200.0" styleClass="pagetitle-container">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" styleClass="pagetitle" text="HOR Login" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </FlowPane>
+               </top>
+               <center>
+                  <VBox prefHeight="213.0" prefWidth="375.0" styleClass="form-container" BorderPane.alignment="CENTER">
+                     <children>
+                        <GridPane prefHeight="139.0" prefWidth="375.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="96.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="279.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+
+                                            </rowConstraints>
+                           <children>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0" styleClass="label-container">
+                                 <children>
+                                    <Label styleClass="label-text" text="อีเมล:" />
+                                 </children>
+                              </FlowPane>
+                              <FlowPane styleClass="input-field-container" GridPane.columnIndex="1">
+                                 <children>
+                                    <TextField fx:id="emailField" prefHeight="40.0" prefWidth="239.0" />
+                                 </children>
+                              </FlowPane>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0" styleClass="label-container" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label styleClass="label-text" text="รหัสผ่าน:" />
+                                 </children>
+                              </FlowPane>
+                              <FlowPane prefHeight="71.0" prefWidth="272.0" styleClass="input-field-container" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <PasswordField fx:id="passwordField" prefHeight="40.0" prefWidth="239.0" />
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </GridPane>
+                        <FlowPane styleClass="error-text-container">
+                           <children>
+                              <Label fx:id="errorMessage" styleClass="error-text" textFill="#f84444" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </VBox>
+               </center>
+               <bottom>
+                  <FlowPane prefHeight="100.0" prefWidth="375.0" styleClass="button-container" BorderPane.alignment="CENTER">
+                     <children>
+                         <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#login" prefHeight="54.0" prefWidth="311.0" styleClass="button-text" text="เข้าสู่ระบบ" />
+                     </children>
+                  </FlowPane>
+               </bottom>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+   <stylesheets>
+      <URL value="@../../dist/css/loginpage.css" />
+      <URL value="@../../dist/css/mainstyle.css" />
+   </stylesheets>
+   <styleClass>
+      <String fx:value="body" />
+      <String fx:value="login-page" />
+   </styleClass>
+</VBox>

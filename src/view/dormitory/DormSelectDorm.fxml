@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720" prefWidth="1000" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormSelectDormController">
+   <children>
+      <BorderPane>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="main-content" BorderPane.alignment="CENTER">
+               <top>
+                  <FlowPane prefHeight="113.0" prefWidth="842.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label styleClass="page-title" text="จัดการหอพัก" />
+                     </children>
+                  </FlowPane>
+               </top>
+               <center>
+                  <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" maxHeight="-Infinity" prefHeight="509.0" prefWidth="842.0" styleClass="scroll-container" vbarPolicy="ALWAYS" BorderPane.alignment="TOP_CENTER">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="837.0">
+                           <children>
+                              <VBox fx:id="dormlist" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+                                 <children>
+<!--                                    <FlowPane prefHeight="171.0" prefWidth="837.0">
+                                       <children>
+                                          <BorderPane prefHeight="111.0" prefWidth="832.0">
+                                             <left>
+                                                <FlowPane prefHeight="111.0" prefWidth="74.0" styleClass="dorm-number-container" BorderPane.alignment="CENTER">
+                                                   <children>
+                                                      <Label text="1." />
+                                                   </children>
+                                                </FlowPane>
+                                             </left>
+                                             <center>
+                                                <FlowPane BorderPane.alignment="CENTER">
+                                                   <children>
+                                                      <BorderPane prefHeight="111.0" prefWidth="675.0" style="-fx-max-width: 675px;">
+                                                         <right>
+                                                            <FlowPane prefHeight="111.0" prefWidth="145.0" BorderPane.alignment="CENTER">
+                                                               <children>
+                                                                  <HBox styleClass="dorm-room-container">
+                                                                     <children>
+                                                                        <Label text="0" />
+                                                                        <Label text=" / " />
+                                                                        <Label text="50" />
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </FlowPane>
+                                                         </right>
+                                                         <center>
+                                                            <VBox prefWidth="499.0" styleClass="dorm-info-container" BorderPane.alignment="CENTER">
+                                                               <children>
+                                                                  <Label styleClass="dorm-name" text="Cosmo" />
+                                                                  <Label styleClass="dorm-addr" text="112 ประชาอุทิศ45 แขวงบางมด เขตบางมด กทม. 10150" />
+                                                               </children>
+                                                            </VBox>
+                                                         </center>
+                                                      </BorderPane>
+                                                   </children>
+                                                </FlowPane>
+                                             </center>
+                                             <right>
+                                                <FlowPane prefHeight="111.0" styleClass="dorm-button-container" BorderPane.alignment="CENTER">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" text="&gt;&gt;" />
+                                                   </children>
+                                                </FlowPane>
+                                             </right>
+                                          </BorderPane>
+                                       </children>
+                                    </FlowPane>-->
+                                 </children>
+                              </VBox>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="addDormBtn" mnemonicParsing="false" onAction="#gotoAddDorm" styleClass="adddorm-btn" text="เพิ่มหอพัก">
+                                       <FlowPane.margin>
+                                          <Insets left="74.0" top="20.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </center>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="160.0" styleClass="side-bar" BorderPane.alignment="CENTER">
+               <children>
+                  <Hyperlink fx:id="backBtn" focusTraversable="false" onAction="#gotoHome" styleClass="back-btn">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Label fx:id="testUserId" text="Label" />
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+   <stylesheets>
+       <!-- Use these tag when compile -->
+      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/selectdormpage.css" />
+      <!-- /////////////////////////// -->
+<!--      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/selectdormpage.css" />-->
+   </stylesheets>
+</VBox>
