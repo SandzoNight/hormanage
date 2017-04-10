@@ -18,7 +18,7 @@ import model.DataQuery;
  */
 public class RoomTypeManage {
     public static void create(String typeName, float price, long Dormitory_dormId){
-        System.out.println("[RoomManage]Getting next typeId...");
+        System.out.println("[RoomTypeManage]Getting next typeId...");
         ResultSet res = DataQuery.query("nextrecordId");
         long nextRoomId = 0;
         try{
@@ -29,18 +29,18 @@ public class RoomTypeManage {
             e.printStackTrace();
         }
         DataQuery.disconnect();
-        System.out.println("[RoomManage]Inserting new Roomtype...");
+        System.out.println("[RoomTypeManage]Inserting new Roomtype...");
         DataInsert di = new DataInsert();
         di.insertRoomType(nextRoomId, typeName, price,Dormitory_dormId);
         di.disconnect();
-        System.out.println("[RoomManage]Roomtype Inserted!");
+        System.out.println("[RoomTypeManage]Roomtype Inserted!");
     }
     
     public static void delete(String typeId){
-        System.out.println("[RoomManage]Deleteing roomtype...");
+        System.out.println("[RoomTypeManage]Deleteing roomtype...");
         DataDelete.delete("roomtype", "typeId", typeId);
         DataDelete.disconnect();
-        System.out.println("[RoomManage]Roomtype deleted!");
+        System.out.println("[RoomTypeManage]Roomtype deleted!");
     }
     
     public static ResultSet list(String dormId){
