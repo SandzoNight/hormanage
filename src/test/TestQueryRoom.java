@@ -5,7 +5,7 @@
  */
 package test;
 
-import controller.RoomListRoom;
+import controller.RoomManage;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.DataQuery;
@@ -16,10 +16,11 @@ import model.DataQuery;
  */
 public class TestQueryRoom {
     public static void main(String[] args) throws SQLException{
-        ResultSet res1 = RoomListRoom.list("1","1");
+        ResultSet res1 = RoomManage.list("1","1");
         System.out.println("######## TestQueryRoom ########");
         while(res1.next()){
             System.out.println(res1.getString("roomNo"));
+            System.out.println(res1.getString("roomStatus"));
         }
         DataQuery.disconnect();
     }

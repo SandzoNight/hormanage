@@ -91,7 +91,7 @@ public abstract class DataQuery extends DBConnector{
         return rec;
     }
     
-    public static ResultSet queryRoom(String dormId,String floor){
+    public static ResultSet queryRoomList(String dormId,String floor){
         calling_str = "[DataQuery]Calling DBConnector to connect the database";
         queried_str = "[DataQuery]Querying successful!";
         error_str = "[DataQuery]Error occured! Disconnecting from DB";

@@ -17,13 +17,13 @@ import model.DataQuery;
  * @author fluke
  */
 public class RoomManage {
-    public static void create(String dormId, String roomNo, String userId, String chargeId){
+    public static void create(String roomNo, int roomFloorNumber, long Roomtype_typeId, long Dormitory_dormId){
         System.out.println("[RoomManage]Getting next roomId...");
-        ResultSet res = DataQuery.query("room");
-        int nextRoomId = 0;
+        ResultSet res = DataQuery.query("nextrecordId");
+        long nextRoomId = 0;
         try{
             while(res.next()){
-                nextRoomId = res.getInt("roomId")+1;
+                nextRoomId = res.getLong("nextroomId");
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -31,7 +31,7 @@ public class RoomManage {
         DataQuery.disconnect();
         System.out.println("[RoomManage]Inserting new room...");
         DataInsert di = new DataInsert();
-        di.insertRoom(nextRoomId, dormId, roomNo, userId, chargeId);
+        di.insertRoom(nextRoomId, roomNo, roomFloorNumber, Roomtype_typeId,Dormitory_dormId);
         di.disconnect();
         System.out.println("[RoomManage]Room Inserted!");
     }
@@ -45,7 +45,13 @@ public class RoomManage {
     
     public static ResultSet list(String dormId,String floor){
         ResultSet rec;
-        rec = DataQuery.queryRoom(dormId,floor);
+        rec = DataQuery.queryRoomList(dormId,floor);
+        return rec;
+    }
+    
+    public static ResultSet getDetail(String roomId){
+        ResultSet rec;
+        rec = DataQuery.query("room","roomId",roomId);
         return rec;
     }
     
