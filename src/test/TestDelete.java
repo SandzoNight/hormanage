@@ -15,7 +15,7 @@ import model.DataInsert;
 public class TestDelete {
     public static void main(String[] args) {
         System.out.println("######## TestDelete ########");
-        int num = DataDelete.delete("dormitory", "dormId", "25");
+        int num = DataDelete.delete("dormitory", "dormId", "4");
         System.out.println(num);
         DataDelete.disconnect();
     }

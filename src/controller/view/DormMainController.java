@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package controller.view;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import view.home.HorProject;
@@ -23,40 +22,37 @@ import view.home.HorProject;
  *
  * @author fluke
  */
-public class DormSelectDormController extends DormMainController implements Initializable {
-
-    @FXML
-    private Hyperlink backBtn;
-    @FXML
-    private Button addDormBtn;
+public class DormMainController extends HorProject implements Initializable {
+    protected static String userId;
     @FXML
     private Label testUserId;
+    @FXML
+    private Hyperlink manageDormBtn;
+    @FXML
+    private Hyperlink settingBtn;
     
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         testUserId.setText(userId);
-    }    
-
-    @FXML
-    private void gotoAddDorm(ActionEvent event) {
-        System.out.println("Going to another page..");
-        
-        
     }
     
+    public static void setUserId(String userIdInput){
+        userId = userIdInput;
+    }
+
     @FXML
-    private void gotoHome(ActionEvent event) {
-        System.out.println("Home btn clicked");
+    private void gotoSelectDorm(ActionEvent event) {
         try{
             //Prepare needed parameters for the new page
             FXMLLoader loader = new FXMLLoader();
+//            DormSelectDormController dormSelectDormController = (DormSelectDormController)loader.getController();
 
             //Prepare new page
-            root = loader.load(getClass().getResource("/view/dormitory/DormMain.fxml").openStream());
+            root = loader.load(getClass().getResource("/view/dormitory/DormSelectDorm.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page
@@ -64,6 +60,5 @@ public class DormSelectDormController extends DormMainController implements Init
         }catch(IOException e){
             e.printStackTrace();
         }
-        
     }
 }

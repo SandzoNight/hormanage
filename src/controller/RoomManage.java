@@ -7,6 +7,7 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.DataCount;
 import model.DataDelete;
 import model.DataInsert;
 import model.DataQuery;
@@ -46,5 +47,11 @@ public class RoomManage {
         ResultSet rec;
         rec = DataQuery.queryRoom(dormId,floor);
         return rec;
+    }
+    
+    public static int countEmptyRoom(String dormId){
+        int count = DataCount.countAvailableRoom(dormId);
+        DataCount.disconnect();
+        return count;
     }
 }

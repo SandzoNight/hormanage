@@ -35,7 +35,7 @@ public class HorProject extends Application {
             e.consume();
             closeProgram();
         });
-        window.setResizable(false);
+        window.setResizable(true);
         window.setScene(defaultScene);
         window.show();
     }

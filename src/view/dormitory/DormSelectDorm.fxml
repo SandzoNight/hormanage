@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="720" prefWidth="1000" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DormSelectDormController">
+<VBox prefHeight="720" prefWidth="1000" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormSelectDormController">
    <children>
       <BorderPane>
          <center>
@@ -26,9 +26,9 @@
                      <content>
                         <VBox prefHeight="200.0" prefWidth="837.0">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+                              <VBox fx:id="dormlist" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
                                  <children>
-                                    <FlowPane prefHeight="171.0" prefWidth="837.0">
+<!--                                    <FlowPane prefHeight="171.0" prefWidth="837.0">
                                        <children>
                                           <BorderPane prefHeight="111.0" prefWidth="832.0">
                                              <left>
@@ -39,25 +39,13 @@
                                                 </FlowPane>
                                              </left>
                                              <center>
-                                                <FlowPane prefHeight="111.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+                                                <FlowPane BorderPane.alignment="CENTER">
                                                    <children>
-                                                      <BorderPane prefHeight="111.0" prefWidth="671.0">
-                                                         <center>
-                                                            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                                               <center>
-                                                                  <VBox prefHeight="111.0" prefWidth="380.0" styleClass="dorm-info-container" BorderPane.alignment="CENTER">
-                                                                     <children>
-                                                                        <Label styleClass="dorm-name" text="Cosmo" />
-                                                                        <Label styleClass="dorm-addr" text="112 ประชาอุทิศ45 แขวงบางมด เขตบางมด กทม. 10150" />
-                                                                     </children>
-                                                                  </VBox>
-                                                               </center>
-                                                            </BorderPane>
-                                                         </center>
+                                                      <BorderPane prefHeight="111.0" prefWidth="675.0" style="-fx-max-width: 675px;">
                                                          <right>
-                                                            <FlowPane prefHeight="111.0" prefWidth="156.0" BorderPane.alignment="CENTER">
+                                                            <FlowPane prefHeight="111.0" prefWidth="145.0" BorderPane.alignment="CENTER">
                                                                <children>
-                                                                  <HBox prefHeight="111.0" prefWidth="154.0" styleClass="dorm-number-container">
+                                                                  <HBox styleClass="dorm-room-container">
                                                                      <children>
                                                                         <Label text="0" />
                                                                         <Label text=" / " />
@@ -67,73 +55,28 @@
                                                                </children>
                                                             </FlowPane>
                                                          </right>
-                                                      </BorderPane>
-                                                   </children>
-                                                </FlowPane>
-                                             </center>
-                                             <right>
-                                                <FlowPane prefHeight="111.0" prefWidth="83.0" styleClass="dorm-button-container" BorderPane.alignment="CENTER">
-                                                   <children>
-                                                      <Button mnemonicParsing="false" text="&gt;" />
-                                                   </children>
-                                                </FlowPane>
-                                             </right>
-                                          </BorderPane>
-                                       </children>
-                                    </FlowPane>
-                                    <FlowPane prefHeight="171.0" prefWidth="837.0">
-                                       <children>
-                                          <BorderPane prefHeight="111.0" prefWidth="832.0">
-                                             <center>
-                                                <FlowPane prefHeight="111.0" prefWidth="650.0" BorderPane.alignment="CENTER">
-                                                   <children>
-                                                      <BorderPane prefHeight="111.0" prefWidth="671.0">
                                                          <center>
-                                                            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                                               <center>
-                                                                  <VBox prefHeight="111.0" prefWidth="380.0" styleClass="dorm-info-container" BorderPane.alignment="CENTER">
-                                                                     <children>
-                                                                        <Label styleClass="dorm-name" text="Cosmo" />
-                                                                        <Label styleClass="dorm-addr" text="112 ประชาอุทิศ45 แขวงบางมด เขตบางมด กทม. 10150" />
-                                                                     </children>
-                                                                  </VBox>
-                                                               </center>
-                                                            </BorderPane>
-                                                         </center>
-                                                         <right>
-                                                            <FlowPane prefHeight="111.0" prefWidth="156.0" BorderPane.alignment="CENTER">
+                                                            <VBox prefWidth="499.0" styleClass="dorm-info-container" BorderPane.alignment="CENTER">
                                                                <children>
-                                                                  <HBox prefHeight="111.0" prefWidth="154.0" styleClass="dorm-number-container">
-                                                                     <children>
-                                                                        <Label text="0" />
-                                                                        <Label text=" / " />
-                                                                        <Label text="50" />
-                                                                     </children>
-                                                                  </HBox>
+                                                                  <Label styleClass="dorm-name" text="Cosmo" />
+                                                                  <Label styleClass="dorm-addr" text="112 ประชาอุทิศ45 แขวงบางมด เขตบางมด กทม. 10150" />
                                                                </children>
-                                                            </FlowPane>
-                                                         </right>
+                                                            </VBox>
+                                                         </center>
                                                       </BorderPane>
                                                    </children>
                                                 </FlowPane>
                                              </center>
-                                             <left>
-                                                <FlowPane prefHeight="111.0" prefWidth="74.0" styleClass="dorm-number-container" BorderPane.alignment="CENTER">
-                                                   <children>
-                                                      <Label text="1." />
-                                                   </children>
-                                                </FlowPane>
-                                             </left>
                                              <right>
-                                                <FlowPane prefHeight="111.0" prefWidth="83.0" styleClass="dorm-button-container" BorderPane.alignment="CENTER">
+                                                <FlowPane prefHeight="111.0" styleClass="dorm-button-container" BorderPane.alignment="CENTER">
                                                    <children>
-                                                      <Button mnemonicParsing="false" text="&gt;" />
+                                                      <Button mnemonicParsing="false" text="&gt;&gt;" />
                                                    </children>
                                                 </FlowPane>
                                              </right>
                                           </BorderPane>
                                        </children>
-                                    </FlowPane>
+                                    </FlowPane>-->
                                  </children>
                               </VBox>
                               <FlowPane prefHeight="200.0" prefWidth="200.0">

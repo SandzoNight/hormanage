@@ -14,9 +14,13 @@
 .dorm-number-container{
     -fx-alignment: center;
     -fx-font-size: 24px;
+    -fx-pref-width: 74px;
+    -fx-pref-height: 111px;
 }
 .dorm-info-container{
     -fx-alignment: center-left;
+    -fx-pref-width: 520px;
+    -fx-pref-height: 111px;
 }
 .dorm-name{
     -fx-font-size: 24px;
@@ -27,9 +31,13 @@
 .dorm-room-container{
     -fx-alignment: center;
     -fx-font-size: 24px;
+    -fx-pref-width: 145px;
+    -fx-pref-height: 111px;
+
 }
 .dorm-button-container{
     -fx-alignment: center;
+    -fx-pref-width: 83px;
 }
 .scroll-pane > .viewport {
    -fx-background-color: transparent;

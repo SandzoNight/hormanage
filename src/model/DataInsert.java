@@ -68,49 +68,71 @@ public class DataInsert extends DBConnector{
             e.printStackTrace();
         }
     }
-    public void insertDorm(String dormID,String dormName,String dormType,String dormAddress,int countFloor,String[] facilityDormId,String[] facilityRoomId,long User_userId){
+    public void insertDorm(String dormID,String dormName,String dormType,String dormAddress,int dormCountFloor,float waterRate,float elecRate,String[] facilityDormId,long User_userId){
         try{
             System.out.println(inserting_str);
-            String sql ="INSERT INTO dormitory VALUES(?,?,?,?,?,?,?,?)";
+            String sql ="INSERT INTO dormitory VALUES(?,?,?,?,?,?,?,?,?,?)";
             ps = connection.prepareStatement(sql);
             ps.setString(1, dormID);
             ps.setString(2, dormName);
             ps.setString(3, dormType);
             ps.setString(4, dormAddress);
             ps.setInt(5, 0);
-            ps.setInt(6, countFloor);
-//                    ps.setString(6, facilityDormId);
-//                    ps.setString(7, facilityRoomId);
+            ps.setInt(6, dormCountFloor);
             ps.setInt(7, 0);
-            ps.setLong(8, User_userId);
+            ps.setFloat(8, waterRate);
+            ps.setFloat(9, elecRate);
+            ps.setLong(10, User_userId);
             ps.executeUpdate();
             
             int numOfRecordDormFacility = facilityDormId.length;
-            String sql2 ="INSERT INTO dormitoryfacilitydorm_has_dormitory VALUES (?,?,?)";
+            String sql2 ="INSERT INTO dormitoryfacilitydorm_has_dorm (Dormitoryfacilitydorm_facilityDormId,Dormitory_dormId) VALUES (?,?)";
             ps = connection.prepareStatement(sql2);
             for(int i=0;i<numOfRecordDormFacility;i++){
                 ps.setString(1, facilityDormId[i]);
                 ps.setString(2, dormID);
-                ps.setLong(3, User_userId);
                 ps.executeUpdate();
             }
             
-            
-            int numOfRecordRoomFacility = facilityRoomId.length;
-            String sql3 = "INSERT INTO dormitoryfacilityroom_has_dormitory VALUES (?,?,?)";
-            ps = connection.prepareStatement(sql3);
-            for(int i=0;i<numOfRecordRoomFacility;i++){
-                ps.setString(1, facilityRoomId[i]);
-                ps.setString(2, dormID);
-                ps.setLong(3, User_userId);
-                ps.executeUpdate();
-            }
-            
-             
+            updateId("dormitory",dormID);
         }catch(SQLException e){
             e.printStackTrace();
-                    
-                    
+        }
+    }
+    
+    public static void updateId(String table,String id){
+        long nextId = Long.parseLong(id);
+        switch(table){
+            case "dormitory" :{
+                DataUpdate.updateNextRecordId("nextDormid", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "room" :{
+                DataUpdate.updateNextRecordId("nextRoomid", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "dormitoryfacilitydorm" :{
+                DataUpdate.updateNextRecordId("nextFacilityDormId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "roomtype" :{
+                DataUpdate.updateNextRecordId("nextRoomTypeId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "renter" :{
+                DataUpdate.updateNextRecordId("nextRenterId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
+            case "invoice" :{
+                DataUpdate.updateNextRecordId("nextInvoiceId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
         }
     }
     
