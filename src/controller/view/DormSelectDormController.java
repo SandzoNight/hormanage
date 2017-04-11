@@ -93,6 +93,9 @@ public class DormSelectDormController extends DormMainController implements Init
                 buttonContainer[i] = new FlowPane();
                 viewButton[i] = new Button(">>");
                 viewButton[i].setId(userDorm.getString("dormId"));
+                viewButton[i].setOnAction(e ->{
+                    gotoDormDashboard(e);
+                });
                 
                 //Setting Containers and Components
                 numberContainer[i].getStyleClass().add("dorm-number-container");
@@ -127,9 +130,6 @@ public class DormSelectDormController extends DormMainController implements Init
         }catch(SQLException e){
             e.printStackTrace();
         }
-        
-        
-        
     }    
 
     @FXML
@@ -137,6 +137,28 @@ public class DormSelectDormController extends DormMainController implements Init
         System.out.println("Going to another page..");
         
         
+    }
+    
+    @FXML
+    private void gotoDormDashboard(ActionEvent event) {
+        System.out.println("Going to another page..");
+        long dormId = Long.parseLong(((Button)event.getSource()).getId());
+        System.out.println(dormId);
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            DormDashboardController.setUserId(userId);
+            DormDashboardController.setDormId(dormId);
+            root = loader.load(getClass().getResource("/view/dormitory/DormDashboard.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
     
     @FXML
@@ -155,6 +177,5 @@ public class DormSelectDormController extends DormMainController implements Init
         }catch(IOException e){
             e.printStackTrace();
         }
-        
     }
 }

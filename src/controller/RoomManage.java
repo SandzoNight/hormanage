@@ -49,6 +49,11 @@ public class RoomManage {
         return rec;
     }
     
+    public static int totalRoomByFloor(String dormId,String floor){
+        int num = DataCount.countRoomByFloor(dormId, floor);
+        return num;
+    }
+    
     public static ResultSet getDetail(String roomId){
         ResultSet rec;
         rec = DataQuery.query("room","roomId",roomId);
