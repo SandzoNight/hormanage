@@ -5,10 +5,16 @@
  */
 package controller;
 
+import java.sql.ResultSet;
+import model.DataQuery;
+
 /**
  *
  * @author fluke
  */
 public class RenterManage {
-    
+    public static ResultSet getRenterInfo(long renterId){
+        ResultSet res = DataQuery.query("renter", "renterId", renterId+"");
+        return res;
+    }
 }
