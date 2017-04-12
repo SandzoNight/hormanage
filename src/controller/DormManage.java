@@ -45,6 +45,21 @@ public class DormManage {
         
     }
     
+    public static int getFloor(long dormId){
+        System.out.println("[DormManage] Getting floors");
+        int floor = 0;
+        ResultSet dormInfo = DataQuery.query("dormitory", "dormId", dormId+"");
+        try{
+            while(dormInfo.next()){
+                floor = dormInfo.getInt("dormCountFloor");
+            }
+            DataQuery.disconnect();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return floor;
+    }
+    
     public static void update(String dormName,String dormType,String dormAddress,int countFloor,float waterRate,float elecRate,String[] facilityDormId,String dormId){
         DataUpdate.updateDormDetail(dormName, dormType, dormAddress, countFloor, waterRate, elecRate, facilityDormId, dormId);
         DataUpdate.disconnect();

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormDashboardController">
+   <children>
+      <BorderPane prefHeight="720.0" prefWidth="1000.0">
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="160.0" styleClass="side-bar" BorderPane.alignment="CENTER">
+               <children>
+                  <Hyperlink fx:id="backBtn" focusTraversable="false" onAction="#gotoHome" styleClass="back-btn">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Label fx:id="testUserId" text="Label" />
+                  <Label fx:id="testDormId" text="Label" />
+                  <Button fx:id="toRoomManageBtn" mnemonicParsing="false" onAction="#gotoRoomManage" prefHeight="26.0" prefWidth="130.0" text="จัดการห้องพัก" />
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="main-content" BorderPane.alignment="CENTER">
+               <center>
+                  <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="607.0" prefWidth="775.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <GridPane prefHeight="30.0" prefWidth="809.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="727.0" minWidth="10.0" prefWidth="691.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="415.0" minWidth="10.0" prefWidth="149.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <VBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <Label fx:id="dormName" styleClass="dorm-name" text="Dorm nameeee" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="30.0" prefWidth="109.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Button mnemonicParsing="false" styleClass="edit-button" text="แก้ไข" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="547.0" prefWidth="828.0" styleClass="scroll-container">
+                           <content>
+                              <GridPane prefHeight="496.0" prefWidth="809.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <FlowPane columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="387.0" prefWidth="398.0">
+                                             <children>
+                                                <Label styleClass="card-title" text="ข้อมูลเบื้องต้น" />
+                                                <GridPane prefHeight="239.0" prefWidth="398.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="105.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="293.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="119.0" minHeight="10.0" prefHeight="97.0" valignment="TOP" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="96.0" minHeight="7.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label styleClass="info-text" text="ประเภทหอ : " />
+                                                      <Label styleClass="info-text" text="ที่อยู่ : " GridPane.rowIndex="1" />
+                                                      <Label styleClass="info-text" text="เรทค่าน้ำ : " GridPane.rowIndex="2" />
+                                                      <Label styleClass="info-text" text="เรทค่าไฟ : " GridPane.rowIndex="3" />
+                                                      <Label fx:id="dormType" styleClass="info-text" text="text_text" GridPane.columnIndex="1" />
+                                                      <Label fx:id="dormAddr" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <Label fx:id="dormWaterRate" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <Label fx:id="dormElecRate" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </FlowPane>
+                                    <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="387.0" prefWidth="398.0">
+                                             <children>
+                                                <Label styleClass="card-title" text="ข้อมูลเบื้องต้น" />
+                                                <GridPane prefHeight="239.0" prefWidth="398.0">
+                                                   <children>
+                                                      <Label styleClass="info-text" text="ประเภทหอ : " />
+                                                      <Label styleClass="info-text" text="ที่อยู่ : " GridPane.rowIndex="1" />
+                                                      <Label styleClass="info-text" text="เรทค่าน้ำ : " GridPane.rowIndex="2" />
+                                                      <Label styleClass="info-text" text="เรทค่าไฟ : " GridPane.rowIndex="3" />
+                                                      <Label fx:id="dormType1" styleClass="info-text" text="text_text" GridPane.columnIndex="1" />
+                                                      <Label fx:id="dormAddr1" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <Label fx:id="dormWaterRate1" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <Label fx:id="dormElecRate1" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                   </children>
+                                                   <columnConstraints>
+                                                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="105.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="293.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="119.0" minHeight="10.0" prefHeight="97.0" valignment="TOP" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="96.0" minHeight="7.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                </GridPane>
+                                             </children>
+                                          </VBox>
+                                       </children></FlowPane>
+                                 </children>
+                              </GridPane>
+                           </content>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </center>
+               <top>
+                  <FlowPane prefHeight="113.0" prefWidth="842.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label styleClass="page-title" text="จัดการหอพัก" />
+                     </children>
+                  </FlowPane>
+               </top>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+   <stylesheets>
+      
+      <!-- Use these tag when compile -->
+      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/dormdashboardpage.css" />
+      <!-- /////////////////////////// -->
+      
+<!--      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/dormdashboardpage.css" />
+      -->
+   </stylesheets>
+</VBox>

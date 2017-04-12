@@ -1,0 +1,39 @@
+.main-content{
+    -fx-background-color: white;
+}
+.page-title-container{
+    -fx-alignment: center-left;
+    /*-fx-max-height: 160px;*/
+}
+.page-title{
+    -fx-font-size: 48px;
+}
+.dorm-info-container{
+    -fx-alignment: center-left;
+    -fx-pref-width: 520px;
+    -fx-pref-height: 111px;
+}
+
+.dorm-button-container{
+    -fx-alignment: center;
+    -fx-pref-width: 83px;
+}
+.dorm-name{
+    -fx-font-size: 32px;
+}
+.card-title{
+    -fx-font-size: 20px;
+}
+.info-text{
+    -fx-font-size: 16px;
+}
+.edit-button{
+    -fx-font-size: 18px;
+    -fx-pref-width: 210px;
+}
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+.scroll-container{
+    -fx-background-color: white;
+}
