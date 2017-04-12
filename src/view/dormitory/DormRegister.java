@@ -11,11 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class GuestDetails extends Application {
+public class DormRegister extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("details.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("DormRegister.fxml"));
            
         Scene scene = new Scene(root);
         stage.setScene(scene);

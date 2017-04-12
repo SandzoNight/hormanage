@@ -111,10 +111,10 @@
    </children>
    <stylesheets>
        <!-- Use these tag when compile -->
-      <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/selectdormpage.css" />
+<!--      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/selectdormpage.css" />-->
       <!-- /////////////////////////// -->
-<!--      <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/selectdormpage.css" />-->
+      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/selectdormpage.css" />
    </stylesheets>
 </VBox>

@@ -7,104 +7,31 @@ package view.dormitory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+/**
+ * FXML Controller class
+ *
+ * @author CBC
+ */
+public class GuestDetailsController implements Initializable {
 
 
-public class GuestDetailsController implements Initializable{
-    
-    
-    
-    ObservableList<String> typeList = FXCollections.observableArrayList("หอหญิง","หอชาย","หอรวม");
 
-     @FXML
-    private CheckBox Table;
 
     @FXML
-    private CheckBox Chair;
+    private Button addguestButton;
 
     @FXML
-    private CheckBox SwimmingPool;
+    private Button confirmButton;
 
     @FXML
-    private TextField dormName;
-
-    @FXML
-    private CheckBox AirCondition;
-
-    @FXML
-    private ImageView hor;
-
-    @FXML
-    private CheckBox Furniture;
-
-    @FXML
-    private CheckBox Security;
-
-    @FXML
-    private Label label1;
-
-    @FXML
-    private CheckBox CarPark;
-
-    @FXML
-    private Label label2;
-
-    @FXML
-    private Label label3;
-
-    @FXML
-    private CheckBox Park;
-
-    @FXML
-    private Label label4;
-
-    @FXML
-    private Label label5;
-
-    @FXML
-    private Label label6;
-
-    @FXML
-    private CheckBox Fan;
-
-    @FXML
-    private ChoiceBox dormType;
-
-    @FXML
-    private TextField dormAddress;
-
-    @FXML
-    private TextField countRoom;
-
-    @FXML
-    private Button registerBt;
-
-    @FXML
-    private Pane register;
-  
-    private void initialize() {
-        dormType.setItems(typeList);
-        dormType.setValue("typeList");
-    }
+    private TextField searchhor;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
     }
- 
-
-    }
-    
-
-
+}
