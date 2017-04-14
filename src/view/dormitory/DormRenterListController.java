@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
  *
  * @author CBC
  */
-public class GuestDetailsController implements Initializable {
+public class DormRenterListController implements Initializable {
 
 
 
