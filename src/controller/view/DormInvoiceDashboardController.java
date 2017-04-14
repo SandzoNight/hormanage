@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view.dormitory;
+package controller.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.GridPane;
 
-public class RoomCostController implements Initializable {
+public class DormInvoiceDashboardController implements Initializable {
 
     @FXML
     private Button paymentHistory;

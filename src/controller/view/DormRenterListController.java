@@ -8,20 +8,33 @@ package controller.view;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 /**
  * FXML Controller class
  *
- * @author fluke
+ * @author CBC
  */
 public class DormRenterListController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+
+
+
+    @FXML
+    private Button addguestButton;
+
+    @FXML
+    private Button confirmButton;
+
+    @FXML
+    private TextField searchhor;
+    @FXML
+    private GridPane renterinfo;
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
 }
