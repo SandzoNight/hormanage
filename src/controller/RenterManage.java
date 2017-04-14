@@ -17,4 +17,9 @@ public class RenterManage {
         ResultSet res = DataQuery.query("renter", "renterId", renterId+"");
         return res;
     }
+    
+    public static ResultSet showCustomerList(long dormId){
+        ResultSet res = DataQuery.query("renter", "Dormitory_dormId", dormId+"");
+        return res;    
+    }
 }
