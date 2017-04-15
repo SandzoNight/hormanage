@@ -117,6 +117,34 @@ public abstract class DataQuery extends DBConnector{
         return rec;
     }
     
+    public static ResultSet querySearchRenter(String table,String objectId,String keyword){
+        calling_str = "[DataQuery]Calling DBConnector to connect the database";
+        queried_str = "[DataQuery]Querying successful!";
+        error_str = "[DataQuery]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataQuery]Disconnect from DB";
+        querying_str = "[DataQuery]Querying from user";
+        String sql = "SELECT * FROM renter WHERE ((renterFirstName LIKE ?) OR (renterLastName LIKE ?) OR (renterTel LIKE ?)) AND (Dormitory_dormId=?)";
+        ResultSet rec = null;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            ps.setString(1,keyword);
+            ps.setString(2,keyword);
+            ps.setString(3,keyword);
+            ps.setString(4,objectId);
+            System.out.println(querying_str);
+            rec = ps.executeQuery();
+            System.out.println(queried_str);
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return rec;
+    }
+    
     public static void disconnect(){
         System.out.println(disconnect_str);
         DBConnector.disconnect();

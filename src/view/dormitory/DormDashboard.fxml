@@ -22,6 +22,7 @@
                   <Label fx:id="testUserId" text="Label" />
                   <Label fx:id="testDormId" text="Label" />
                   <Button fx:id="toRoomManageBtn" mnemonicParsing="false" onAction="#gotoRoomManage" prefHeight="26.0" prefWidth="130.0" text="จัดการห้องพัก" />
+                  <Button fx:id="toRenterListBtn" mnemonicParsing="false" onAction="#gotoRenterList" prefHeight="26.0" prefWidth="130.0" text="จัดการผู้เข้าพัก" />
                </children>
             </VBox>
          </left>

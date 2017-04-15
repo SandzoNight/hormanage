@@ -134,14 +134,14 @@ public class DormSelectDormController extends DormMainController implements Init
 
     @FXML
     private void gotoAddDorm(ActionEvent event) {
-        System.out.println("Going to another page..");
+        System.out.println("Go to DormRegister");
         
         
     }
     
     @FXML
     private void gotoDormDashboard(ActionEvent event) {
-        System.out.println("Going to another page..");
+        System.out.println("Go to DormDashboard");
         long dormId = Long.parseLong(((Button)event.getSource()).getId());
         System.out.println(dormId);
         try{
@@ -163,7 +163,7 @@ public class DormSelectDormController extends DormMainController implements Init
     
     @FXML
     private void gotoHome(ActionEvent event) {
-        System.out.println("Home btn clicked");
+        System.out.println("Go back to Home from DormSelectDorm");
         try{
             //Prepare needed parameters for the new page
             FXMLLoader loader = new FXMLLoader();

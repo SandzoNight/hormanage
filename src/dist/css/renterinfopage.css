@@ -1,0 +1,27 @@
+.main-content{
+    -fx-background-color: white;
+}
+.page-title-container{
+    -fx-alignment: center-left;
+    /*-fx-max-height: 160px;*/
+}
+.page-title{
+    -fx-font-size: 48px;
+}
+.renter-info-title{
+    -fx-font-size:20px;
+}
+.renter-info-desc{
+    -fx-text-fill: blue;
+    -fx-font-size:18px;
+}
+.back-button{
+    -fx-font-size: 18px;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+.scroll-container{
+    -fx-background-color: white;
+}

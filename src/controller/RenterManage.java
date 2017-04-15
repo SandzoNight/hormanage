@@ -6,6 +6,7 @@
 package controller;
 
 import java.sql.ResultSet;
+import model.DataCount;
 import model.DataQuery;
 
 /**
@@ -21,5 +22,15 @@ public class RenterManage {
     public static ResultSet showCustomerList(long dormId){
         ResultSet res = DataQuery.query("renter", "Dormitory_dormId", dormId+"");
         return res;    
+    }
+    
+    public static int countRenter(long dormId){
+        int count = DataCount.count("renter", "Dormitory_dormId", dormId+"");
+        return count;
+    }
+    
+    public static ResultSet searchRenterList(String keyword, String dormId){
+        ResultSet res = DataQuery.querySearchRenter("renter", dormId, keyword+"%");
+        return res;
     }
 }

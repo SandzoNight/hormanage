@@ -54,6 +54,8 @@ public class DormDashboardController extends DormMainController implements Initi
     private Label dormName;
     @FXML
     private Button toRoomManageBtn;
+    @FXML
+    private Button toRenterListBtn;
     /**
      * Initializes the controller class.
      */
@@ -109,6 +111,24 @@ public class DormDashboardController extends DormMainController implements Initi
             //Prepare new page
             ///////////////// ชั่วคราว (ข้ามมาหน้าแสดงรายการห้อง) จริงๆต้องเป็น RoomMain
             root = loader.load(getClass().getResource("/view/dormitory/DormRoomList.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void gotoRenterList(ActionEvent event) {
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            ///////////////// ชั่วคราว (ข้ามมาหน้าแสดงรายการห้อง) จริงๆต้องเป็น RoomMain
+            root = loader.load(getClass().getResource("/view/dormitory/DormRenterList.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page
