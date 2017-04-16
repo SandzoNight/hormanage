@@ -8,15 +8,15 @@
 .page-title{
     -fx-font-size: 48px;
 }
+.buttons{
+    -fx-font-size: 18px;
+}
 .renter-info-title{
     -fx-font-size:20px;
 }
 .renter-info-desc{
     -fx-text-fill: blue;
     -fx-font-size:18px;
-}
-.edit-btn{
-    -fx-font-size: 18px;
 }
 
 .scroll-pane > .viewport {

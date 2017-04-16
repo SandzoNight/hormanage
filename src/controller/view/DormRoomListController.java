@@ -113,11 +113,6 @@ public class DormRoomListController extends DormDashboardController implements I
         }
     }
 
-
-    private void floorSelected(MouseEvent event) {
-        
-    }
-
     @FXML
     private void floorSelected(ActionEvent event) {
         System.out.println(floorList.getValue());
@@ -147,6 +142,4 @@ public class DormRoomListController extends DormDashboardController implements I
             e.printStackTrace();
         }
     }
-
-
 }

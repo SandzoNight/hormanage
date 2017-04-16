@@ -202,4 +202,22 @@ public class DormRenterListController extends DormDashboardController implements
         }
         
     }
+
+    @FXML
+    private void addNewRenter(ActionEvent event) {
+        System.out.println("Go to DormRenterAdd");
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormRenterAdd.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 }
