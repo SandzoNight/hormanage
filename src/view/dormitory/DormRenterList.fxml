@@ -19,7 +19,7 @@
             </Hyperlink>
          </children>
       </Pane>
-      <Label layoutX="173.0" layoutY="13.0" styleClass="page-title-container" stylesheets="@../../dist/css/selectdormpage.css" text="จัดการหอพัก">
+      <Label layoutX="173.0" layoutY="13.0" styleClass="page-title-container" stylesheets="@../../dist/css/selectdormpage.css" text="จัดการผู้เข้าพัก">
          <font>
             <Font name="Kanit" size="72.0" />
          </font>
