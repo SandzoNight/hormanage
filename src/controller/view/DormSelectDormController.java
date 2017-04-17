@@ -30,6 +30,8 @@ import model.DataQuery;
  *
  * @author fluke
  */
+
+//ที่ต้อง extends เพราะว่ามีการใช้ attribute userId ร่วมกับคลาส DormMainController
 public class DormSelectDormController extends DormMainController implements Initializable {
 
     @FXML
@@ -46,11 +48,12 @@ public class DormSelectDormController extends DormMainController implements Init
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //สร้างรายการหอพัก (บรรทัดที่ 49 - 142)
         testUserId.setText(userId);
         dormlist.getStylesheets().add("/dist/css/mainstyle.css");
         dormlist.getStylesheets().add("/dist/css/selectdormpage.css");
         
+        //นับจำนวนหอพักของผู้ใช้ และเตรียม component ต่างๆตามจำนวนที่ได้จากการนับเพื่อที่จะวางลงในหน้า
         int totalDorm = DataCount.count("dormitory", "Userdormowner_userId", userId);
         DataCount.disconnect();
         FlowPane[] flowpane = new FlowPane[totalDorm];
@@ -70,12 +73,16 @@ public class DormSelectDormController extends DormMainController implements Init
         FlowPane[] buttonContainer = new FlowPane[totalDorm];
         Button[] viewButton = new Button[totalDorm];
         int[] availableRoom = new int[totalDorm];
+        ////////////////////////////////////////////////////////////////////////////
         
+        //เริ่ม query ข้อมูลหอพักของผู้ใช้
         ResultSet userDorm = DataQuery.query("dormitory", "Userdormowner_userId", userId);
         int i = 0;
         try{
             while(userDorm.next()){
+                //นับจำนวนห้องพักที่ว่างอยู่
                 availableRoom[i] = DataCount.countAvailableRoom(userId);
+                ///////////////////
                 flowpane[i] = new FlowPane();
                 borderpane[i] = new BorderPane();
                 numberContainer[i] = new FlowPane();
@@ -92,12 +99,16 @@ public class DormSelectDormController extends DormMainController implements Init
                 totalRoom[i] = new Label(userDorm.getString("dormCountRoom"));
                 buttonContainer[i] = new FlowPane();
                 viewButton[i] = new Button(">>");
+                //เก็บ dormId ลงไปที่ ID ของ component เพื่อใช้ประโยชน์ต่อไป
                 viewButton[i].setId(userDorm.getString("dormId"));
+                //////////////////////////////////////////////////
+                //ตั้ง action ของปุ่ม เมื่อกดให้ไปที่หน้าจัดการหอพักนั้นๆ
                 viewButton[i].setOnAction(e ->{
                     gotoDormDashboard(e);
                 });
+                //////////////////////////////////////////
                 
-                //Setting Containers and Components
+                //ตั้งค่า CSS ให้กับ component ต่างๆ
                 numberContainer[i].getStyleClass().add("dorm-number-container");
                 dormInfoVBox[i].getStyleClass().add("dorm-info-container");
                 dormName[i].getStyleClass().add("dorm-name");
@@ -105,11 +116,11 @@ public class DormSelectDormController extends DormMainController implements Init
                 roomInfoHBox[i].getStyleClass().add("dorm-room-container");
                 buttonContainer[i].getStyleClass().add("dorm-button-container");
                 roomInfoContainer[i].setStyle("-fx-pref-width:145px");
+                /////////////////////////////
                 
-                //Adding components to containers
+                //เพิ่ม component เข้าไปยัง container
                 numberContainer[i].getChildren().add(number[i]);
                 borderpane[i].setLeft(numberContainer[i]);
-                
                 dormInfoVBox[i].getChildren().addAll(dormName[i],dormDesc[i]);
                 infoBorderPane[i].setCenter(dormInfoVBox[i]);
                 roomInfoHBox[i].getChildren().addAll(noOfRoom[i],slash[i],totalRoom[i]);
@@ -120,41 +131,45 @@ public class DormSelectDormController extends DormMainController implements Init
                 buttonContainer[i].getChildren().add(viewButton[i]);
                 borderpane[i].setRight(buttonContainer[i]);
                 flowpane[i].getChildren().add(borderpane[i]);
+                /////////////////////////////////
                 
-                //add to the row
+                //เพิ่มรายการหอพักเข้าไปยังแถวแรก
                 dormlist.getChildren().add(flowpane[i]);
+                //////////////////////////
                 
-                //increase i value to set the next row
+                //เพิ่มค่า i เพื่อทำแถวต่อไป
                 i++;
+                /////////////////////
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
-    }    
+    }
 
     @FXML
     private void gotoAddDorm(ActionEvent event) {
         System.out.println("Go to DormRegister");
-        
-        
+        //ยังไม่ได้เขียนให้ไปยังหน้าเพิ่มข้อมูลหอพัก ปัจจุบันเพิ่มโดยการแก้ที่ db โดยตรง
     }
     
     @FXML
+    //method เพื่อไปยังหน้าจัดการหอพักที่เลือก
     private void gotoDormDashboard(ActionEvent event) {
         System.out.println("Go to DormDashboard");
+        //รับ dormId จาก event ที่รับมาจาก parameter
         long dormId = Long.parseLong(((Button)event.getSource()).getId());
         System.out.println(dormId);
         try{
-            //Prepare needed parameters for the new page
             FXMLLoader loader = new FXMLLoader();
 
-            //Prepare new page
+            //เซ็ตค่าให้กับ controller class ของหน้าดังกล่าว
             DormDashboardController.setUserId(userId);
             DormDashboardController.setDormId(dormId);
+            ////////////////////////////////////////
             root = loader.load(getClass().getResource("/view/dormitory/DormDashboard.fxml").openStream());
             Scene scene = new Scene(root);
 
-            //Change to new page
+            //เปลี่ยนหน้า
             window.setScene(scene);
         }catch(IOException e){
             e.printStackTrace();
@@ -162,6 +177,7 @@ public class DormSelectDormController extends DormMainController implements Init
     }
     
     @FXML
+    //method เพื่อกลับไปยังหน้าหลัก
     private void gotoHome(ActionEvent event) {
         System.out.println("Go back to Home from DormSelectDorm");
         try{
