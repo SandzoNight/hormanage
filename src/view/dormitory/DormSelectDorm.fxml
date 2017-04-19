@@ -103,7 +103,6 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Hyperlink>
-                  <Label fx:id="testUserId" text="Label" />
                </children>
             </VBox>
          </left>

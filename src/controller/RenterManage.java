@@ -6,8 +6,11 @@
 package controller;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import model.DataCount;
+import model.DataInsert;
 import model.DataQuery;
+import model.DataUpdate;
 
 /**
  *
@@ -32,5 +35,27 @@ public class RenterManage {
     public static ResultSet searchRenterList(String keyword, String dormId){
         ResultSet res = DataQuery.querySearchRenter("renter", dormId, keyword+"%");
         return res;
+    }
+    
+    public static int update(String[] data, long renterId){
+        return DataUpdate.updateRenterInfo(data, renterId);
+    }
+    
+    public static int add(String[] data, long dormId){
+        long nextRenterId = 0;
+        ResultSet res = DataQuery.query("nextrecordId");
+        try{
+            while(res.next()){
+                nextRenterId = res.getLong("nextRenterId");
+            }
+            DataQuery.disconnect();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        DataInsert di = new DataInsert();
+        int inserted = di.insertRenter(nextRenterId,dormId,data);
+        di.disconnect();
+        return inserted;
     }
 }

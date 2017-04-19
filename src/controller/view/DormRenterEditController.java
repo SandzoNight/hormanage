@@ -5,6 +5,7 @@
  */
 package controller.view;
 
+import controller.RenterManage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -88,8 +89,25 @@ public class DormRenterEditController extends DormRenterInfoController implement
 
     @FXML
     private void confirm(ActionEvent event) {
-        System.out.println("[DormRenterEditController]Updating renter information..");
-        System.out.println("DormId="+dormId);
+        System.out.println("[DormRenterEditController]Updating information of renterId="+renterId+".");
+        renterData[0] = renterFirstNameField.getText();
+        renterData[1] = renterLastNameField.getText();
+        renterData[2] = renterGenderField.getText();
+        renterData[4] = renterTelField.getText();
+        renterData[5] = renterEmailField.getText();
+        renterData[3] = renterAddrField.getText();
+        RenterManage.update(renterData, renterId);
+        FXMLLoader loader = new FXMLLoader();
+
+        //Prepare new page
+        try{
+            root = loader.load(getClass().getResource("/view/dormitory/DormRenterList.fxml").openStream());
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root);
+        //Change to new page
+        window.setScene(scene);
     }
 
     @FXML
@@ -101,6 +119,7 @@ public class DormRenterEditController extends DormRenterInfoController implement
         renterTelField.setText(renterData[4]);
         renterEmailField.setText(renterData[5]);
         renterAddrField.setText(renterData[3]);
+        resetBtn.setDisable(true);
     }
 
     @FXML

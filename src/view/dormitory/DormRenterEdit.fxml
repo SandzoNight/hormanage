@@ -30,13 +30,13 @@
                               <Label styleClass="renter-info-title" text="ที่อยู่ : " GridPane.rowIndex="3" />
                               <Label styleClass="renter-info-title" text="เบอร์โทรศัพท์ : " GridPane.rowIndex="4" />
                               <Label styleClass="renter-info-title" text="อีเมล : " GridPane.rowIndex="5" />
-                              <TextField fx:id="renterFirstNameField" maxWidth="-Infinity" onKeyTyped="#edited" prefHeight="26.0" prefWidth="452.0" styleClass="renter-info-desc" GridPane.columnIndex="1" />
-                              <TextField fx:id="renterGenderField" maxWidth="-Infinity" onKeyTyped="#edited" prefHeight="26.0" prefWidth="452.0" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField fx:id="renterTelField" maxWidth="-Infinity" onKeyTyped="#edited" prefHeight="26.0" prefWidth="452.0" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <TextField fx:id="renterEmailField" maxWidth="-Infinity" onKeyTyped="#edited" prefHeight="26.0" prefWidth="452.0" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <TextArea fx:id="renterAddrField" maxWidth="-Infinity" onKeyTyped="#edited" prefHeight="93.0" prefWidth="452.0" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label styleClass="renter-info-title" text="นามสกุล : " GridPane.rowIndex="1" />
-                              <TextField fx:id="renterLastNameField" maxWidth="-Infinity" onKeyTyped="#edited" prefHeight="26.0" prefWidth="452.0" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="renterFirstNameField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" />
+                              <TextField fx:id="renterLastNameField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="renterGenderField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextArea fx:id="renterAddrField" onKeyTyped="#edited" prefHeight="200.0" prefWidth="200.0" styleClass="renter-info-desc" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="renterTelField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="renterEmailField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                            </children>
                            <columnConstraints>
                               <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="386.0" minWidth="10.0" prefWidth="170.0" />

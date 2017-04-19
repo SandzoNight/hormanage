@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -45,6 +46,7 @@ public class DormRenterInfoController extends DormRenterListController implement
     private Label renterRoomType;
 
     protected static long renterId;
+    protected static Stage stage;
     
     private String[] renterData;
     @FXML
@@ -92,6 +94,11 @@ public class DormRenterInfoController extends DormRenterListController implement
     public static void setRenterId(long renterIdInput){
         renterId = renterIdInput;
     }
+    
+    //แก้ปัญหา เวลากดแก้ไข ให้ปิดหน้า RenterInfo ด้วย
+//    public static void setOldStage(Stage s){
+//        stage = s;
+//    }
 
     @FXML
     private void editRenter(ActionEvent event) {
@@ -103,7 +110,6 @@ public class DormRenterInfoController extends DormRenterListController implement
             //Prepare new page
             root = loader.load(getClass().getResource("/view/dormitory/DormRenterEdit.fxml").openStream());
             Scene scene = new Scene(root);
-
             //Change to new page
             window.setScene(scene);
         }catch(IOException e){

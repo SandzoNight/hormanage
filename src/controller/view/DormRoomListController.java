@@ -44,8 +44,6 @@ public class DormRoomListController extends DormDashboardController implements I
     @FXML
     private Hyperlink backBtn;
     @FXML
-    private Label testUserId;
-    @FXML
     private ChoiceBox floorList;
     
     private Button[] viewBtn;

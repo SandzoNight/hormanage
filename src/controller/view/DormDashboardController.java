@@ -29,10 +29,6 @@ public class DormDashboardController extends DormMainController implements Initi
     
     protected static long dormId;
     @FXML
-    private Label testDormId;
-    @FXML
-    private Label testUserId;
-    @FXML
     private Hyperlink backBtn;
     @FXML
     private Label dormType;
@@ -63,9 +59,6 @@ public class DormDashboardController extends DormMainController implements Initi
     //เมื่อมีการเรียกไฟล์ DormDashboard.fxml method นี้จะทำงาน
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //settext ให้กับ label เพื่อทดสอบค่าใน attribute เฉยๆ
-        testDormId.setText(dormId+"");
-        testUserId.setText(userId);
         
         //เริ่มดึงข้อมูลของหอพักดังกล่าวมาแสดง โดยอิงจาก id ของหอพักในตารางฐานข้อมูล
         ResultSet dormInfo = DataQuery.query("dormitory", "dormId", dormId+"");
