@@ -145,6 +145,34 @@ public abstract class DataQuery extends DBConnector{
         return rec;
     }
     
+    public static ResultSet QueryNotPaidInvoice(String dormId){
+        calling_str = "[DataQuery]Calling DBConnector to connect the database";
+        queried_str = "[DataQuery]Querying successful!";
+        error_str = "[DataQuery]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataQuery]Disconnect from DB";
+        querying_str = "[DataQuery]Querying from user";
+        String sql = "SELECT * FROM invoice WHERE paidStatus = 0 AND Dormitory_dormId = ?";
+        ResultSet rec = null;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            ps.setString(1,dormId);
+            System.out.println(querying_str);
+            rec = ps.executeQuery();
+            System.out.println(queried_str);
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return rec;
+    }
+    
+    
+    
+    
     public static void disconnect(){
         System.out.println(disconnect_str);
         DBConnector.disconnect();
