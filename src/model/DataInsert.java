@@ -66,7 +66,7 @@ public class DataInsert extends DBConnector {
             ps.setInt(7, 0);
             ps.executeUpdate();
             
-            updateId("room", nextRoomId+"");
+            updateId("room", nextRoomId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -83,7 +83,7 @@ public class DataInsert extends DBConnector {
             ps.setLong(4, Dormitory_dormId);
             ps.executeUpdate();
             
-            updateId("roomtype", nextRoomTypeId+"");
+            updateId("roomtype", nextRoomTypeId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -115,14 +115,14 @@ public class DataInsert extends DBConnector {
                 ps.executeUpdate();
             }
 
-            updateId("dormitory", dormID);
+            updateId("dormitory", Long.parseLong(dormID));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static void updateId(String table, String id) {
-        long nextId = Long.parseLong(id);
+    public static void updateId(String table, long currentId) {
+        long nextId = currentId+1;
         switch (table) {
             case "dormitory": {
                 DataUpdate.updateNextRecordId("nextDormid", nextId);
@@ -155,6 +155,32 @@ public class DataInsert extends DBConnector {
                 break;
             }
         }
+    }
+    
+    public int insertRenter(long renterID, long dormID, String[] data) {
+        int inserted = 0;
+        try {
+            System.out.println(inserting_str);
+            String sql = "INSERT INTO renter VALUES(?,?,?,?,?,?,?,?,?,?)";
+            ps = connection.prepareStatement(sql);
+            ps.setLong(1, renterID); 
+            ps.setString(2, data[0]); //First name
+            ps.setString(3, data[1]); //Last Name
+            ps.setString(4, data[2]); //Gender
+            ps.setString(5, data[3]); //Address
+            ps.setString(6, data[4]); //Tel
+            ps.setString(7, data[5]); //Email
+            ps.setString(8, null); //roomId
+            ps.setString(9, null); //userId
+            ps.setLong(10, dormID);
+            inserted = ps.executeUpdate();
+
+            updateId("renter", renterID);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return inserted;
     }
 
     public static void disconnect() {

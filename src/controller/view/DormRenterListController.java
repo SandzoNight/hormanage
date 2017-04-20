@@ -190,9 +190,12 @@ public class DormRenterListController extends DormDashboardController implements
         try{
             FXMLLoader loader = new FXMLLoader();
             DormRenterInfoController.setRenterId(Long.parseLong(temp.getId()));
+            
             Parent root = loader.load(getClass().getResource("/view/dormitory/DormRenterInfo.fxml").openStream());
             Stage newWindow = new Stage();
             newWindow.setTitle("ข้อมูลผู้เข้าพัก | HOR Manager Application");
+            //แก้ปัญหา เวลากดแก้ไข ให้ปิดหน้า RenterInfo ด้วย
+//            DormRenterInfoController.setOldStage(newWindow);
             Scene scene = new Scene(root);
             newWindow.setResizable(false);
             newWindow.setScene(scene);

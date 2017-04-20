@@ -39,8 +39,6 @@ public class DormSelectDormController extends DormMainController implements Init
     @FXML
     private Button addDormBtn;
     @FXML
-    private Label testUserId;
-    @FXML
     private VBox dormlist;
     
     /**
@@ -49,7 +47,6 @@ public class DormSelectDormController extends DormMainController implements Init
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //สร้างรายการหอพัก (บรรทัดที่ 49 - 142)
-        testUserId.setText(userId);
         dormlist.getStylesheets().add("/dist/css/mainstyle.css");
         dormlist.getStylesheets().add("/dist/css/selectdormpage.css");
         
@@ -81,7 +78,7 @@ public class DormSelectDormController extends DormMainController implements Init
         try{
             while(userDorm.next()){
                 //นับจำนวนห้องพักที่ว่างอยู่
-                availableRoom[i] = DataCount.countAvailableRoom(userId);
+                availableRoom[i] = DataCount.countAvailableRoom(userDorm.getString("dormId"));
                 ///////////////////
                 flowpane[i] = new FlowPane();
                 borderpane[i] = new BorderPane();
@@ -152,8 +149,6 @@ public class DormSelectDormController extends DormMainController implements Init
         //ยังไม่ได้เขียนให้ไปยังหน้าเพิ่มข้อมูลหอพัก ปัจจุบันเพิ่มโดยการแก้ที่ db โดยตรง
     }
     
-    @FXML
-    //method เพื่อไปยังหน้าจัดการหอพักที่เลือก
     private void gotoDormDashboard(ActionEvent event) {
         System.out.println("Go to DormDashboard");
         //รับ dormId จาก event ที่รับมาจาก parameter

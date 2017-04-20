@@ -69,8 +69,10 @@ public abstract class DataUpdate extends DBConnector{
             disconnect();
             
             System.out.println(updating2_str);
+            //ลบของเก่าทิ้ง
             DataDelete.delete("dormitoryfacilitydorm_has_dorm", "Dormitory_dormId", dormID);
             int numOfRecordDormFacility = facilityDormId.length;
+            //เพิ่มของใหม่
             String sql2 ="INSERT INTO dormitoryfacilitydorm_has_dorm (Dormitoryfacilitydorm_facilityDormId,Dormitory_dormId) VALUES (?,?)";
             ps = connection.prepareStatement(sql2);
             for(int i=0;i<numOfRecordDormFacility;i++){
@@ -100,7 +102,7 @@ public abstract class DataUpdate extends DBConnector{
             connect();
             PreparedStatement ps;
             ps = connection.prepareStatement(sql);
-            ps.setLong(1, nextId+1);
+            ps.setLong(1, nextId);
             System.out.println(updating_str);
             updated = ps.executeUpdate();
             System.out.println(updated_str+" "+updated+" record(s)!");
@@ -114,5 +116,43 @@ public abstract class DataUpdate extends DBConnector{
     public static void disconnect(){
         System.out.println(disconnect_str);
         DBConnector.disconnect();
+    }
+    
+    public static int updateRenterInfo(String[] data,long renterId){
+        String tableName = "renter";
+        calling_str = "[DataUpdate]Calling DBConnector to connect the database";
+        updated_str = "[DataUpdate]Updated";
+        updating_str = "[DataUpdate]Updating renter record...";
+        error_str = "[DataUpdate]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataUpdate]Disconnect from DB";
+        System.out.println(renterId);
+        String sql = "UPDATE "+tableName+" SET renterFirstName=?,renterLastName=?,renterGender=?,renterAddr=?,renterTel=?,renterEmail=? WHERE renterId="+renterId;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, data[0]);
+            ps.setString(2, data[1]);
+            if(data[2].equals("ชาย")){
+                ps.setString(3, "m");
+            }else{
+                ps.setString(3, "f");
+            }
+            
+            ps.setString(4, data[3]);
+            ps.setString(5, data[4]);
+            ps.setString(6, data[5]);
+            System.out.println(updating_str);
+            updated = ps.executeUpdate();
+            System.out.println(updated_str+" "+updated+" record(s)!");
+            disconnect();
+            
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return updated;
     }
 }

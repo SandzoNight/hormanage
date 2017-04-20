@@ -5,6 +5,7 @@
  */
 package controller.view;
 
+import controller.RenterManage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,7 +46,10 @@ public class DormRenterAddController extends DormRenterInfoController implements
     private TextField renterLastNameField;
     @FXML
     private Button confirmBtn;
+    @FXML
+    private Button resetBtn;
     
+    private String[] renterData;
 
     /**
      * Initializes the controller class.
@@ -76,6 +80,47 @@ public class DormRenterAddController extends DormRenterInfoController implements
     @FXML
     private void confirm(ActionEvent event) {
         System.out.println("DormId = "+dormId);
+        
+        String[] renterData = new String[6];
+        renterData[0] = renterFirstNameField.getText();
+        renterData[1] = renterLastNameField.getText();
+        renterData[2] = renterGenderField.getText();
+        renterData[3] = renterAddrField.getText();
+        renterData[4] = renterTelField.getText();
+        renterData[5] = renterEmailField.getText();
+        
+        RenterManage.add(renterData, dormId);
+        
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormRenterList.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void edited(KeyEvent event) {
+        resetBtn.setDisable(false);
+    }
+
+    @FXML
+    private void reset(ActionEvent event) {
+        System.out.println("[DormRenterEditController]Resetting text fields..");
+        renterFirstNameField.setText("");
+        renterLastNameField.setText("");
+        renterGenderField.setText("");
+        renterTelField.setText("");
+        renterEmailField.setText("");
+        renterAddrField.setText("");
+        resetBtn.setDisable(true);
     }
 
     

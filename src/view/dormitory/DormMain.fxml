@@ -52,7 +52,6 @@
             </Hyperlink>
          </children>
       </HBox>
-      <Label fx:id="testUserId" text="Label" />
    </children>
    <stylesheets>
        <!-- Use these tag when compile -->
