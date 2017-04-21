@@ -22,7 +22,7 @@
                <children>
                   <Pane prefHeight="59.0" prefWidth="160.0">
                      <children>
-                        <Hyperlink layoutX="4.0" layoutY="10.0" styleClass="back-btn" />
+                        <Hyperlink fx:id="home" layoutX="4.0" layoutY="10.0" styleClass="back-btn" />
                      </children>
                   </Pane>
                </children>
@@ -57,7 +57,7 @@
                         <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <VBox.margin>
-                        <Insets left="50.0" right="50.0" top="100.0" />
+                        <Insets left="50.0" right="50.0" top="50.0" />
                      </VBox.margin>
                      <children>
                         <Label text="เลขที่ใบแจ้งหนี้">
@@ -105,33 +105,85 @@
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="typeroom" prefWidth="150.0" promptText="เลือกประเภทห้อง" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <children>
-                              <TextField />
+                              <TextField fx:id="waterBill" />
+                              <Label text="บาท">
+                                 <font>
+                                    <Font name="Kanit" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                            <children>
-                              <TextField />
+                              <TextField fx:id="electricityBill" />
+                              <Label text="บาท">
+                                 <font>
+                                    <Font name="Kanit" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                            <children>
-                              <TextField />
+                              <TextField fx:id="roomRates" />
+                              <Label text="บาท">
+                                 <font>
+                                    <Font name="Kanit" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                            <children>
-                              <TextField />
+                              <TextField fx:id="total" />
+                              <Label text="บาท">
+                                 <font>
+                                    <Font name="Kanit" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Label>
                            </children>
                         </HBox>
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="invoiceNo" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="1" />
+                        <TextField fx:id="roomNumber" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="name" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="surname" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="comfirm" mnemonicParsing="false" text="ยืนยัน">
+                           <HBox.margin>
+                              <Insets left="100.0" top="30.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="reset" mnemonicParsing="false" text="รีเซ็ต">
+                           <HBox.margin>
+                              <Insets left="450.0" top="30.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </center>
