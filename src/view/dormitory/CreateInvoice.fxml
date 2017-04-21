@@ -1,14 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <left>
-      <VBox prefHeight="720.0" prefWidth="160.0" BorderPane.alignment="CENTER" />
-   </left>
-</BorderPane>
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.dormitory.InvoiceProcessingController">
+   <stylesheets>
+      <URL value="@../../dist/css/selectdormpage.css" />
+      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/createinvoicepage.css" />
+   </stylesheets>
+   <children>
+      <BorderPane prefHeight="720.0" prefWidth="1000.0">
+         <left>
+            <VBox prefHeight="717.0" prefWidth="160.0" styleClass="side-bar" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="59.0" prefWidth="160.0">
+                     <children>
+                        <Hyperlink layoutX="4.0" layoutY="10.0" styleClass="back-btn" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="75.0" prefWidth="287.0" text="สร้างใบแจ้งหนี้">
+                     <font>
+                        <Font name="Kanit" size="48.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="435.0" prefWidth="796.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="409.33331298828125" minWidth="10.0" prefWidth="269.3333435058594" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="597.3333435058594" minWidth="10.0" prefWidth="570.6666564941406" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="72.0" minHeight="0.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" top="100.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="เลขที่ใบแจ้งหนี้">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="เลขที่ห้อง" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="ชื่อ" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="ค่าน้ำ" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="ค่าไฟ" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="ค่าห้อง" GridPane.rowIndex="8">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="รวมค่าใช้จ่ายทั้งหมด" GridPane.rowIndex="9">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="นามสกุล" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="ประเภทห้อง" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <children>
+                              <TextField />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <children>
+                              <TextField />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <children>
+                              <TextField />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <children>
+                              <TextField />
+                           </children>
+                        </HBox>
+                        <TextField GridPane.columnIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
