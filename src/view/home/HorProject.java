@@ -2,6 +2,7 @@ package view.home;
 
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -44,7 +45,8 @@ public class HorProject extends Application {
         boolean answer = ExitConfirmBox.display();
         if(answer){
             DBConnector.disconnect();
-            window.close();
+            Platform.exit();
+//            window.close();
         }
     }
     

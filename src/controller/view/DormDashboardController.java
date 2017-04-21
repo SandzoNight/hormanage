@@ -29,10 +29,6 @@ public class DormDashboardController extends DormMainController implements Initi
     
     protected static long dormId;
     @FXML
-    private Label testDormId;
-    @FXML
-    private Label testUserId;
-    @FXML
     private Hyperlink backBtn;
     @FXML
     private Label dormType;
@@ -54,21 +50,29 @@ public class DormDashboardController extends DormMainController implements Initi
     private Label dormName;
     @FXML
     private Button toRoomManageBtn;
+    @FXML
+    private Button toRenterListBtn;
     /**
      * Initializes the controller class.
      */
     @Override
+    //เมื่อมีการเรียกไฟล์ DormDashboard.fxml method นี้จะทำงาน
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        testDormId.setText(dormId+"");
-        testUserId.setText(userId);
+        
+        //เริ่มดึงข้อมูลของหอพักดังกล่าวมาแสดง โดยอิงจาก id ของหอพักในตารางฐานข้อมูล
         ResultSet dormInfo = DataQuery.query("dormitory", "dormId", dormId+"");
         try{
             while(dormInfo.next()){
+                //เซ็ต Label ชื่อหอพัก
                 dormName.setText(dormInfo.getString("dormName"));
+                //เซ็ต Label ประเภทหอพัก
                 dormType.setText(dormInfo.getString("dormType"));
+                //เซ็ต Label ที่อยู่ของหอพัก
                 dormAddr.setText(dormInfo.getString("dormAddr"));
+                //เซ็ต Label เรทค่าน้ำ
                 dormWaterRate.setText(dormInfo.getString("dormWaterRate"));
+                //เซ็ต Label เรทค่าไฟ
                 dormElecRate.setText(dormInfo.getString("dormElecRate"));
             }
             DataQuery.disconnect();
@@ -78,15 +82,17 @@ public class DormDashboardController extends DormMainController implements Initi
         }
     }
     
+    //method เพื่อ set dormId ของคลาสนี้ โดยจะต้องเรียก method นี้ก่อนที่จะเรียก
+    //หน้า fxml ของคลาสนี้ เพื่อกำหนดค่าให้ attribute ก่อน เพื่อที่จะแสดงผลได้ถูกต้อง
     public static void setDormId(long dormId_input){
         dormId = dormId_input;
     }
 
     @FXML
+    //method เพื่อกลับไปยังหน้าหลัก
     private void gotoHome(ActionEvent event) {
         System.out.println("Home btn clicked");
         try{
-            //Prepare needed parameters for the new page
             FXMLLoader loader = new FXMLLoader();
 
             //Prepare new page
@@ -101,14 +107,30 @@ public class DormDashboardController extends DormMainController implements Initi
     }
 
     @FXML
+    //method นี้จะเปลี่ยนหน้าไปยังหน้ารายการห้องพัก ถูกเรียกโดยปุ่ม จัดการห้องพัก
     private void gotoRoomManage(ActionEvent event) {
         try{
-            //Prepare needed parameters for the new page
             FXMLLoader loader = new FXMLLoader();
 
             //Prepare new page
-            ///////////////// ชั่วคราว (ข้ามมาหน้าแสดงรายการห้อง) จริงๆต้องเป็น RoomMain
             root = loader.load(getClass().getResource("/view/dormitory/DormRoomList.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    //method นี้จะเปลี่ยนหน้าไปยังหน้ารายการผู้เข้าพัก ถูกเรียกโดยปุ่ม จัดการผู้เข้าพัก
+    private void gotoRenterList(ActionEvent event) {
+        try{
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormRenterList.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page

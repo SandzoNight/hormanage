@@ -1,11 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRenterInfoController">
-    
-</AnchorPane>
+<VBox prefHeight="569.0" prefWidth="680.0" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRenterInfoController">
+   <children>
+      <BorderPane prefHeight="581.0" prefWidth="793.0">
+         <center>
+            <BorderPane prefHeight="680.0" prefWidth="866.0" styleClass="main-content" BorderPane.alignment="CENTER">
+               <top>
+                  <FlowPane prefHeight="113.0" prefWidth="842.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label styleClass="page-title" text="ข้อมูลผู้เข้าพัก">
+                           <FlowPane.margin>
+                              <Insets left="30.0" />
+                           </FlowPane.margin></Label>
+                     </children>
+                  </FlowPane>
+               </top>
+               <center>
+                  <VBox prefHeight="138.0" prefWidth="866.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox maxWidth="-Infinity" prefHeight="425.0" prefWidth="650.0">
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
+                           <children>
+                              <FlowPane alignment="TOP_RIGHT">
+                                 <children>
+                                    <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editRenter" styleClass="edit-btn" text="แก้ไข" />
+                                 </children>
+                              </FlowPane>
+                              <GridPane prefHeight="385.0" prefWidth="650.0">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="386.0" minWidth="10.0" prefWidth="170.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="616.0" minWidth="10.0" prefWidth="480.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="70.0" valignment="TOP" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label styleClass="renter-info-title" text="ชื่อ-นามสกุล : " />
+                                    <Label styleClass="renter-info-title" text="เพศ : " GridPane.rowIndex="1" />
+                                    <Label styleClass="renter-info-title" text="ที่อยู่ : " GridPane.rowIndex="2" />
+                                    <Label styleClass="renter-info-title" text="เบอร์โทรศัพท์ : " GridPane.rowIndex="3" />
+                                    <Label styleClass="renter-info-title" text="อีเมล : " GridPane.rowIndex="4" />
+                                    <Label styleClass="renter-info-title" text="เลขห้อง : " GridPane.rowIndex="5" />
+                                    <Label styleClass="renter-info-title" text="ประเภทห้อง : " GridPane.rowIndex="6" />
+                                    <Label fx:id="renterName" styleClass="renter-info-desc" text="-" GridPane.columnIndex="1" />
+                                    <Label fx:id="renterGender" styleClass="renter-info-desc" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="renterAddr" styleClass="renter-info-desc" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label fx:id="renterTel" styleClass="renter-info-desc" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label fx:id="renterEmail" styleClass="renter-info-desc" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label fx:id="renterRoomNo" styleClass="renter-info-desc" text="-" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label fx:id="renterRoomType" styleClass="renter-info-desc" text="-" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+   <stylesheets>
+      
+      <!-- Use these tag when compile -->
+      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/renterinfopage.css" />
+      <!-- /////////////////////////// -->
+      
+<!--      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/renterinfopage.css" />-->
+   </stylesheets>
+</VBox>

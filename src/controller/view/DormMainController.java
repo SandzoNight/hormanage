@@ -25,8 +25,6 @@ import view.home.HorProject;
 public class DormMainController extends HorProject implements Initializable {
     protected static String userId;
     @FXML
-    private Label testUserId;
-    @FXML
     private Hyperlink manageDormBtn;
     @FXML
     private Hyperlink settingBtn;
@@ -37,7 +35,6 @@ public class DormMainController extends HorProject implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        testUserId.setText(userId);
     }
     
     public static void setUserId(String userIdInput){

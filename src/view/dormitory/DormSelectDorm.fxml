@@ -103,7 +103,6 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Hyperlink>
-                  <Label fx:id="testUserId" text="Label" />
                </children>
             </VBox>
          </left>
@@ -111,10 +110,10 @@
    </children>
    <stylesheets>
        <!-- Use these tag when compile -->
-<!--      <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/selectdormpage.css" />-->
+      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/selectdormpage.css" />
       <!-- /////////////////////////// -->
-      <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/selectdormpage.css" />
+<!--      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/selectdormpage.css" />-->
    </stylesheets>
 </VBox>
