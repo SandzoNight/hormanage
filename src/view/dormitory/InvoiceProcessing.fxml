@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="view.dormitory.InvoiceProcessingController">
+   <stylesheets>
+      <URL value="@../../dist/css/selectdormpage.css" />
+      <URL value="@../../dist/css/mainstyle.css" />
+   </stylesheets>
+   <children>
+      <Pane prefHeight="720.0" prefWidth="160.0" styleClass="side-bar">
+         <children>
+            <Hyperlink layoutX="8.0" layoutY="13.0" styleClass="back-btn" />
+         </children>
+      </Pane>
+      <Label layoutX="173.0" layoutY="13.0" text="สร้างใบแจ้งหนี้">
+         <font>
+            <Font name="Kanit" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
