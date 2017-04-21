@@ -15,16 +15,7 @@
    <children>
       <Pane prefHeight="720.0" prefWidth="160.0" styleClass="side-bar">
          <children>
-<<<<<<< HEAD
-            <Hyperlink layoutX="8.0" layoutY="13.0" styleClass="back-btn">
-               <stylesheets>
-                  <URL value="@../../dist/css/selectdormpage.css" />
-                  <URL value="@../../dist/css/mainstyle.css" />
-                  <URL value="@../../dist/css/dormrenterlistpage.css" />
-               </stylesheets>
-=======
             <Hyperlink fx:id="backBtn" layoutX="8.0" layoutY="13.0" onAction="#gotoHome" styleClass="back-btn">
->>>>>>> b979efe51173a34032ff3260d4eb90cb3cb244ab
             </Hyperlink>
          </children>
       </Pane>
@@ -109,15 +100,10 @@
       </GridPane>
    </children>
    <stylesheets>
-<<<<<<< HEAD
-      <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/dormrenterlistpage.css" />
-=======
-      <URL value="@/dist/css/selectdormpage.css" />
+      <URL value="@/dist/css/dormrenterlistpage.css" />
       <URL value="@/dist/css/mainstyle.css" />
       
-<!--      <URL value="@../../dist/css/selectdormpage.css" />
+<!--      <URL value="@../../dist/css/dormrenterlistpage.css" />
       <URL value="@../../dist/css/mainstyle.css" />-->
->>>>>>> b979efe51173a34032ff3260d4eb90cb3cb244ab
    </stylesheets>
 </Pane>
