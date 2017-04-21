@@ -11,85 +11,128 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" styleClass="login-page" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-    <stylesheets>
-        <URL value="@../../dist/css/mainstyle.css" />
-        <URL value="@../../dist/css/regispage.css" />
-    </stylesheets>
-    <children>
-        <Pane layoutX="163.0" layoutY="60.0" style="-fx-background-color: white; -fx-background-radius: 30;">
-            <children>
-                <Button fx:id="register" layoutX="253.0" layoutY="519.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="140.0" style="-fx-background-radius: 10;" text="REGISTER">
-                    <font>
-                        <Font name="Kanit" size="24.0" />
-                    </font>
-                </Button>
-                <ImageView fitHeight="180.0" fitWidth="434.0" layoutX="123.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+<BorderPane prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="840.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+                <ImageView fitHeight="180.0" fitWidth="434.0" layoutX="367.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../dist/images/logoregister.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="29.0" layoutY="185.0" text="ชื่อหอ">
+                <Button fx:id="register" layoutX="482.0" layoutY="652.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="140.0" style="-fx-background-radius: 10;" text="REGISTER">
                     <font>
                         <Font name="Kanit" size="24.0" />
                     </font>
-                </Label>
-                <Label layoutX="31.0" layoutY="225.0" text="ชนิดของหอ">
-                    <font>
+                </Button>
+            <GridPane layoutX="232.0" layoutY="167.0" prefHeight="475.0" prefWidth="689.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.6666564941406" minWidth="10.0" prefWidth="283.33331298828125" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.3333435058594" minWidth="10.0" prefWidth="327.66668701171875" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                      <Label prefHeight="38.0" prefWidth="289.0" text="ชื่อหอ">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </Label>
+                      <Label prefHeight="38.0" prefWidth="285.0" text="ประเภทหอ" GridPane.rowIndex="1">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </Label>
+                      <Label prefHeight="38.0" prefWidth="300.0" text="ที่อยู่" GridPane.rowIndex="2">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </Label>
+                      <Label prefHeight="38.0" prefWidth="282.0" text="สิ่งอำนวยความสะดวก" GridPane.rowIndex="6">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </Label>
+                      <Label prefHeight="38.0" prefWidth="290.0" text="จำนวนชั้น" textAlignment="RIGHT" GridPane.rowIndex="3">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </Label>
+                      <TextArea fx:id="dormAddress" prefHeight="99.0" prefWidth="461.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                      <TextField fx:id="dormName" prefHeight="29.0" prefWidth="218.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" />
+                      <TextField fx:id="countfloor" prefHeight="25.0" prefWidth="209.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                      <ComboBox fx:id="dormType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="หอชาย" />
+                                  <String fx:value="หอหญิง" />
+                                  <String fx:value="หอรวม" />
+                              </FXCollections>
+                          </items>
+                      </ComboBox>
+                      <CheckBox fx:id="security" mnemonicParsing="false" text="Security" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </CheckBox>
+                      <CheckBox fx:id="carpark" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="284.0" text="Car Park" GridPane.rowIndex="7">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </CheckBox>
+                      <CheckBox fx:id="swimmingpool" mnemonicParsing="false" text="Swimming Pool" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </CheckBox>
+                      <CheckBox fx:id="park" mnemonicParsing="false" text="Park" GridPane.rowIndex="8">
+                          <font>
+                              <Font name="Kanit" size="24.0" />
+                          </font>
+                      </CheckBox>
+                  <TextField fx:id="waterFee" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="100.0" style="-: ;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="electricityBill" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="อัตราค่าไฟฟ้า" GridPane.rowIndex="4">
+                     <font>
                         <Font name="Kanit" size="24.0" />
-                    </font>
-                </Label>
-                <Label layoutX="32.0" layoutY="284.0" text="ที่อยู่">
-                    <font>
+                     </font>
+                  </Label>
+                  <Label text="อัตราค่าน้ำ" GridPane.rowIndex="5">
+                     <font>
                         <Font name="Kanit" size="24.0" />
-                    </font>
-                </Label>
-                <Label layoutX="31.0" layoutY="418.0" text="สิ่งอำนวยความสะดวก">
-                    <font>
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="368.0" text="บาท / หน่วย" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
                         <Font name="Kanit" size="24.0" />
-                    </font>
-                </Label>
-                <Label layoutX="32.0" layoutY="376.0" text="จำนวนชั้น">
-                    <font>
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="369.0" text="บาท / หน่วย" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
                         <Font name="Kanit" size="24.0" />
-                    </font>
-                </Label>
-                <TextArea fx:id="dormAddress" layoutX="178.0" layoutY="268.0" prefHeight="99.0" prefWidth="461.0" />
-                <TextField fx:id="dormName" layoutX="178.0" layoutY="191.0" prefHeight="29.0" prefWidth="218.0" style="-fx-background-radius: 10;" />
-                <CheckBox fx:id="security" layoutX="32.0" layoutY="469.0" mnemonicParsing="false" text="Security">
-                    <font>
-                        <Font name="Kanit" size="24.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="carpark" layoutX="178.0" layoutY="470.0" mnemonicParsing="false" text="Car Park">
-                    <font>
-                        <Font name="Kanit" size="24.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="swimmingpool" layoutX="327.0" layoutY="470.0" mnemonicParsing="false" text="Swimming Pool">
-                    <font>
-                        <Font name="Kanit" size="24.0" />
-                    </font>
-                </CheckBox>
-                <CheckBox fx:id="park" layoutX="554.0" layoutY="470.0" mnemonicParsing="false" text="Park">
-                    <font>
-                        <Font name="Kanit" size="24.0" />
-                    </font>
-                </CheckBox>
-                <TextField fx:id="countfloor" layoutX="179.0" layoutY="380.0" style="-fx-background-radius: 10;" />
-                <ComboBox fx:id="dormType" layoutX="178.0" layoutY="232.0" prefWidth="150.0"  >
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="หอชาย" />
-                            <String fx:value="หอหญิง" />
-                            <String fx:value="หอรวม" />
-                        </FXCollections>
-                    </items>
-                </ComboBox>      
-            </children>
-            <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
-        </Pane>
-    </children>
-</Pane>
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <Pane prefHeight="720.0" prefWidth="160.0" styleClass="side-bar">
+               <children>
+                  <Hyperlink fx:id="home" layoutX="8.0" layoutY="13.0" styleClass="back-btn" />
+               </children>
+               <stylesheets>
+                  <URL value="@../../dist/css/selectdormpage.css" />
+                  <URL value="@../../dist/css/mainstyle.css" />
+               </stylesheets>
+            </Pane>
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>

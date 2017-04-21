@@ -23,6 +23,7 @@
                <stylesheets>
                   <URL value="@../../dist/css/selectdormpage.css" />
                   <URL value="@../../dist/css/mainstyle.css" />
+                  <URL value="@../../dist/css/dormrenterlistpage.css" />
                </stylesheets>
             </Hyperlink>
          </children>
@@ -96,7 +97,7 @@
       </GridPane>
    </children>
    <stylesheets>
-      <URL value="@../../dist/css/selectdormpage.css" />
       <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/dormrenterlistpage.css" />
    </stylesheets>
 </Pane>
