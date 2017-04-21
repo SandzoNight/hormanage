@@ -24,6 +24,7 @@ public class HorProject extends Application {
     protected Parent root;
     protected static Scene defaultScene;
     
+    @Override
     public void start(Stage primaryStage) throws IOException{
         root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         window = primaryStage;

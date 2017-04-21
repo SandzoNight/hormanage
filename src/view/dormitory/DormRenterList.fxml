@@ -109,15 +109,14 @@
       </GridPane>
    </children>
    <stylesheets>
-<<<<<<< HEAD
+
       <URL value="@../../dist/css/mainstyle.css" />
       <URL value="@../../dist/css/dormrenterlistpage.css" />
-=======
+
       <URL value="@/dist/css/selectdormpage.css" />
       <URL value="@/dist/css/mainstyle.css" />
       
-<!--      <URL value="@../../dist/css/selectdormpage.css" />
-      <URL value="@../../dist/css/mainstyle.css" />-->
->>>>>>> b979efe51173a34032ff3260d4eb90cb3cb244ab
+ <URL value="@../../dist/css/selectdormpage.css" />
+      <URL value="@../../dist/css/mainstyle.css" />
    </stylesheets>
 </Pane>
