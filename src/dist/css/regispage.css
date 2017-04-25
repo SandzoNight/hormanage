@@ -1,49 +1,27 @@
-.login-page{
-    -fx-alignment: center;
-    -fx-background-image: url('../images/login-bg.jpg');
-    -fx-background-size: cover;
-}
-.login-box{
-    -fx-border-width: 1px;
-    -fx-border-style: solid;
-    -fx-border-radius: 15px;
-    -fx-border-color: black;
+.main-content{
     -fx-background-color: white;
-    -fx-background-radius: 15px;
 }
-.logo{
-    -fx-image: url('../images/logo.png');
-}
-.pagetitle-container{
-    -fx-alignment: center;
-}
-.pagetitle{
-    -fx-font-size: 36px;
-}
-.form-container{
-    -fx-alignment: center;
-}
-.label-container{
-    -fx-alignment: center-right;
-    -fx-padding: 0 10px 0 0;
-}
-.label-text{
-    -fx-font-size: 18px;
-}
-.input-field-container{
+.page-title-container{
     -fx-alignment: center-left;
-    -fx-font-size: 16px;
+    /*-fx-max-height: 160px;*/
 }
-.button-container{
-    -fx-alignment: center;
+.page-title{
+    -fx-font-size: 48px;
 }
-.button-text{
+.buttons{
     -fx-font-size: 18px;
 }
-.error-text-container{
-    -fx-alignment: center;
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
 }
-.error-text{
-    -fx-font-size: 14px;
-    -fx-text-fill: red;
+.scroll-container{
+    -fx-background-color: white;
+}
+.dorm-info-title{
+    -fx-font-size:20px;
+}
+.dorm-info-desc{
+    -fx-text-fill: blue;
+    -fx-font-size:18px;
 }

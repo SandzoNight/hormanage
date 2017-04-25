@@ -89,20 +89,20 @@ public class DataInsert extends DBConnector {
         }
     }
 
-    public void insertDorm(String dormID, String dormName, String dormType, String dormAddress, int dormCountFloor, float waterRate, float elecRate, String[] facilityDormId, long User_userId) {
+    public void insertDorm(String dormID, String[] dormInfo, String[] facilityDormId, long User_userId) {
         try {
             System.out.println(inserting_str);
             String sql = "INSERT INTO dormitory VALUES(?,?,?,?,?,?,?,?,?,?)";
             ps = connection.prepareStatement(sql);
             ps.setString(1, dormID);
-            ps.setString(2, dormName);
-            ps.setString(3, dormType);
-            ps.setString(4, dormAddress);
-            ps.setInt(5, 0);
-            ps.setInt(6, dormCountFloor);
-            ps.setInt(7, 0);
-            ps.setFloat(8, waterRate);
-            ps.setFloat(9, elecRate);
+            ps.setString(2, dormInfo[0]);          //dormName
+            ps.setString(3, dormInfo[2]);          //dormType
+            ps.setString(4, dormInfo[1]);       //dormAddress
+            ps.setInt(5, 0);                    //dormCountRoom
+            ps.setInt(6, Integer.parseInt(dormInfo[3]));       //dormCountFloor
+            ps.setInt(7, 0);                    //dormVisitorNo
+            ps.setFloat(8, Float.parseFloat(dormInfo[4]));          //dormWaterRate
+            ps.setFloat(9, Float.parseFloat(dormInfo[5]));           //dormElecRate
             ps.setLong(10, User_userId);
             ps.executeUpdate();
 
