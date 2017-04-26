@@ -29,7 +29,12 @@
 }
 .edit-button{
     -fx-font-size: 18px;
-    -fx-pref-width: 210px;
+    -fx-pref-width: 160px;
+}
+.delete-button{
+    -fx-font-size: 18px;
+    -fx-pref-width: 150px;
+    -fx-background-color: red;
 }
 .scroll-pane > .viewport {
    -fx-background-color: transparent;

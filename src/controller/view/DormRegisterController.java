@@ -24,6 +24,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import model.DataCount;
 import model.DataQuery;
 
@@ -44,14 +45,6 @@ public class DormRegisterController extends DormSelectDormController implements 
     private TextField countfloor;
     @FXML
     private ComboBox dormType;
-    @FXML
-    private CheckBox carparkFacility;
-    @FXML
-    private CheckBox security;
-    @FXML
-    private CheckBox swimmingpool;
-    @FXML
-    private CheckBox park;
     @FXML
     private TextField waterRate;
     @FXML
@@ -83,6 +76,9 @@ public class DormRegisterController extends DormSelectDormController implements 
                 facility[objIndex] = new CheckBox();
                 facility[objIndex].setText(rs.getString("facilityName"));
                 facility[objIndex].setId(rs.getString("facilityDormId"));
+                facility[objIndex].setOnAction(e -> {
+                    editedListener(e);
+                });
                 facilityList.getItems().addAll(facility[objIndex]);
                 objIndex++;
                 facilityCount++;
@@ -90,6 +86,7 @@ public class DormRegisterController extends DormSelectDormController implements 
         }catch(Exception e){
             e.printStackTrace();
         }
+        resetBtn.setDisable(true);
     }
 
     @FXML
@@ -143,10 +140,46 @@ public class DormRegisterController extends DormSelectDormController implements 
         for(int i=0;i<dormInfo.length;i++){
             System.out.println(i +" " +dormInfo[i]);
         }
+        
+        //Prepare needed parameters for the new page
+        FXMLLoader loader = new FXMLLoader();
+        try{
+            root = loader.load(getClass().getResource("/view/dormitory/DormSelectDorm.fxml").openStream());
+            Scene scene = new Scene(root);
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+        
+        
     }
 
     @FXML
     private void resetField(ActionEvent event) {
+        dormName.setText("");
+        dormType.setValue("หอรวม");
+        dormAddress.setText("");
+        countfloor.setText("1");
+        elecRate.setText("0.0");
+        waterRate.setText("0.0");
+        for(int i=0;i<facility.length;i++){
+            facility[i].setSelected(false);
+        }
+    }
+
+    @FXML
+    private void editedListener(KeyEvent event) {
+        edited();
+    }
+    
+    private void editedListener(ActionEvent event) {
+        edited();
+    }
+    
+    private void edited(){
+        resetBtn.setDisable(false);
     }
     
 }
