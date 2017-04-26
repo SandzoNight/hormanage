@@ -23,7 +23,7 @@ import view.home.HorProject;
  * @author fluke
  */
 public class DormMainController extends HorProject implements Initializable {
-    protected static String userId;
+    protected static long userId;
     @FXML
     private Hyperlink manageDormBtn;
     @FXML
@@ -37,7 +37,7 @@ public class DormMainController extends HorProject implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
     
-    public static void setUserId(String userIdInput){
+    public static void setUserId(long userIdInput){
         userId = userIdInput;
     }
 

@@ -18,7 +18,7 @@ import model.DataUpdate;
  */
 public class DormManage {
     //This method will get the next value of dormId for you
-    public static void add(String dormName,String dormType,String dormAddress,int countFloor,float waterRate,float elecRate,String[] facilityDormId,long User_userId){
+    public static void add(String[] dormInfo,String[] facilityDormId,long User_userId){
         long nextDormId = 0;
         ResultSet res = DataQuery.query("nextrecordId");
         try{
@@ -32,7 +32,7 @@ public class DormManage {
         
         DataInsert di = new DataInsert();
         //Values pattern --> dormId,dormName,dormType,dormAddress,countRoom,facilityDormId,User_userId
-        di.insertDorm(nextDormId+"",dormName,dormType,dormAddress,countFloor,waterRate,elecRate,facilityDormId,User_userId);
+        di.insertDorm(nextDormId+"",dormInfo,facilityDormId,User_userId);
         di.disconnect();
     }
     

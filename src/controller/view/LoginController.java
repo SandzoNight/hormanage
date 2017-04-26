@@ -66,7 +66,7 @@ public class LoginController extends HorProject implements Initializable {
                     res.beforeFirst();
                     while(res.next()){
                         if(passwordField.getText().equals(res.getString("userPassword"))){
-                            String userId = res.getString("userId");
+                            long userId = res.getLong("userId");
                             errorMessage.setTextFill(Color.GREEN);
                             System.out.println("Login Successfully !!");
                             errorMessage.setText("Login Sucessfully !!"); 
