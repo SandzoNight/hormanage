@@ -52,7 +52,7 @@
                               <HBox GridPane.columnIndex="1">
                                  <children>
                                     <Button fx:id="deleteBtn" maxWidth="-Infinity" mnemonicParsing="false" onAction="#delete" styleClass="delete-button" text="ลบ" />
-                                    <Button maxWidth="-Infinity" mnemonicParsing="false" styleClass="edit-button" text="แก้ไข">
+                                    <Button fx:id="editBtn" maxWidth="-Infinity" mnemonicParsing="false" onAction="#edit" styleClass="edit-button" text="แก้ไข">
                                        <HBox.margin>
                                           <Insets left="15.0" />
                                        </HBox.margin>
@@ -163,12 +163,12 @@
    <stylesheets>
       
       <!-- Use these tag when compile -->
-<!--      <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/dormdashboardpage.css" />-->
+      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/dormdashboardpage.css" />
       <!-- /////////////////////////// -->
       
-      <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/dormdashboardpage.css" /><!--
+<!--      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/dormdashboardpage.css" />
       -->
    </stylesheets>
 </VBox>

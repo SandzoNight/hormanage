@@ -5,11 +5,13 @@
  */
 package controller.view;
 
+import controller.DormManage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +20,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import model.DBConnector;
 import model.DataQuery;
+import view.dialog.DeleteBox;
+import view.dialog.ExitConfirmBox;
 
 /**
  * FXML Controller class
@@ -52,6 +57,12 @@ public class DormDashboardController extends DormMainController implements Initi
     private Button toRoomManageBtn;
     @FXML
     private Button toRenterListBtn;
+    @FXML
+    private Button deleteBtn;
+    
+    private String[] info;
+    @FXML
+    private Button editBtn;
     /**
      * Initializes the controller class.
      */
@@ -61,25 +72,17 @@ public class DormDashboardController extends DormMainController implements Initi
         // TODO
         
         //เริ่มดึงข้อมูลของหอพักดังกล่าวมาแสดง โดยอิงจาก id ของหอพักในตารางฐานข้อมูล
-        ResultSet dormInfo = DataQuery.query("dormitory", "dormId", dormId+"");
-        try{
-            while(dormInfo.next()){
-                //เซ็ต Label ชื่อหอพัก
-                dormName.setText(dormInfo.getString("dormName"));
-                //เซ็ต Label ประเภทหอพัก
-                dormType.setText(dormInfo.getString("dormType"));
-                //เซ็ต Label ที่อยู่ของหอพัก
-                dormAddr.setText(dormInfo.getString("dormAddr"));
-                //เซ็ต Label เรทค่าน้ำ
-                dormWaterRate.setText(dormInfo.getString("dormWaterRate"));
-                //เซ็ต Label เรทค่าไฟ
-                dormElecRate.setText(dormInfo.getString("dormElecRate"));
-            }
-            DataQuery.disconnect();
-        }catch(SQLException e){
-            e.printStackTrace();
-                    
-        }
+        info = DormManage.getInfo(dormId);
+        //เซ็ต Label ชื่อหอพัก
+        dormName.setText(info[0]);
+        //เซ็ต Label ประเภทหอพัก
+        dormType.setText(info[1]);
+        //เซ็ต Label ที่อยู่ของหอพัก
+        dormAddr.setText(info[2]);
+        //เซ็ต Label เรทค่าน้ำ
+        dormWaterRate.setText(info[6]);
+        //เซ็ต Label เรทค่าไฟ
+        dormElecRate.setText(info[7]);
     }
     
     //method เพื่อ set dormId ของคลาสนี้ โดยจะต้องเรียก method นี้ก่อนที่จะเรียก
@@ -131,6 +134,50 @@ public class DormDashboardController extends DormMainController implements Initi
 
             //Prepare new page
             root = loader.load(getClass().getResource("/view/dormitory/DormRenterList.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void delete(ActionEvent event) {
+        boolean answer = DeleteBox.display();
+        if(answer){
+            DeleteBox.answer = false;
+            System.out.println("[DormDashboardController]Deleting dormitory");
+//            window.close();
+            DormManage.remove(dormId+"", userId);
+            try{
+                FXMLLoader loader = new FXMLLoader();
+
+                //Prepare new page
+                root = loader.load(getClass().getResource("/view/dormitory/DormSelectDorm.fxml").openStream());
+                Scene scene = new Scene(root);
+
+                //Change to new page
+                window.setScene(scene);
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    private void edit(ActionEvent event) {
+        String[] dormInfo = DormManage.getInfo(dormId);
+        String[] dormFacilityId = DormManage.getFacility(dormId);
+        
+        try{
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            DormEditController.setDormInfo(dormInfo);
+            DormEditController.setFacilityId(dormFacilityId);
+            root = loader.load(getClass().getResource("/view/dormitory/DormEdit.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page
