@@ -52,7 +52,7 @@ public class DormDashboardController extends DormMainController implements Initi
     @FXML
     private Label dormElecRate1;
     @FXML
-    private Label dormName;
+    private Label dormNameLabel;
     @FXML
     private Button toRoomManageBtn;
     @FXML
@@ -74,7 +74,7 @@ public class DormDashboardController extends DormMainController implements Initi
         //เริ่มดึงข้อมูลของหอพักดังกล่าวมาแสดง โดยอิงจาก id ของหอพักในตารางฐานข้อมูล
         info = DormManage.getInfo(dormId);
         //เซ็ต Label ชื่อหอพัก
-        dormName.setText(info[0]);
+        dormNameLabel.setText(info[0]);
         //เซ็ต Label ประเภทหอพัก
         dormType.setText(info[1]);
         //เซ็ต Label ที่อยู่ของหอพัก
@@ -168,6 +168,7 @@ public class DormDashboardController extends DormMainController implements Initi
 
     @FXML
     private void edit(ActionEvent event) {
+        System.out.println("Go to Editpage");
         String[] dormInfo = DormManage.getInfo(dormId);
         String[] dormFacilityId = DormManage.getFacility(dormId);
         
@@ -175,12 +176,15 @@ public class DormDashboardController extends DormMainController implements Initi
             FXMLLoader loader = new FXMLLoader();
 
             //Prepare new page
+            System.out.println("[DormDashboardController]Setting parameter for new page..");
             DormEditController.setDormInfo(dormInfo);
             DormEditController.setFacilityId(dormFacilityId);
+            System.out.println("[DormDashboardController]Loading new page..");
             root = loader.load(getClass().getResource("/view/dormitory/DormEdit.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page
+            System.out.println("[DormDashboardController]Changing scene..");
             window.setScene(scene);
         }catch(IOException e){
             e.printStackTrace();

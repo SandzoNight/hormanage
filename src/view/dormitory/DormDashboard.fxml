@@ -46,7 +46,7 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="643.0">
                                  <children>
-                                    <Label fx:id="dormName" styleClass="dorm-name" text="Dorm nameeee" />
+                                    <Label fx:id="dormNameLabel" styleClass="dorm-name" text="Dorm nameeee" />
                                  </children>
                               </VBox>
                               <HBox GridPane.columnIndex="1">

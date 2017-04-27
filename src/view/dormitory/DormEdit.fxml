@@ -68,7 +68,7 @@
                                       </font>
                                   </Label>
                                   <TextField fx:id="dormName" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#editedListener" prefHeight="29.0" prefWidth="218.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" />
-                                  <ComboBox fx:id="dormType" onAction="#editedListener" prefWidth="150.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                  <ComboBox fx:id="dormTypeCombobox" onAction="#editedListener" prefWidth="150.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                   </ComboBox>
                                   <TextArea fx:id="dormAddress" onKeyTyped="#editedListener" prefHeight="99.0" prefWidth="461.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                   <TextField fx:id="countfloor" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#editedListener" prefHeight="25.0" prefWidth="100.0" styleClass="dorm-info-desc" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />

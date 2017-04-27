@@ -93,6 +93,7 @@ public class DormManage {
     }
     
     public static String[] getFacility(long dormId){
+        System.out.println("[DormManage]Getting facility list");
         int length = DataCount.count("dormitoryfacilitydorm_has_dorm", "Dormitory_dormId", dormId+"");
         
         String[] facilityId = new String[length];
@@ -103,10 +104,10 @@ public class DormManage {
                 facilityId[i] = rs.getString("Dormitoryfacilitydorm_facilityDormId");
                 i++;
             }
-        }catch(SQLException e){
+        }catch(Exception e){
             e.printStackTrace();
         }
-        
+        System.out.println("[DormManage]Finish getting facility list");
         return facilityId;
     }
 }
