@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -36,7 +37,7 @@ public class DormRenterEditController extends DormRenterInfoController implement
     @FXML
     private TextField renterFirstNameField;
     @FXML
-    private TextField renterGenderField;
+    private ComboBox renterGenderField;
     @FXML
     private TextField renterTelField;
     @FXML
@@ -57,9 +58,15 @@ public class DormRenterEditController extends DormRenterInfoController implement
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        renterGenderField.getItems().addAll("ชาย","หญิง");
+        
         renterFirstNameField.setText(renterData[0]);
         renterLastNameField.setText(renterData[1]);
-        renterGenderField.setText(renterData[2]);
+        if(renterData[2].equals("ชาย")){
+            renterGenderField.setValue("ชาย");
+        }else{
+            renterGenderField.setValue("หญิง");
+        }
         renterTelField.setText(renterData[4]);
         renterEmailField.setText(renterData[5]);
         renterAddrField.setText(renterData[3]);
@@ -92,7 +99,11 @@ public class DormRenterEditController extends DormRenterInfoController implement
         System.out.println("[DormRenterEditController]Updating information of renterId="+renterId+".");
         renterData[0] = renterFirstNameField.getText();
         renterData[1] = renterLastNameField.getText();
-        renterData[2] = renterGenderField.getText();
+        if(renterGenderField.getValue().equals("ชาย")){
+            renterData[2] = "ชาย";
+        }else{
+            renterData[2] = "หญิง";
+        }
         renterData[4] = renterTelField.getText();
         renterData[5] = renterEmailField.getText();
         renterData[3] = renterAddrField.getText();
@@ -115,7 +126,11 @@ public class DormRenterEditController extends DormRenterInfoController implement
         System.out.println("[DormRenterEditController]Resetting text fields..");
         renterFirstNameField.setText(renterData[0]);
         renterLastNameField.setText(renterData[1]);
-        renterGenderField.setText(renterData[2]);
+        if(renterData[2].equals("ชาย")){
+            renterGenderField.setValue("ชาย");
+        }else{
+            renterGenderField.setValue("หญิง");
+        }
         renterTelField.setText(renterData[4]);
         renterEmailField.setText(renterData[5]);
         renterAddrField.setText(renterData[3]);
@@ -124,6 +139,11 @@ public class DormRenterEditController extends DormRenterInfoController implement
 
     @FXML
     private void edited(KeyEvent event) {
+        resetBtn.setDisable(false);
+    }
+
+    @FXML
+    private void choiceSelected(ActionEvent event) {
         resetBtn.setDisable(false);
     }
     

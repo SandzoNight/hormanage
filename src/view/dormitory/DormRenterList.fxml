@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.geometry.*?>
-<?import java.net.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRenterListController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRenterListController">
    <children>
       <Pane prefHeight="720.0" prefWidth="160.0" styleClass="side-bar">
          <children>
@@ -19,12 +19,12 @@
             </Hyperlink>
          </children>
       </Pane>
-      <Label layoutX="173.0" layoutY="13.0" styleClass="page-title-container" stylesheets="@../../dist/css/selectdormpage.css" text="จัดการผู้เข้าพัก">
+      <Label layoutX="173.0" layoutY="13.0" styleClass="page-title-container" text="จัดการผู้เข้าพัก">
          <font>
             <Font name="Kanit" size="72.0" />
          </font>
       </Label>
-      <TextField fx:id="searchBox" layoutX="173.0" layoutY="116.0" prefHeight="41.0" prefWidth="198.0" promptText="ค้นหา..." />
+      <TextField fx:id="searchBox" layoutX="173.0" layoutY="116.0" onAction="#searchRenter" prefHeight="41.0" prefWidth="198.0" promptText="ค้นหา..." />
       <Button fx:id="addguestButton" layoutX="820.0" layoutY="119.0" mnemonicParsing="false" onAction="#addNewRenter" prefHeight="31.0" prefWidth="166.0" text="เพิ่มประวัติผู้เข้าพัก">
          <font>
             <Font name="Kanit" size="18.0" />
@@ -100,10 +100,10 @@
       </GridPane>
    </children>
    <stylesheets>
-      <URL value="@/dist/css/dormrenterlistpage.css" />
-      <URL value="@/dist/css/mainstyle.css" />
-      
-<!--      <URL value="@../../dist/css/dormrenterlistpage.css" />
-      <URL value="@../../dist/css/mainstyle.css" />-->
+        <URL value="@/dist/css/mainstyle.css" />
+        <URL value="@/dist/css/renterlistpage.css" />
+
+<!--        <URL value="@../../dist/css/mainstyle.css" />
+        <URL value="@../../dist/css/renterlistpage.css" />-->
    </stylesheets>
 </Pane>

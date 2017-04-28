@@ -51,7 +51,7 @@ public class DormSelectDormController extends DormMainController implements Init
         dormlist.getStylesheets().add("/dist/css/selectdormpage.css");
         
         //นับจำนวนหอพักของผู้ใช้ และเตรียม component ต่างๆตามจำนวนที่ได้จากการนับเพื่อที่จะวางลงในหน้า
-        int totalDorm = DataCount.count("dormitory", "Userdormowner_userId", userId);
+        int totalDorm = DataCount.count("dormitory", "Userdormowner_userId", userId+"");
         DataCount.disconnect();
         FlowPane[] flowpane = new FlowPane[totalDorm];
         BorderPane[] borderpane = new BorderPane[totalDorm];
@@ -73,7 +73,7 @@ public class DormSelectDormController extends DormMainController implements Init
         ////////////////////////////////////////////////////////////////////////////
         
         //เริ่ม query ข้อมูลหอพักของผู้ใช้
-        ResultSet userDorm = DataQuery.query("dormitory", "Userdormowner_userId", userId);
+        ResultSet userDorm = DataQuery.query("dormitory", "Userdormowner_userId", userId+"");
         int i = 0;
         try{
             while(userDorm.next()){
@@ -146,7 +146,16 @@ public class DormSelectDormController extends DormMainController implements Init
     @FXML
     private void gotoAddDorm(ActionEvent event) {
         System.out.println("Go to DormRegister");
-        //ยังไม่ได้เขียนให้ไปยังหน้าเพิ่มข้อมูลหอพัก ปัจจุบันเพิ่มโดยการแก้ที่ db โดยตรง
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            root = loader.load(getClass().getResource("/view/dormitory/DormRegister.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //เปลี่ยนหน้า
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
     
     private void gotoDormDashboard(ActionEvent event) {
