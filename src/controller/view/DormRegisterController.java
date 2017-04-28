@@ -77,7 +77,7 @@ public class DormRegisterController extends DormSelectDormController implements 
                 facility[objIndex].setText(rs.getString("facilityName"));
                 facility[objIndex].setId(rs.getString("facilityDormId"));
                 facility[objIndex].setOnAction(e -> {
-                    editedListener(e);
+                    choiceBoxSelected(e);
                 });
                 facilityList.getItems().addAll(facility[objIndex]);
                 objIndex++;
@@ -150,10 +150,7 @@ public class DormRegisterController extends DormSelectDormController implements 
             window.setScene(scene);
         }catch(IOException e){
             e.printStackTrace();
-        }
-
-        
-        
+        } 
     }
 
     @FXML
@@ -170,11 +167,15 @@ public class DormRegisterController extends DormSelectDormController implements 
     }
 
     @FXML
-    private void editedListener(KeyEvent event) {
+    private void textTyped(KeyEvent event) {
         edited();
     }
     
-    private void editedListener(ActionEvent event) {
+    @FXML
+    private void comboBoxSelected(ActionEvent event) {
+        edited();
+    }
+    private void choiceBoxSelected(ActionEvent event) {
         edited();
     }
     

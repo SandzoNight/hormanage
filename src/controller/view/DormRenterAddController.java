@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -35,7 +36,7 @@ public class DormRenterAddController extends DormRenterInfoController implements
     @FXML
     private TextField renterFirstNameField;
     @FXML
-    private TextField renterGenderField;
+    private ComboBox renterGenderField;
     @FXML
     private TextField renterTelField;
     @FXML
@@ -56,6 +57,8 @@ public class DormRenterAddController extends DormRenterInfoController implements
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        renterGenderField.getItems().addAll("ชาย","หญิง");
+        renterGenderField.setValue("ชาย");
         // TODO
     }    
 
@@ -84,7 +87,11 @@ public class DormRenterAddController extends DormRenterInfoController implements
         String[] renterData = new String[6];
         renterData[0] = renterFirstNameField.getText();
         renterData[1] = renterLastNameField.getText();
-        renterData[2] = renterGenderField.getText();
+        if(renterGenderField.getValue().toString().equals("ชาย")){
+            renterData[2] = "m";
+        }else{
+            renterData[2] = "f";
+        }
         renterData[3] = renterAddrField.getText();
         renterData[4] = renterTelField.getText();
         renterData[5] = renterEmailField.getText();
@@ -116,11 +123,16 @@ public class DormRenterAddController extends DormRenterInfoController implements
         System.out.println("[DormRenterEditController]Resetting text fields..");
         renterFirstNameField.setText("");
         renterLastNameField.setText("");
-        renterGenderField.setText("");
+        renterGenderField.setValue("ชาย");
         renterTelField.setText("");
         renterEmailField.setText("");
         renterAddrField.setText("");
         resetBtn.setDisable(true);
+    }
+
+    @FXML
+    private void choiceSelected(ActionEvent event) {
+        resetBtn.setDisable(false);
     }
 
     

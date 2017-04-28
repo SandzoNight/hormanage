@@ -67,11 +67,11 @@
                                           <Font name="Kanit" size="24.0" />
                                       </font>
                                   </Label>
-                                  <TextField fx:id="dormName" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#editedListener" prefHeight="29.0" prefWidth="218.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" />
+                                  <TextField fx:id="dormName" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#keyTyped" prefHeight="29.0" prefWidth="218.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" />
                                   <ComboBox fx:id="dormTypeCombobox" onAction="#editedListener" prefWidth="150.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                   </ComboBox>
-                                  <TextArea fx:id="dormAddress" onKeyTyped="#editedListener" prefHeight="99.0" prefWidth="461.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                  <TextField fx:id="countfloor" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#editedListener" prefHeight="25.0" prefWidth="100.0" styleClass="dorm-info-desc" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                  <TextArea fx:id="dormAddress" onKeyTyped="#keyTyped" prefHeight="99.0" prefWidth="461.0" styleClass="dorm-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                  <TextField fx:id="countfloor" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#keyTyped" prefHeight="25.0" prefWidth="100.0" styleClass="dorm-info-desc" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label text="อัตราค่าไฟฟ้า" GridPane.rowIndex="4">
                                  <font>
                                     <Font name="Kanit" size="24.0" />
@@ -84,7 +84,7 @@
                               </Label>
                               <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <children>
-                                    <TextField fx:id="elecRate" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#editedListener" prefHeight="40.0" prefWidth="338.0" style="-fx-border-radius: 10;" styleClass="dorm-info-desc" text="0.0" />
+                                    <TextField fx:id="elecRate" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#keyTyped" prefHeight="40.0" prefWidth="338.0" style="-fx-border-radius: 10;" styleClass="dorm-info-desc" text="0.0" />
                                     <Label prefHeight="38.0" prefWidth="368.0" text="บาท / หน่วย">
                                        <font>
                                           <Font name="Kanit" size="24.0" />
@@ -97,7 +97,7 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <children>
-                                    <TextField fx:id="waterRate" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#editedListener" prefHeight="40.0" prefWidth="338.0" style="-fx-border-radius: 10;" styleClass="dorm-info-desc" text="0.0" />
+                                    <TextField fx:id="waterRate" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#keyTyped" prefHeight="40.0" prefWidth="338.0" style="-fx-border-radius: 10;" styleClass="dorm-info-desc" text="0.0" />
                                     <Label prefHeight="38.0" prefWidth="368.0" text="บาท / หน่วย">
                                        <font>
                                           <Font name="Kanit" size="24.0" />

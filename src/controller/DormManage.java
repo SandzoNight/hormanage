@@ -65,13 +65,13 @@ public class DormManage {
         return floor;
     }
     
-    public static void update(String dormName,String dormType,String dormAddress,int countFloor,float waterRate,float elecRate,String[] facilityDormId,String dormId){
-        DataUpdate.updateDormDetail(dormName, dormType, dormAddress, countFloor, waterRate, elecRate, facilityDormId, dormId);
+    public static void update(String[] dormInfo,String[] facilityDormId){
+        DataUpdate.updateDormDetail(dormInfo,facilityDormId);
         DataUpdate.disconnect();
     }
     
     public static String[] getInfo(long dormId){
-        String[] dormInfo = new String[9];
+        String[] dormInfo = new String[10];
         ResultSet rs = DataQuery.query("dormitory", "dormId", dormId+"");
         try{
             while(rs.next()){
@@ -84,6 +84,7 @@ public class DormManage {
                 dormInfo[6] = rs.getString("dormWaterRate");
                 dormInfo[7] = rs.getString("dormElecRate");
                 dormInfo[8] = rs.getString("Userdormowner_userId");
+                dormInfo[9] = rs.getString("dormId");
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -110,4 +111,5 @@ public class DormManage {
         System.out.println("[DormManage]Finish getting facility list");
         return facilityId;
     }
+
 }

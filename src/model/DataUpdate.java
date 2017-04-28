@@ -43,7 +43,7 @@ public abstract class DataUpdate extends DBConnector{
         return updated;
     }
     
-    public static int updateDormDetail(String dormName,String dormType,String dormAddress,int dormCountFloor,float waterRate,float elecRate,String[] facilityDormId,String dormID){
+    public static int updateDormDetail(String[] dormInfo,String[] facilityDormId){
         String tableName = "dormitory";
         calling_str = "[DataUpdate]Calling DBConnector to connect the database";
         updated_str = "[DataUpdate]Updated";
@@ -51,18 +51,18 @@ public abstract class DataUpdate extends DBConnector{
         error_str = "[DataUpdate]Error occured! Disconnecting from DB";
         disconnect_str = "[DataUpdate]Disconnect from DB";
         updating_str = "[DataUpdate]Updating dormitory record..";
-        String sql = "UPDATE "+tableName+" SET dormName=?,dormType=?,dormAddress=?,dormCountFloor=?,waterRate=?,elecRate=? WHERE dormId="+dormID;
+        String sql = "UPDATE "+tableName+" SET dormName=?,dormType=?,dormAddr=?,dormCountFloor=?,dormWaterRate=?,dormElecRate=? WHERE dormId="+dormInfo[9];
         try{
             System.out.println(calling_str);
             connect();
             PreparedStatement ps;
             ps = connection.prepareStatement(sql);
-            ps.setString(1, dormName);
-            ps.setString(2, dormType);
-            ps.setString(3, dormAddress);
-            ps.setInt(4, dormCountFloor);
-            ps.setFloat(5, waterRate);
-            ps.setFloat(6, elecRate);
+            ps.setString(1, dormInfo[0]);
+            ps.setString(2, dormInfo[1]);
+            ps.setString(3, dormInfo[2]);
+            ps.setInt(4, Integer.parseInt(dormInfo[4]));
+            ps.setFloat(5, Float.parseFloat(dormInfo[6]));
+            ps.setFloat(6, Float.parseFloat(dormInfo[7]));
             System.out.println(updating_str);
             updated = ps.executeUpdate();
             System.out.println(updated_str+" "+updated+" record(s)!");
@@ -70,14 +70,14 @@ public abstract class DataUpdate extends DBConnector{
             
             System.out.println(updating2_str);
             //ลบของเก่าทิ้ง
-            DataDelete.delete("dormitoryfacilitydorm_has_dorm", "Dormitory_dormId", dormID);
+            DataDelete.delete("dormitoryfacilitydorm_has_dorm", "Dormitory_dormId", dormInfo[9]);
             int numOfRecordDormFacility = facilityDormId.length;
             //เพิ่มของใหม่
             String sql2 ="INSERT INTO dormitoryfacilitydorm_has_dorm (Dormitoryfacilitydorm_facilityDormId,Dormitory_dormId) VALUES (?,?)";
             ps = connection.prepareStatement(sql2);
             for(int i=0;i<numOfRecordDormFacility;i++){
                 ps.setString(1, facilityDormId[i]);
-                ps.setString(2, dormID);
+                ps.setString(2, dormInfo[9]);
                 ps.executeUpdate();
             }
             disconnect();

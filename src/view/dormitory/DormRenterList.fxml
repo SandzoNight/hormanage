@@ -24,7 +24,7 @@
             <Font name="Kanit" size="72.0" />
          </font>
       </Label>
-      <TextField fx:id="searchBox" layoutX="173.0" layoutY="116.0" prefHeight="41.0" prefWidth="198.0" promptText="ค้นหา..." />
+      <TextField fx:id="searchBox" layoutX="173.0" layoutY="116.0" onAction="#searchRenter" prefHeight="41.0" prefWidth="198.0" promptText="ค้นหา..." />
       <Button fx:id="addguestButton" layoutX="820.0" layoutY="119.0" mnemonicParsing="false" onAction="#addNewRenter" prefHeight="31.0" prefWidth="166.0" text="เพิ่มประวัติผู้เข้าพัก">
          <font>
             <Font name="Kanit" size="18.0" />

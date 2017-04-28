@@ -24,6 +24,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.input.ContextMenuEvent;
@@ -44,7 +45,7 @@ public class DormRoomListController extends DormDashboardController implements I
     @FXML
     private Hyperlink backBtn;
     @FXML
-    private ChoiceBox floorList;
+    private ComboBox floorList;
     
     private Button[] viewBtn;
     private Label[] roomNo;
@@ -62,11 +63,9 @@ public class DormRoomListController extends DormDashboardController implements I
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         int totalFloor = DormManage.getFloor(dormId);
-        String[] floorChoice = new String[totalFloor];
-        for(int i=0;i<floorChoice.length;i++){
-            floorChoice[i] = (i+1)+"";
+        for(int i=0;i<totalFloor;i++){
+            floorList.getItems().add((i+1)+"");
         }
-        floorList.setItems(FXCollections.observableArrayList(floorChoice));
         floorList.setValue("1");
         
         int countRoom = RoomManage.totalRoomByFloor(dormId+"","1");
