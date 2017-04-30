@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormInvoiceListController">
+   <children>
+      <Pane prefHeight="720.0" prefWidth="160.0" styleClass="side-bar">
+         <stylesheets>
+            <URL value="@../../dist/css/mainstyle.css" />
+            <URL value="@../../dist/css/selectdormpage.css" />
+         </stylesheets>
+         <children>
+            <Hyperlink fx:id="home" layoutX="8.0" layoutY="13.0" styleClass="back-btn" stylesheets="@../../dist/css/selectdormpage.css" />
+         </children>
+      </Pane>
+      <Label layoutX="173.0" layoutY="13.0" text="รายการผู้ค้างชำระ">
+         <font>
+            <Font name="Kanit" size="64.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="159.0" layoutY="182.0" prefHeight="30.0" prefWidth="842.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="99.0" text="เลขที่ห้อง">
+               <font>
+                  <Font name="Kanit" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="213.0" text="ชื่อผู้เช่า" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Kanit" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="103.0" text="นามสกุล" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Kanit" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="110.0" text="รวมค่าใช้จ่ายทั้งหมด" GridPane.columnIndex="3">
+               <font>
+                  <Font name="Kanit" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <GridPane fx:id="listNotPaid" layoutX="169.0" layoutY="249.0" prefHeight="29.0" prefWidth="841.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="96.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="273.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.0" minWidth="10.0" prefWidth="223.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="240.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>
