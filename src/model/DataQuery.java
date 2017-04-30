@@ -151,7 +151,7 @@ public abstract class DataQuery extends DBConnector{
         error_str = "[DataQuery]Error occured! Disconnecting from DB";
         disconnect_str = "[DataQuery]Disconnect from DB";
         querying_str = "[DataQuery]Querying from user";
-        String sql = "SELECT * FROM invoice WHERE paidStatus = 0 AND Dormitory_dormId = ?";
+        String sql = "SELECT * FROM invoice INNER JOIN renter ON invoice.Renter_renterId = renter.renterId WHERE paidStatus = 0 AND invoice.Dormitory_dormId = ?";
         ResultSet rec = null;
         try{
             System.out.println(calling_str);
