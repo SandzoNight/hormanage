@@ -3,7 +3,6 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRoomListController">
+<VBox prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRoomTypeListController">
    <children>
       <BorderPane>
          <center>
@@ -23,7 +22,7 @@
                <top>
                   <FlowPane prefHeight="113.0" prefWidth="842.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
                      <children>
-                        <Label styleClass="page-title" text="จัดการห้องพัก" />
+                        <Label styleClass="page-title" text="จัดการประเภทห้องพัก" />
                      </children>
                   </FlowPane>
                </top>
@@ -32,19 +31,7 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="278.0" styleClass="floor-select-container">
-                                 <children>
-                                    <Label text="ชั้นที่">
-                                       <HBox.margin>
-                                          <Insets right="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <ComboBox fx:id="floorList" onAction="#floorSelected" prefHeight="40.0" prefWidth="103.0" visibleRowCount="5" />
-                                    <Button fx:id="floorSelectBtn" mnemonicParsing="false" onAction="#floorSelected" text="ยืนยัน" />
-                                 </children>
-                              </HBox>
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="201.0" styleClass="buttons" text="จัดการประเภทห้องพัก" textAlignment="CENTER" />
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มห้องพัก" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มประเภทห้องพัก" textAlignment="CENTER" />
                            </children>
                         </HBox>
                         <ScrollPane prefHeight="449.0" prefWidth="840.0" style="-fx-alignment: center;">
@@ -54,7 +41,6 @@
                                     <GridPane alignment="CENTER">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                       <rowConstraints>
@@ -63,18 +49,16 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label styleClass="td-head" text="ห้อง" GridPane.halignment="CENTER">
+                                          <Label styleClass="td-head" text="ประเภทห้อง" GridPane.halignment="CENTER">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label styleClass="td-head" text="สถานะ (ว่าง)" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label styleClass="td-head" text="ดำเนินการ" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <Label styleClass="td-head" text="ดำเนินการ" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                        </children>
                                     </GridPane>
                                     <GridPane fx:id="roomListGridPane" alignment="CENTER" styleClass="tbody">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
