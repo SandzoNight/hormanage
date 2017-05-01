@@ -17,18 +17,6 @@ import model.DataQuery;
 public class InvoiceManage {
     public static ResultSet RenterNotPaid(String dormId){
         ResultSet res1 = DataQuery.QueryNotPaidInvoice(dormId);
-        /*try{
-           while(res1.next()){
-                System.out.println(res1.getString("Room_roomId"));
-                System.out.println(res1.getString("renterFirstName"));
-                System.out.println(res1.getString("renterLastName"));
-                double totalPrice = PriceCalculator(res1.getFloat("waterTotalPrice"),res1.getFloat("elecTotalPrice"),res1.getFloat("roomPrice"));
-                System.out.println(totalPrice);  
-            }
-        }
-        catch(SQLException sqle){
-            sqle.printStackTrace();
-        }*/
         return res1;
     }
     
