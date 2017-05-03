@@ -43,29 +43,25 @@ public class DormInvoiceListController extends DormDashboardController implement
         renterSurname = new Label[totalRenter];
         totalPrice = new Label[totalRenter];
         */
-        ResultSet res = InvoiceManage.RenterNotPaid(dormId+"");
+        ResultSet res = InvoiceManage.RenterNotPaid(1+"");
         int index = 0;
-
+        
+        ArrayList<Label> InvoiceNo = new ArrayList<Label>();
+        ArrayList<Label> roomNo = new ArrayList<Label>();
+        ArrayList<Label> renterFirstName = new ArrayList<Label>();
+        ArrayList<Label> renterLastName = new ArrayList<Label>();
+        ArrayList<Label> totalPrice = new ArrayList<Label>();
+        
         try{
             while(res.next()){
-                
-                ArrayList<Label> InvoiceNo = new ArrayList<Label>();
                 Label InvoiceNoLabel = new Label(res.getString("InvoiceNo"));
                 InvoiceNo.add(InvoiceNoLabel);
-                
-                ArrayList<Label> roomNo = new ArrayList<Label>();
                 Label roomNoLabel = new Label(res.getString("Room_roomId"));
                 roomNo.add(roomNoLabel);
-                
-                ArrayList<Label> renterFirstName = new ArrayList<Label>();
                 Label renterFirstNameLabel = new Label(res.getString("renterFirstName"));
                 renterFirstName.add(renterFirstNameLabel);
-                
-                ArrayList<Label> renterLastName = new ArrayList<Label>();
                 Label renterLastNameLabel = new Label(res.getString("renterLastName"));
                 renterLastName.add(renterLastNameLabel);
-                
-                ArrayList<Label> totalPrice = new ArrayList<Label>();
                 double total = PriceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
                 Label totalPriceLabel = new Label(total+"");
                 totalPrice.add(totalPriceLabel);
