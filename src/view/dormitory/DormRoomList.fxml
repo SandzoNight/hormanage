@@ -43,7 +43,7 @@
                                     <Button fx:id="floorSelectBtn" mnemonicParsing="false" onAction="#floorSelected" text="ยืนยัน" />
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="201.0" styleClass="buttons" text="จัดการประเภทห้องพัก" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#gotoRoomTypeList" prefHeight="55.0" prefWidth="201.0" styleClass="buttons" text="จัดการประเภทห้องพัก" textAlignment="CENTER" />
                               <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มห้องพัก" textAlignment="CENTER" />
                            </children>
                         </HBox>

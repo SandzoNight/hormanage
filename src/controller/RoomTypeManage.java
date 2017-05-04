@@ -43,9 +43,9 @@ public class RoomTypeManage {
         System.out.println("[RoomTypeManage]Roomtype deleted!");
     }
     
-    public static ResultSet list(String dormId){
+    public static ResultSet list(long dormId){
         ResultSet rec;
-        rec = DataQuery.query("roomtype","Dormitory_dormId",dormId);
+        rec = DataQuery.query("roomtype","Dormitory_dormId",dormId+"");
         return rec;
     }
     
