@@ -44,14 +44,19 @@ public class DormInvoiceListController extends DormDashboardController implement
         renterSurname = new Label[totalRenter];
         totalPrice = new Label[totalRenter];
         */
-        ResultSet res = InvoiceManage.RenterNotPaid(dormId+"");
+        ResultSet res = InvoiceManage.RenterNotPaid(1+"");
         int index = 0;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 44e5cb52e42295ab97e4c3eabcc0ffc8405f09f0
         ArrayList<Label> InvoiceNo = new ArrayList<Label>();
         ArrayList<Label> roomNo = new ArrayList<Label>();
         ArrayList<Label> renterFirstName = new ArrayList<Label>();
         ArrayList<Label> renterLastName = new ArrayList<Label>();
         ArrayList<Label> totalPrice = new ArrayList<Label>();
+<<<<<<< HEAD
         ArrayList<Button> infoButton = new ArrayList<Button>();
         
         
@@ -75,6 +80,19 @@ public class DormInvoiceListController extends DormDashboardController implement
                 renterLastName.add(renterLastNameLabel);
                 
                 
+=======
+        
+        try{
+            while(res.next()){
+                Label InvoiceNoLabel = new Label(res.getString("InvoiceNo"));
+                InvoiceNo.add(InvoiceNoLabel);
+                Label roomNoLabel = new Label(res.getString("Room_roomId"));
+                roomNo.add(roomNoLabel);
+                Label renterFirstNameLabel = new Label(res.getString("renterFirstName"));
+                renterFirstName.add(renterFirstNameLabel);
+                Label renterLastNameLabel = new Label(res.getString("renterLastName"));
+                renterLastName.add(renterLastNameLabel);
+>>>>>>> 44e5cb52e42295ab97e4c3eabcc0ffc8405f09f0
                 double total = PriceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
                 Label totalPriceLabel = new Label(total+"");
                 totalPrice.add(totalPriceLabel);

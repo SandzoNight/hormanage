@@ -139,4 +139,21 @@ public class DormRoomListController extends DormDashboardController implements I
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void gotoRoomTypeList(ActionEvent event) {
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormRoomTypeList.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 }
