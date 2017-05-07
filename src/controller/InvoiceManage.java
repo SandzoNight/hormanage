@@ -28,6 +28,10 @@ public class InvoiceManage {
     public static int countInvoice(long dormId){
         int count = DataCount.count("invoice", "Dormitory_dormId", dormId+"");
         return count;
-        
+    }
+    
+    public static ResultSet RenterNotPaidInfo(String invoiceId){
+        ResultSet res1 = DataQuery.QueryNotPaidInvoiceInfo(invoiceId);
+        return res1;
     }
 }

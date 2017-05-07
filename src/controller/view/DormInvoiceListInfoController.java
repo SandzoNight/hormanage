@@ -5,23 +5,63 @@
  */
 package controller.view;
 
+import controller.InvoiceManage;
+import static controller.InvoiceManage.PriceCalculator;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
  *
  * @author User
  */
-public class DormInvoiceListInfoController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
+public class DormInvoiceListInfoController extends DormDashboardController implements Initializable {
+    @FXML
+    private Label infoIdL;
+    @FXML
+    private Label infoNoL;
+    @FXML
+    private Label infoNameL;
+    @FXML
+    private Label infoWaterL;
+    @FXML
+    private Label infoElecL;
+    @FXML
+    private Label infoWaterUL;
+    @FXML
+    private Label infoElecUL;
+    @FXML
+    private Label infoRoomL;
+    @FXML
+    private Label infoTotalL;
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) {    
+        ResultSet res = InvoiceManage.RenterNotPaidInfo(1+""); 
+        try{
+            while(res.next()){
+                infoIdL.setText(res.getString("invoiceId"));
+                infoNoL.setText(res.getString("Room_roomId"));
+                infoNameL.setText(res.getString("renterFirstName") + "              " + res.getString("renterLastName"));
+                infoWaterL.setText(res.getString("waterUsage"));
+                infoElecL.setText(res.getString("elecUsage"));
+                infoWaterUL.setText(res.getString("dormWaterRate"));
+                infoElecUL.setText(res.getString("dormElecRate"));
+                infoRoomL.setText(res.getString("roomPrice"));
+                double total = PriceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
+                infoTotalL.setText(total+"");  
+            }
+        }
+        catch(SQLException sqle){
+            sqle.getStackTrace();
+        }
     }    
     
 }

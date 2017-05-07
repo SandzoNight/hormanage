@@ -30,6 +30,7 @@ public class DormInvoiceListController extends DormDashboardController implement
     private Label renterName;
     private Label renterSurname;
     private Label totalPrice;
+    private Button infoButton;
     @FXML
     private Hyperlink home;
     
@@ -46,54 +47,53 @@ public class DormInvoiceListController extends DormDashboardController implement
         ResultSet res = InvoiceManage.RenterNotPaid(dormId+"");
         int index = 0;
 
+        ArrayList<Label> InvoiceNo = new ArrayList<Label>();
+        ArrayList<Label> roomNo = new ArrayList<Label>();
+        ArrayList<Label> renterFirstName = new ArrayList<Label>();
+        ArrayList<Label> renterLastName = new ArrayList<Label>();
+        ArrayList<Label> totalPrice = new ArrayList<Label>();
+        ArrayList<Button> infoButton = new ArrayList<Button>();
+        
+        
         try{
             while(res.next()){
                 
-                ArrayList<Label> InvoiceNo = new ArrayList<Label>();
+                
                 Label InvoiceNoLabel = new Label(res.getString("InvoiceNo"));
                 InvoiceNo.add(InvoiceNoLabel);
                 
-                ArrayList<Label> roomNo = new ArrayList<Label>();
+                
                 Label roomNoLabel = new Label(res.getString("Room_roomId"));
                 roomNo.add(roomNoLabel);
                 
-                ArrayList<Label> renterFirstName = new ArrayList<Label>();
+                
                 Label renterFirstNameLabel = new Label(res.getString("renterFirstName"));
                 renterFirstName.add(renterFirstNameLabel);
                 
-                ArrayList<Label> renterLastName = new ArrayList<Label>();
+                
                 Label renterLastNameLabel = new Label(res.getString("renterLastName"));
                 renterLastName.add(renterLastNameLabel);
                 
-                ArrayList<Label> totalPrice = new ArrayList<Label>();
+                
                 double total = PriceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
                 Label totalPriceLabel = new Label(total+"");
                 totalPrice.add(totalPriceLabel);
+                
+                Button infoButtonB = new Button();
+                infoButtonB.setMaxWidth(50);
+                infoButtonB.setMaxHeight(200);
+                infoButton.add(infoButtonB);
+
                 
                 listNotPaid.add(InvoiceNo.get(index),0,index);
                 listNotPaid.add(roomNo.get(index),1,index);
                 listNotPaid.add(renterFirstName.get(index),2,index);
                 listNotPaid.add(renterLastName.get(index),3,index);
                 listNotPaid.add(totalPrice.get(index),4,index);
+                listNotPaid.add(infoButton.get(index),5,index);
                 index++;
-                
-                
-                //System.out.println("ytfugihjkl;jhkgftrytufgyihjok");
-                //System.out.println(totalRenter);
-                /*
-                System.out.println(res.getString("Room_roomId"));
-                roomNo[index].setText(res.getString("Room_roomId"));
-                renterName[index].setText(res.getString("reterFirstName"));
-                renterSurname[index].setText(res.getString("reterLastName"));
-                double total = PriceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
-                totalPrice[index].setText(res.getString(total+""));
-                
-                listNotPaid.add(roomNo[index],0,index);
-                listNotPaid.add(renterName[index],1,index);
-                listNotPaid.add(renterSurname[index],2,index);
-                listNotPaid.add(totalPrice[index],3,index);
-                index++;
-                */
+              
+
             }
         }    
         catch(SQLException sqle){

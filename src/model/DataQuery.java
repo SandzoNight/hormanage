@@ -170,7 +170,30 @@ public abstract class DataQuery extends DBConnector{
         return rec;
     }
     
-    
+    public static ResultSet QueryNotPaidInvoiceInfo(String invoiceId){
+        calling_str = "[DataQuery]Calling DBConnector to connect the database";
+        queried_str = "[DataQuery]Querying successful!";
+        error_str = "[DataQuery]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataQuery]Disconnect from DB";
+        querying_str = "[DataQuery]Querying from user";
+        String sql = "SELECT * FROM dormitory INNER JOIN invoice ON dormitory.dormId = invoice.Dormitory_dormId INNER JOIN renter ON invoice.Renter_renterId = renter.renterId WHERE paidStatus = 0 AND invoice.invoiceId = ?";
+        ResultSet rec = null;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            ps.setString(1,invoiceId);
+            System.out.println(querying_str);
+            rec = ps.executeQuery();
+            System.out.println(queried_str);
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return rec;
+    }
     
     
     public static void disconnect(){
