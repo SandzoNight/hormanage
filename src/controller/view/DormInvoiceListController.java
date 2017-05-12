@@ -45,43 +45,13 @@ public class DormInvoiceListController extends DormDashboardController implement
         totalPrice = new Label[totalRenter];
         */
         ResultSet res = InvoiceManage.RenterNotPaid(1+"");
-        int index = 0;
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 44e5cb52e42295ab97e4c3eabcc0ffc8405f09f0
+        int index = 0;        
         ArrayList<Label> InvoiceNo = new ArrayList<Label>();
         ArrayList<Label> roomNo = new ArrayList<Label>();
         ArrayList<Label> renterFirstName = new ArrayList<Label>();
         ArrayList<Label> renterLastName = new ArrayList<Label>();
         ArrayList<Label> totalPrice = new ArrayList<Label>();
-<<<<<<< HEAD
         ArrayList<Button> infoButton = new ArrayList<Button>();
-        
-        
-        try{
-            while(res.next()){
-                
-                
-                Label InvoiceNoLabel = new Label(res.getString("InvoiceNo"));
-                InvoiceNo.add(InvoiceNoLabel);
-                
-                
-                Label roomNoLabel = new Label(res.getString("Room_roomId"));
-                roomNo.add(roomNoLabel);
-                
-                
-                Label renterFirstNameLabel = new Label(res.getString("renterFirstName"));
-                renterFirstName.add(renterFirstNameLabel);
-                
-                
-                Label renterLastNameLabel = new Label(res.getString("renterLastName"));
-                renterLastName.add(renterLastNameLabel);
-                
-                
-=======
-        
         try{
             while(res.next()){
                 Label InvoiceNoLabel = new Label(res.getString("InvoiceNo"));
@@ -92,17 +62,13 @@ public class DormInvoiceListController extends DormDashboardController implement
                 renterFirstName.add(renterFirstNameLabel);
                 Label renterLastNameLabel = new Label(res.getString("renterLastName"));
                 renterLastName.add(renterLastNameLabel);
->>>>>>> 44e5cb52e42295ab97e4c3eabcc0ffc8405f09f0
                 double total = PriceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
                 Label totalPriceLabel = new Label(total+"");
                 totalPrice.add(totalPriceLabel);
-                
                 Button infoButtonB = new Button();
                 infoButtonB.setMaxWidth(50);
                 infoButtonB.setMaxHeight(200);
                 infoButton.add(infoButtonB);
-
-                
                 listNotPaid.add(InvoiceNo.get(index),0,index);
                 listNotPaid.add(roomNo.get(index),1,index);
                 listNotPaid.add(renterFirstName.get(index),2,index);
@@ -110,8 +76,6 @@ public class DormInvoiceListController extends DormDashboardController implement
                 listNotPaid.add(totalPrice.get(index),4,index);
                 listNotPaid.add(infoButton.get(index),5,index);
                 index++;
-              
-
             }
         }    
         catch(SQLException sqle){
