@@ -7,6 +7,13 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.print.JobSettings;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import model.DataCount;
 import model.DataQuery;
 
@@ -33,5 +40,21 @@ public class InvoiceManage {
     public static ResultSet RenterNotPaidInfo(String invoiceId){
         ResultSet res1 = DataQuery.QueryNotPaidInvoiceInfo(invoiceId);
         return res1;
+    }
+    
+    public static void printInvoice(Node node){
+        PrinterJob job = PrinterJob.createPrinterJob();
+        JobSettings js = job.getJobSettings();
+        js.setJobName("Hor Manage Invoice");
+        PageLayout pl = js.getPageLayout();
+        Printer p = job.getPrinter();
+        pl = p.createPageLayout(Paper.A4, PageOrientation.PORTRAIT, 1,1,1.5,1.5);
+        js.setPageLayout(pl);
+        if(job != null && job.showPrintDialog(node.getScene().getWindow())){
+            boolean success = job.printPage(node);
+            if (success) {
+                job.endJob();
+            }
+        }
     }
 }
