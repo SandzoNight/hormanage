@@ -31,7 +31,7 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มประเภทห้องพัก" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#gotoAddRoomType" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มประเภทห้องพัก" textAlignment="CENTER" />
                            </children>
                         </HBox>
                         <ScrollPane prefHeight="449.0" prefWidth="840.0" style="-fx-alignment: center;">

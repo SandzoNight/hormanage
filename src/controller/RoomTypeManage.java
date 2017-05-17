@@ -19,13 +19,13 @@ import model.DataUpdate;
  * @author fluke
  */
 public class RoomTypeManage {
-    public static void create(String typeName, float price, long Dormitory_dormId){
+    public static void create(ArrayList<String> info, long Dormitory_dormId){
         System.out.println("[RoomTypeManage]Getting next typeId...");
         ResultSet res = DataQuery.query("nextrecordId");
         long nextRoomId = 0;
         try{
             while(res.next()){
-                nextRoomId = res.getLong("nextroomId");
+                nextRoomId = res.getLong("nextroomTypeId");
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -33,7 +33,7 @@ public class RoomTypeManage {
         DataQuery.disconnect();
         System.out.println("[RoomTypeManage]Inserting new Roomtype...");
         DataInsert di = new DataInsert();
-        di.insertRoomType(nextRoomId, typeName, price,Dormitory_dormId);
+        di.insertRoomType(nextRoomId, info.get(0), Float.parseFloat(info.get(1)),Dormitory_dormId);
         di.disconnect();
         System.out.println("[RoomTypeManage]Roomtype Inserted!");
     }

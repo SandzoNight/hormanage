@@ -5,14 +5,12 @@
  */
 package controller.view;
 
-import controller.RoomTypeManage;
 import controller.FieldFormat;
+import controller.RoomTypeManage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.function.UnaryOperator;
-import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,33 +28,29 @@ import javafx.scene.input.KeyEvent;
  *
  * @author Pacharapol
  */
-public class DormRoomTypeEditController extends DormRoomTypeListController implements Initializable {
+public class DormRoomTypeAddController extends DormRoomTypeListController implements Initializable {
 
     @FXML
     private Hyperlink backBtn;
     @FXML
     private Label testUserId;
     @FXML
-    private Button confirmBtn;
-    @FXML
-    private Button resetBtn;
-    
-    private static long typeId;
-    private ArrayList<String> info = RoomTypeManage.getDetail(typeId);
-    @FXML
     private TextField typeName;
     @FXML
     private TextField price;
+    @FXML
+    private Button confirmBtn;
+    @FXML
+    private Button resetBtn;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        typeName.setText(info.get(0));
-        price.setText(info.get(1));
-        price.setTextFormatter(new TextFormatter<>(FieldFormat.doubleFormat()));
-    }
+        price.setTextFormatter(new TextFormatter(FieldFormat.doubleFormat()));
+    }    
 
     @FXML
     private void gotoHome(ActionEvent event) {
@@ -87,7 +81,7 @@ public class DormRoomTypeEditController extends DormRoomTypeListController imple
                 ArrayList<String> info = new ArrayList<String>();
                 info.add(typeName.getText());
                 info.add(price.getText());
-                RoomTypeManage.update(info, typeId);
+                RoomTypeManage.create(info,dormId);
                 try{
                     FXMLLoader loader = new FXMLLoader();
                     //Prepare new page
@@ -105,18 +99,13 @@ public class DormRoomTypeEditController extends DormRoomTypeListController imple
             typeName.setStyle("-fx-border-color:red");
         }
         
-        
     }
 
     @FXML
     private void reset(ActionEvent event) {
-        typeName.setText(info.get(0));
-        price.setText(info.get(1));
+        typeName.setText("");
+        price.setText("");
         resetBtn.setDisable(true);
-    }
-    
-    public static void setTypeId(long typeId_in){
-        typeId = typeId_in;
     }
     
 }
