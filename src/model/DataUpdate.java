@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -143,6 +144,35 @@ public abstract class DataUpdate extends DBConnector{
             ps.setString(4, data[3]);
             ps.setString(5, data[4]);
             ps.setString(6, data[5]);
+            System.out.println(updating_str);
+            updated = ps.executeUpdate();
+            System.out.println(updated_str+" "+updated+" record(s)!");
+            disconnect();
+            
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return updated;
+    }
+    
+    public static int updateRoomTypeInfo(ArrayList<String> data,long typeId){
+        String tableName = "roomtype";
+        calling_str = "[DataUpdate]Calling DBConnector to connect the database";
+        updated_str = "[DataUpdate]Updated";
+        updating_str = "[DataUpdate]Updating roomtype record...";
+        error_str = "[DataUpdate]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataUpdate]Disconnect from DB";
+        System.out.println(typeId);
+        String sql = "UPDATE "+tableName+" SET typeName=?,price=? WHERE typeId="+typeId;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, data.get(0));
+            ps.setString(2, data.get(1));
             System.out.println(updating_str);
             updated = ps.executeUpdate();
             System.out.println(updated_str+" "+updated+" record(s)!");

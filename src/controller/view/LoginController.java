@@ -50,6 +50,9 @@ public class LoginController extends HorProject implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        //ชั่วคราวนะจ๊ะจะได้ไม่ต้องพิมพ์ login
+        emailField.setText("flukemdc@gmail.com");
+        passwordField.setText("123456");
     }
     
     @FXML
@@ -89,7 +92,6 @@ public class LoginController extends HorProject implements Initializable {
                         }
                     }
                 }else{
-                    
                     errorMessage.setText("Incorrect username or password");
                     passwordField.clear();
                 }

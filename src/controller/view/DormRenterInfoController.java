@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -80,10 +81,8 @@ public class DormRenterInfoController extends DormRenterListController implement
                 ResultSet roomInfo = RoomManage.getDetail(res.getString("Room_roomId"));
                 while(roomInfo.next()){
                     renterRoomNo.setText(roomInfo.getString("roomNo"));
-                    ResultSet roomTypeInfo = RoomTypeManage.getDetail(roomInfo.getString("RoomType_typeId"));
-                    while(roomTypeInfo.next()){
-                        renterRoomType.setText(roomTypeInfo.getString("typeName"));
-                    }
+                    ArrayList<String> roomTypeInfo = RoomTypeManage.getDetail(roomInfo.getLong("RoomType_typeId"));
+                        renterRoomType.setText(roomTypeInfo.get(0));
                 }
             }
         }catch(SQLException e){

@@ -7,10 +7,12 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.DataCount;
 import model.DataDelete;
 import model.DataInsert;
 import model.DataQuery;
+import model.DataUpdate;
 
 /**
  *
@@ -49,10 +51,24 @@ public class RoomTypeManage {
         return rec;
     }
     
-    public static ResultSet getDetail(String typeId){
+    public static ArrayList<String> getDetail(long typeId){
         ResultSet rec;
-        rec = DataQuery.query("roomtype","typeId",typeId);
-        return rec;
+        rec = DataQuery.query("roomtype","typeId",typeId+"");
+        ArrayList<String> info = new ArrayList<String>();
+        try{
+            while(rec.next()){
+                info.add(rec.getString("typeName"));
+                info.add(rec.getString("price"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return info;
+    }
+    
+    public static int update(ArrayList<String> data,long typeId){
+        return DataUpdate.updateRoomTypeInfo(data, typeId);
     }
     
 }
