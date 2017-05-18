@@ -15,6 +15,7 @@ import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import model.DataCount;
+import model.DataInsert;
 import model.DataQuery;
 
 /**
@@ -40,6 +41,24 @@ public class InvoiceManage {
     public static ResultSet RenterNotPaidInfo(String invoiceId){
         ResultSet res1 = DataQuery.QueryNotPaidInvoiceInfo(invoiceId);
         return res1;
+    }
+    
+    public static int addInvoice(String[] data, long dormId){
+        long nextInvoiceId = 0;
+        ResultSet res = DataQuery.query("nextrecordId");
+        try{
+            while(res.next()){
+                nextInvoiceId = res.getLong("nextInvoiceId");
+            }
+            DataQuery.disconnect();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        DataInsert di = new DataInsert();
+        int inserted = di.insertRenter(nextInvoiceId,dormId,data);
+        di.disconnect();
+        return inserted;
     }
     
     public static void printInvoice(Node node){
