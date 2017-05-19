@@ -129,11 +129,11 @@ public class DataInsert extends DBConnector {
         }
     }
     public void insertInvoice(String[] CreateInvoice){
-        try{
-            System.out.println(inserting_str);
-            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?)";
-            
-        }
+//        try{
+//            System.out.println(inserting_str);
+//            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?)";
+//            
+//        }
     }
 
     public static void updateId(String table, long currentId) {
