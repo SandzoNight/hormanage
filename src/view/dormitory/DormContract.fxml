@@ -62,7 +62,7 @@
                               <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="เอกสารอ้างอิง" GridPane.rowIndex="2">
+                              <Label text="ข้อตกลง" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="Kanit" size="24.0" />
                                  </font>
@@ -154,7 +154,7 @@
                                     </DatePicker>
                                  </children>
                               </HBox>
-                              <TextArea fx:id="reference" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextArea fx:id="o" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="idCard" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
                                  <children>

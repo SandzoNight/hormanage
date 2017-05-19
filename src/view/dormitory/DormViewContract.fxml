@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -8,306 +10,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" stylesheets="@../../dist/css/mainstyle.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="view.dormitory.DormViewContractController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" stylesheets="@../../dist/css/mainstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.dormitory.DormViewContractController">
    <children>
-      <BorderPane prefHeight="500.0" prefWidth="700.0">
-         <center>
-            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="477.0" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="เลขที่ใบสัญญา">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="no" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <children>
-                        <Label text="วันทำสัญญา">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="startDate" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <children>
-                        <Label text="วันสิ้นสุดสัญญา">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="dueDate" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
-                     <children>
-                        <Label text="เอกสารอ้างอิง">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <children>
-                        <Label fx:id="reference" prefHeight="36.0" prefWidth="233.0">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="95.0" text="เลขบัตรประชาชน">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <children>
-                        <Label fx:id="idCard" prefHeight="25.0" prefWidth="141.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
-                     <children>
-                        <Label text="ชื่อ-นามสกุล">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <children>
-                        <Label fx:id="name" prefHeight="25.0" prefWidth="204.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
-                     <children>
-                        <Label text="ที่อยู่">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <children>
-                        <Label fx:id="address" prefHeight="37.0" prefWidth="231.0">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
-                     <children>
-                        <Label text="เบอร์โทรศัพท์">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                     <children>
-                        <Label fx:id="telNumber" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7">
-                     <children>
-                        <Label text="เงินประกัน">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="Bail" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label text="บาท">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                     <children>
-                        <Label text="รับเงินประกัน">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="getBail" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label text="บาท">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="8">
-                     <children>
-                        <Label text="ค่าห้อง">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="rateRoom" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="28.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label text="บาท">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="9">
-                     <children>
-                        <Label text="ไฟฟ้าหน่วยละ">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="electricityBill" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label text="บาท">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
-                     <children>
-                        <Label text="น้ำประปาหน่วยละ">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="waterBill" prefHeight="25.0" prefWidth="100.0">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label text="บาท">
-                           <font>
-                              <Font name="Kanit" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-            </GridPane>
-         </center>
+      <BorderPane prefHeight="800.0" prefWidth="700.0">
          <top>
             <HBox prefHeight="70.0" prefWidth="700.0" BorderPane.alignment="CENTER">
                <children>
@@ -325,15 +30,22 @@
          <bottom>
             <HBox prefHeight="56.0" prefWidth="700.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" text="พิมพ์">
+                  <Button mnemonicParsing="false">
                      <HBox.margin>
                         <Insets left="180.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Kanit" size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fx:id="print" fitHeight="24.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../dist/images/print.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" text="ลบ">
+                  <Button fx:id="delete" mnemonicParsing="false" text="ลบ">
                      <HBox.margin>
                         <Insets left="200.0" />
                      </HBox.margin>
@@ -344,6 +56,212 @@
                </children>
             </HBox>
          </bottom>
+         <center>
+            <Pane prefHeight="674.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="433.0" layoutY="17.0" text="เลขที่ใบสัญญา">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="noContract" layoutX="529.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="128.0">
+                     <font>
+                        <Font name="Kanit" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="400.0" layoutY="50.0" text="วันทำสัญญา">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="400.0" layoutY="88.0" text="วันสิ้นสุดสัญญา">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="startDate" layoutX="502.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="154.0">
+                     <font>
+                        <Font name="Kanit" size="13.0" />
+                     </font></Label>
+                  <Label fx:id="dueDate" layoutX="504.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="151.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="37.0" layoutY="119.0" text="ชื่อ-นามสกุลผู้เช่า">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="name" layoutX="148.0" layoutY="121.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="503.0">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="185.0" text="เลขบัตรประชาชน">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idCard" layoutX="147.0" layoutY="187.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="163.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="39.0" layoutY="154.0" text="ที่อยู่">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="address" layoutX="72.0" layoutY="154.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="578.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="telNumber" layoutX="435.0" layoutY="189.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="163.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="342.0" layoutY="188.0" text="เบอร์โทรศัพท์">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="217.0" text="เงินประกัน">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Bail" layoutX="104.0" layoutY="217.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="224.0" layoutY="217.0" text="บาท">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="449.0" layoutY="217.0" text="บาท">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="getBail" layoutX="350.0" layoutY="217.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="269.0" layoutY="217.0" text="รับเงินประกัน">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="224.0" layoutY="250.0" text="บาท">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="roomRate" layoutX="104.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="250.0" text="ค่าห้อง">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="282.0" text="ไฟฟ้าหน่วยละ">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="electricityBill" layoutX="124.0" layoutY="282.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="224.0" layoutY="282.0" text="บาท">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="450.0" layoutY="282.0" text="บาท">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="waterBill" layoutX="355.0" layoutY="282.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="269.0" layoutY="282.0" text="น้ำหน่วยละ">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="315.0" text="ข้อตกลง">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="reference" layoutX="39.0" layoutY="341.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="608.0">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="554.0" prefHeight="23.0" prefWidth="201.0" text="ลงชื่อ.......................................................ผู้เช่า">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="577.0" prefHeight="23.0" prefWidth="201.0" text="(...........................................................................)">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="423.0" layoutY="578.0" prefHeight="23.0" prefWidth="201.0" text="(...........................................................................)">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="555.0" prefHeight="23.0" prefWidth="213.0" text="ลงชื่อ.......................................................ผู้ให้เช่า">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="627.0" prefHeight="23.0" prefWidth="201.0" text="(...........................................................................)">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="604.0" prefHeight="23.0" prefWidth="207.0" text="ลงชื่อ.......................................................พยาน">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="418.0" layoutY="604.0" prefHeight="23.0" prefWidth="207.0" text="ลงชื่อ.......................................................พยาน">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="423.0" layoutY="627.0" prefHeight="23.0" prefWidth="201.0" text="(...........................................................................)">
+                     <font>
+                        <Font name="Kanit" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>
