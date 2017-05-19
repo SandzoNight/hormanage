@@ -14,7 +14,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class DormAgreementController implements Initializable {
+public class DormContractController implements Initializable {
 
      @FXML
     private TextField no;

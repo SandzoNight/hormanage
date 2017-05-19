@@ -133,9 +133,9 @@
                                           <Insets left="20.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <DatePicker fx:id="date1">
+                                    <DatePicker fx:id="startDate">
                                        <HBox.margin>
-                                          <Insets left="60.0" top="6.0" />
+                                          <Insets left="40.0" top="6.0" />
                                        </HBox.margin>
                                     </DatePicker>
                                  </children>
@@ -147,7 +147,7 @@
                                           <Font name="Kanit" size="24.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="date2">
+                                    <DatePicker fx:id="dueDate">
                                        <HBox.margin>
                                           <Insets left="20.0" top="6.0" />
                                        </HBox.margin>
@@ -158,7 +158,7 @@
                               <TextField fx:id="idCard" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
                                  <children>
-                                    <Label text="ชื่อผู้เช่า">
+                                    <Label prefHeight="38.0" prefWidth="247.0" text="ชื่อ-นามสกุลผู้เช่า">
                                        <font>
                                           <Font name="Kanit" size="24.0" />
                                        </font>
@@ -166,29 +166,19 @@
                                           <Insets left="20.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="name">
-                                       <HBox.margin>
-                                          <Insets left="70.0" top="6.0" />
-                                       </HBox.margin>
-                                    </TextField>
                                  </children>
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <children>
-                                    <Label text="นามสกุล">
-                                       <font>
-                                          <Font name="Kanit" size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="surname">
+                                    <TextField fx:id="name" prefHeight="25.0" prefWidth="406.0">
                                        <HBox.margin>
-                                          <Insets left="100.0" top="6.0" />
+                                          <Insets top="6.0" />
                                        </HBox.margin>
                                     </TextField>
                                  </children>
                               </HBox>
                               <TextArea fx:id="address" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <TextField fx:id="tel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="telNumber" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                               <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7">
                                  <children>
                                     <Label text="เงินประกัน">
@@ -246,7 +236,7 @@
                                           <Insets left="20.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="rate" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="100.0">
+                                    <TextField fx:id="rateRoom" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="100.0">
                                        <HBox.margin>
                                           <Insets left="82.0" top="6.0" />
                                        </HBox.margin>
