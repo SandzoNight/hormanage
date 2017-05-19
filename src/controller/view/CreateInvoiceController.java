@@ -25,14 +25,8 @@ import model.RoomType;
  *
  * @author Pacharapol
  */
-<<<<<<< HEAD:src/controller/view/DormInvoiceAddController.java
-public class DormInvoiceAddController extends DormInvoiceListController implements Initializable {
-=======
 public class CreateInvoiceController implements Initializable {
 
-    @FXML
-    private TextField electricityBill;
->>>>>>> 87d856080ce480a259742b55533adfb2024f310d:src/controller/view/CreateInvoiceController.java
 
     @FXML
     private Hyperlink home;
@@ -57,35 +51,34 @@ public class CreateInvoiceController implements Initializable {
     @FXML
     private Button comfirm;
     @FXML
-<<<<<<< HEAD:src/controller/view/DormInvoiceAddController.java
-    private Button reset;
-    
-    ArrayList<RoomType> roomTypeArr = new ArrayList<RoomType>();
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        ResultSet roomtypeRes = RoomTypeManage.list(dormId);
-        try{
-            while(roomtypeRes.next()){
-                roomTypeArr.add(new RoomType(roomtypeRes.getLong("typeId"),roomtypeRes.getString("typeName"),roomtypeRes.getDouble("price")));
-            }
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-        typeroom.getItems().add("เลือกประเภทห้อง");
-        typeroom.setValue("เลือกประเภทห้อง");
-        for(int i=0;i<roomTypeArr.size();i++){
-            typeroom.getItems().add(roomTypeArr.get(i));
-        }
-        
-        
-    }    
-    
-=======
-    private Hyperlink home;
+//<<<<<<< HEAD:src/controller/view/DormInvoiceAddController.java
+//    private Button reset;
+//    
+//    ArrayList<RoomType> roomTypeArr = new ArrayList<RoomType>();
+//    /**
+//     * Initializes the controller class.
+//     */
+//    @Override
+//    public void initialize(URL url, ResourceBundle rb) {
+//        // TODO
+//        ResultSet roomtypeRes = RoomTypeManage.list(dormId);
+//        try{
+//            while(roomtypeRes.next()){
+//                roomTypeArr.add(new RoomType(roomtypeRes.getLong("typeId"),roomtypeRes.getString("typeName"),roomtypeRes.getDouble("price")));
+//            }
+//        }catch(SQLException e){
+//            e.printStackTrace();
+//        }
+//        typeroom.getItems().add("เลือกประเภทห้อง");
+//        typeroom.setValue("เลือกประเภทห้อง");
+//        for(int i=0;i<roomTypeArr.size();i++){
+//            typeroom.getItems().add(roomTypeArr.get(i));
+//        }
+//        
+//        
+//    }    
+//    
+//=======
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -110,8 +103,5 @@ public class CreateInvoiceController implements Initializable {
         CreateInvoice[8] = electricityBill.getText();
         CreateInvoice[9] = roomRates.getText();
         CreateInvoice[10] = total.getText();
-        
-        
     }
->>>>>>> 87d856080ce480a259742b55533adfb2024f310d:src/controller/view/CreateInvoiceController.java
 }
