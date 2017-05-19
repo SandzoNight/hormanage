@@ -112,4 +112,8 @@ public class DormManage {
         return facilityId;
     }
 
+    public static void add(String[] CreateInvoice) {
+       
+    }
+
 }

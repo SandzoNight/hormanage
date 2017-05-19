@@ -121,6 +121,13 @@ public class DataInsert extends DBConnector {
             e.printStackTrace();
         }
     }
+    public void insertInvoice(String[] CreateInvoice){
+        try{
+            System.out.println(inserting_str);
+            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?)";
+            
+        }
+    }
 
     public static void updateId(String table, long currentId) {
         long nextId = currentId+1;
