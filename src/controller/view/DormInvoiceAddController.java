@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,7 +25,14 @@ import model.RoomType;
  *
  * @author Pacharapol
  */
+<<<<<<< HEAD:src/controller/view/DormInvoiceAddController.java
 public class DormInvoiceAddController extends DormInvoiceListController implements Initializable {
+=======
+public class CreateInvoiceController implements Initializable {
+
+    @FXML
+    private TextField electricityBill;
+>>>>>>> 87d856080ce480a259742b55533adfb2024f310d:src/controller/view/CreateInvoiceController.java
 
     @FXML
     private Hyperlink home;
@@ -49,6 +57,7 @@ public class DormInvoiceAddController extends DormInvoiceListController implemen
     @FXML
     private Button comfirm;
     @FXML
+<<<<<<< HEAD:src/controller/view/DormInvoiceAddController.java
     private Button reset;
     
     ArrayList<RoomType> roomTypeArr = new ArrayList<RoomType>();
@@ -75,4 +84,34 @@ public class DormInvoiceAddController extends DormInvoiceListController implemen
         
     }    
     
+=======
+    private Hyperlink home;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+    }
+    
+
+    private void confirm(ActionEvent event) {
+        String[] CreateInvoice = new String[10];
+        CreateInvoice[0] = invoiceNo.getText();
+        CreateInvoice[1] = roomNumber.getText();
+        CreateInvoice[2] = invoiceNo.getText();
+        CreateInvoice[3] = roomNumber.getText();
+        CreateInvoice[4] = name.getText();
+        CreateInvoice[5] = surname.getText();
+        if(typeroom.getValue().toString() == null){
+            CreateInvoice[6] = "";
+        }else{
+            CreateInvoice[6] = typeroom.getValue().toString();
+        }
+        CreateInvoice[7] = waterBill.getText();
+        CreateInvoice[8] = electricityBill.getText();
+        CreateInvoice[9] = roomRates.getText();
+        CreateInvoice[10] = total.getText();
+        
+        
+    }
+>>>>>>> 87d856080ce480a259742b55533adfb2024f310d:src/controller/view/CreateInvoiceController.java
 }

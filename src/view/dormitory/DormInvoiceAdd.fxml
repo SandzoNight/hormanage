@@ -48,6 +48,8 @@
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="597.3333435058594" minWidth="10.0" prefWidth="570.6666564941406" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
@@ -63,53 +65,109 @@
                         <Insets left="50.0" right="50.0" top="50.0" />
                      </VBox.margin>
                      <children>
-                        <Label text="เลขที่ใบแจ้งหนี้">
+                        <Label text="เลขที่ใบแจ้งหนี้" GridPane.rowIndex="2">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="เลขที่ห้อง" GridPane.rowIndex="1">
+                        <Label text="เลขที่ห้อง" GridPane.rowIndex="3">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="ชื่อ" GridPane.rowIndex="2">
+                        <Label text="ชื่อ" GridPane.rowIndex="4">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
+                        <Label text="ค่าน้ำ" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="ค่าไฟ" GridPane.rowIndex="9">
+                           <font>
+                              <Font name="Kanit" size="24.0" />
+                           </font>
+                        </Label>
+<<<<<<< HEAD:src/view/dormitory/DormInvoiceAdd.fxml
                         <Label text="ใช้น้ำ" GridPane.rowIndex="5">
+=======
+                        <Label text="ค่าห้อง" GridPane.rowIndex="10">
+>>>>>>> 87d856080ce480a259742b55533adfb2024f310d:src/view/dormitory/CreateInvoice.fxml
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD:src/view/dormitory/DormInvoiceAdd.fxml
                         <Label text="ใช้ไฟ" GridPane.rowIndex="7">
+=======
+                        <Label text="รวมค่าใช้จ่ายทั้งหมด" GridPane.rowIndex="11">
+>>>>>>> 87d856080ce480a259742b55533adfb2024f310d:src/view/dormitory/CreateInvoice.fxml
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="ค่าห้อง" GridPane.rowIndex="8">
+                        <Label text="นามสกุล" GridPane.rowIndex="5">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="รวมค่าใช้จ่ายทั้งหมด" GridPane.rowIndex="9">
+                        <Label text="ประเภทห้อง" GridPane.rowIndex="6">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="นามสกุล" GridPane.rowIndex="3">
+                        <Label text="วันออกใบแจ้งหนี้">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="ประเภทห้อง" GridPane.rowIndex="4">
+                        <Label text="วันครบกำหนดชำระ" GridPane.rowIndex="1">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
+<<<<<<< HEAD:src/view/dormitory/DormInvoiceAdd.fxml
                         <ComboBox fx:id="typeroom" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+=======
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <DatePicker fx:id="startDate" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <DatePicker fx:id="dueDate" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <TextField fx:id="invoiceNo" onAction="#invoiceNo" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <TextField fx:id="roomNumber" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <TextField fx:id="name" />
+                           </children>
+                        </HBox>
+>>>>>>> 87d856080ce480a259742b55533adfb2024f310d:src/view/dormitory/CreateInvoice.fxml
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <children>
+                              <TextField fx:id="surname" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <ComboBox fx:id="typeroom" prefWidth="150.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                            <children>
                               <TextField fx:id="waterBill" />
                               <Label text="หน่วย">
@@ -117,12 +175,12 @@
                                     <Font name="Kanit" size="24.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="30.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                            <children>
                               <TextField fx:id="electricityBill" />
                               <Label text="หน่วย">
@@ -130,12 +188,12 @@
                                     <Font name="Kanit" size="24.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="30.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
                            <children>
                               <TextField fx:id="roomRates" disable="true" />
                               <Label text="บาท">
@@ -143,12 +201,12 @@
                                     <Font name="Kanit" size="24.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="30.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
                            <children>
                               <TextField fx:id="total" disable="true" />
                               <Label text="บาท">
@@ -156,22 +214,25 @@
                                     <Font name="Kanit" size="24.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets left="30.0" />
+                                    <Insets left="20.0" />
                                  </HBox.margin>
                               </Label>
                            </children>
                         </HBox>
+<<<<<<< HEAD:src/view/dormitory/DormInvoiceAdd.fxml
                         <TextField fx:id="invoiceNo" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="1" />
                         <TextField fx:id="roomNumber" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="name" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="surname" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+=======
+>>>>>>> 87d856080ce480a259742b55533adfb2024f310d:src/view/dormitory/CreateInvoice.fxml
                      </children>
                   </GridPane>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="comfirm" mnemonicParsing="false" text="ยืนยัน">
+                        <Button fx:id="confirm" mnemonicParsing="false" text="ยืนยัน">
                            <HBox.margin>
-                              <Insets left="100.0" top="30.0" />
+                              <Insets left="230.0" top="20.0" />
                            </HBox.margin>
                            <font>
                               <Font name="Kanit" size="24.0" />
@@ -179,7 +240,7 @@
                         </Button>
                         <Button fx:id="reset" mnemonicParsing="false" text="รีเซ็ต">
                            <HBox.margin>
-                              <Insets left="450.0" top="30.0" />
+                              <Insets left="200.0" top="20.0" />
                            </HBox.margin>
                            <font>
                               <Font name="Kanit" size="24.0" />
