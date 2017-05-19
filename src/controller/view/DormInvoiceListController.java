@@ -6,15 +6,18 @@
 package controller.view;
 
 import controller.InvoiceManage;
-import static controller.InvoiceManage.PriceCalculator;
 import controller.RenterManage;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -33,19 +36,17 @@ public class DormInvoiceListController extends DormDashboardController implement
     private Button infoButton;
     @FXML
     private Hyperlink home;
+    @FXML
+    private GridPane listAll;
+    @FXML
+    private Button gotoAddInvoice;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //System.out.println("dfgbhbjk,jb");
-        listNotPaid.getChildren().clear();            
-        /*int totalRenter = InvoiceManage.countInvoice(dormId);
-        roomNo = new Label[totalRenter];
-        renterName = new Label[totalRenter];
-        renterSurname = new Label[totalRenter];
-        totalPrice = new Label[totalRenter];
-        */
-        ResultSet res = InvoiceManage.RenterNotPaid(1+"");
-        int index = 0;        
+        listNotPaid.getChildren().clear();
+        listAll.getChildren().clear();
+        ResultSet res = InvoiceManage.getUnpaidInvoice(dormId);
+        int index = 0;
         ArrayList<Label> InvoiceNo = new ArrayList<Label>();
         ArrayList<Label> roomNo = new ArrayList<Label>();
         ArrayList<Label> renterFirstName = new ArrayList<Label>();
@@ -62,10 +63,15 @@ public class DormInvoiceListController extends DormDashboardController implement
                 renterFirstName.add(renterFirstNameLabel);
                 Label renterLastNameLabel = new Label(res.getString("renterLastName"));
                 renterLastName.add(renterLastNameLabel);
-                double total = PriceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
+                double total = InvoiceManage.priceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
                 Label totalPriceLabel = new Label(total+"");
                 totalPrice.add(totalPriceLabel);
                 Button infoButtonB = new Button();
+                infoButtonB.setId(res.getInt("InvoiceId")+""); 
+                infoButtonB.setText(" >> ");
+                infoButtonB.setOnAction(e -> {
+                    gotoInvoiceInfoPage(e);
+                });
                 infoButtonB.setMaxWidth(50);
                 infoButtonB.setMaxHeight(200);
                 infoButton.add(infoButtonB);
@@ -77,10 +83,89 @@ public class DormInvoiceListController extends DormDashboardController implement
                 listNotPaid.add(infoButton.get(index),5,index);
                 index++;
             }
-        }    
-        catch(SQLException sqle){
+        }catch(SQLException sqle){
             sqle.printStackTrace();
-        }   
-    }    
+        }
+        
+        //LIST ALL
+        ResultSet res2 = InvoiceManage.getAllInvoice(dormId);
+        int index2 = 0;
+        ArrayList<Label> InvoiceNo2 = new ArrayList<Label>();
+        ArrayList<Label> roomNo2 = new ArrayList<Label>();
+        ArrayList<Label> renterFirstName2 = new ArrayList<Label>();
+        ArrayList<Label> renterLastName2 = new ArrayList<Label>();
+        ArrayList<Label> totalPrice2 = new ArrayList<Label>();
+        ArrayList<Button> infoButton2 = new ArrayList<Button>();
+        try{
+            while(res2.next()){
+                Label InvoiceNoLabel = new Label(res2.getString("InvoiceNo"));
+                InvoiceNo2.add(InvoiceNoLabel);
+                Label roomNoLabel = new Label(res2.getString("Room_roomId"));
+                roomNo2.add(roomNoLabel);
+                Label renterFirstNameLabel = new Label(res2.getString("renterFirstName"));
+                renterFirstName2.add(renterFirstNameLabel);
+                Label renterLastNameLabel = new Label(res2.getString("renterLastName"));
+                renterLastName2.add(renterLastNameLabel);
+                double total = InvoiceManage.priceCalculator(res2.getFloat("waterTotalPrice"),res2.getFloat("elecTotalPrice"),res2.getFloat("roomPrice"));
+                Label totalPriceLabel = new Label(total+"");
+                totalPrice2.add(totalPriceLabel);
+                Button infoButtonB = new Button();
+                infoButtonB.setId(res2.getInt("InvoiceId")+""); 
+                infoButtonB.setText(" >> ");
+                infoButtonB.setOnAction(e -> {
+                    gotoInvoiceInfoPage(e);
+                });
+                infoButtonB.setMaxWidth(50);
+                infoButtonB.setMaxHeight(200);
+                infoButton2.add(infoButtonB);
+                listAll.add(InvoiceNo2.get(index2),0,index2);
+                listAll.add(roomNo2.get(index2),1,index2);
+                listAll.add(renterFirstName2.get(index2),2,index2);
+                listAll.add(renterLastName2.get(index2),3,index2);
+                listAll.add(totalPrice2.get(index2),4,index2);
+                listAll.add(infoButton2.get(index2),5,index2);
+                index2++;
+            }
+        }catch(SQLException sqle){
+            sqle.printStackTrace();
+        }
+    }
+    
+    private void gotoInvoiceInfoPage(ActionEvent e){
+        long invoiceId = Long.parseLong(((Button)e.getSource()).getId());
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            DormInvoiceListInfoController.setInvoiceId(invoiceId);
+            
+            //Prepare new page
+            System.out.println("[DormInvoiceListController]Loading new page..");
+            root = loader.load(getClass().getResource("/view/dormitory/DormInvoiceListInfo.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            System.out.println("[DormInvoiceListController]Changing scene..");
+            window.setScene(scene);
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void gotoAddInvoicePage(ActionEvent event) {
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            
+            //Prepare new page
+            System.out.println("[DormInvoiceListController]Loading new page..");
+            root = loader.load(getClass().getResource("/view/dormitory/DormInvoiceAdd.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            System.out.println("[DormInvoiceListController]Changing scene..");
+            window.setScene(scene);
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }
     
 }

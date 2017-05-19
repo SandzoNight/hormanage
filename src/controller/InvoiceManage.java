@@ -23,12 +23,17 @@ import model.DataQuery;
  * @author User
  */
 public class InvoiceManage {
-    public static ResultSet RenterNotPaid(String dormId){
-        ResultSet res1 = DataQuery.QueryNotPaidInvoice(dormId);
+    public static ResultSet getUnpaidInvoice(long dormId){
+        ResultSet res1 = DataQuery.queryUnpaidInvoice(dormId);
         return res1;
     }
     
-    public static double PriceCalculator(double water, double elec, double room){
+    public static ResultSet getAllInvoice(long dormId){
+        ResultSet res1 = DataQuery.queryAllInvoice(dormId);
+        return res1;
+    }
+    
+    public static double priceCalculator(double water, double elec, double room){
         double totalPrice = water+elec+room;
         return totalPrice;
     }
@@ -38,10 +43,10 @@ public class InvoiceManage {
         return count;
     }
     
-    public static ResultSet RenterNotPaidInfo(String invoiceId){
-        ResultSet res1 = DataQuery.QueryNotPaidInvoiceInfo(invoiceId);
-        return res1;
-    }
+//    public static ResultSet RenterNotPaidInfo(String invoiceId){
+//        ResultSet res1 = DataQuery.QueryNotPaidInvoiceInfo(invoiceId);
+//        return res1;
+//    }
     
     public static int addInvoice(String[] data, long dormId){
         long nextInvoiceId = 0;

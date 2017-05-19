@@ -63,6 +63,8 @@ public class DormDashboardController extends DormMainController implements Initi
     private String[] info;
     @FXML
     private Button editBtn;
+    @FXML
+    private Button toInvoiceListBtn;
     /**
      * Initializes the controller class.
      */
@@ -181,6 +183,24 @@ public class DormDashboardController extends DormMainController implements Initi
             DormEditController.setFacilityId(dormFacilityId);
             System.out.println("[DormDashboardController]Loading new page..");
             root = loader.load(getClass().getResource("/view/dormitory/DormEdit.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            System.out.println("[DormDashboardController]Changing scene..");
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void gotoInvoiceList(ActionEvent event) {
+        try{
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            System.out.println("[DormDashboardController]Loading new page..");
+            root = loader.load(getClass().getResource("/view/dormitory/DormInvoiceList.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page

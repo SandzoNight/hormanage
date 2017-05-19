@@ -145,12 +145,12 @@ public abstract class DataQuery extends DBConnector{
         return rec;
     }
     
-    public static ResultSet QueryNotPaidInvoice(String dormId){
+    public static ResultSet queryUnpaidInvoice(long dormId){
         calling_str = "[DataQuery]Calling DBConnector to connect the database";
         queried_str = "[DataQuery]Querying successful!";
         error_str = "[DataQuery]Error occured! Disconnecting from DB";
         disconnect_str = "[DataQuery]Disconnect from DB";
-        querying_str = "[DataQuery]Querying from user";
+        querying_str = "[DataQuery]Querying from invoice";
         String sql = "SELECT * FROM invoice INNER JOIN renter ON invoice.Renter_renterId = renter.renterId WHERE paidStatus = 0 AND invoice.Dormitory_dormId = ?";
         ResultSet rec = null;
         try{
@@ -158,7 +158,7 @@ public abstract class DataQuery extends DBConnector{
             connect();
             PreparedStatement ps;
             ps = connection.prepareStatement(sql);
-            ps.setString(1,dormId);
+            ps.setLong(1,dormId);
             System.out.println(querying_str);
             rec = ps.executeQuery();
             System.out.println(queried_str);
@@ -170,20 +170,20 @@ public abstract class DataQuery extends DBConnector{
         return rec;
     }
     
-    public static ResultSet QueryNotPaidInvoiceInfo(String invoiceId){
+    public static ResultSet queryAllInvoice(long dormId){
         calling_str = "[DataQuery]Calling DBConnector to connect the database";
         queried_str = "[DataQuery]Querying successful!";
         error_str = "[DataQuery]Error occured! Disconnecting from DB";
         disconnect_str = "[DataQuery]Disconnect from DB";
-        querying_str = "[DataQuery]Querying from user";
-        String sql = "SELECT * FROM dormitory INNER JOIN invoice ON dormitory.dormId = invoice.Dormitory_dormId INNER JOIN renter ON invoice.Renter_renterId = renter.renterId WHERE paidStatus = 0 AND invoice.invoiceId = ?";
+        querying_str = "[DataQuery]Querying from invoice";
+        String sql = "SELECT * FROM invoice INNER JOIN renter ON invoice.Renter_renterId = renter.renterId WHERE invoice.Dormitory_dormId = ?";
         ResultSet rec = null;
         try{
             System.out.println(calling_str);
             connect();
             PreparedStatement ps;
             ps = connection.prepareStatement(sql);
-            ps.setString(1,invoiceId);
+            ps.setLong(1,dormId);
             System.out.println(querying_str);
             rec = ps.executeQuery();
             System.out.println(queried_str);

@@ -5,6 +5,7 @@
  */
 package test;
 
+import controller.InvoiceManage;
 import java.sql.*;
 import model.*;
 
@@ -14,7 +15,7 @@ import model.*;
  */
 public class TestQueryInvoice {
     public static void main(String[] args){
-        ResultSet res1 = DataQuery.QueryNotPaidInvoice("1");
+        ResultSet res1 = InvoiceManage.getUnpaidInvoice(1);
             try{
                 while(res1.next()){
                 System.out.println(res1.getString("Room_roomId"));

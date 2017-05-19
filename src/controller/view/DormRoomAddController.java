@@ -88,7 +88,7 @@ public class DormRoomAddController extends DormRoomListController implements Ini
         ResultSet rs1 = RoomTypeManage.list(dormId);
         try{
            while(rs1.next()){
-               roomTypes.add(new RoomType(rs1.getLong("typeId"),rs1.getString("typeName")));
+               roomTypes.add(new RoomType(rs1.getLong("typeId"),rs1.getString("typeName"),rs1.getDouble("price")));
            } 
         }catch(SQLException e){
             e.printStackTrace();

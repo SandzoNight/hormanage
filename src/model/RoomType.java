@@ -12,10 +12,12 @@ package model;
 public class RoomType {
     private long typeId;
     private String typeName;
+    private double price;
     
-    public RoomType(long typeId,String typeName){
+    public RoomType(long typeId,String typeName,double price){
         this.typeId = typeId;
         this.typeName = typeName;
+        this.price = price;
     }
 
     public long getTypeId() {
