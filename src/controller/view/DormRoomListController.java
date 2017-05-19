@@ -82,6 +82,9 @@ public class DormRoomListController extends DormDashboardController implements I
                 roomStatus[objIndex] = new Label(roomList.getString("roomStatus"));
                 viewBtn[objIndex] = new Button(" >> ");
                 viewBtn[objIndex].setId(roomList.getString("roomId"));
+                viewBtn[objIndex].setOnAction(e -> {
+                    gotoRoomEditPage(e);
+                });
                 roomListGridPane.add(roomNo[objIndex], 0, objIndex);
                 roomListGridPane.add(roomStatus[objIndex], 1, objIndex);
                 roomListGridPane.add(viewBtn[objIndex], 2, objIndex);
@@ -130,6 +133,9 @@ public class DormRoomListController extends DormDashboardController implements I
                 roomStatus[objIndex] = new Label(roomList.getString("roomStatus"));
                 viewBtn[objIndex] = new Button(" >> ");
                 viewBtn[objIndex].setId(roomList.getString("roomId"));
+                viewBtn[objIndex].setOnAction(e -> {
+                    gotoRoomEditPage(e);
+                });
                 roomListGridPane.add(roomNo[objIndex], 0, objIndex);
                 roomListGridPane.add(roomStatus[objIndex], 1, objIndex);
                 roomListGridPane.add(viewBtn[objIndex], 2, objIndex);
@@ -148,6 +154,42 @@ public class DormRoomListController extends DormDashboardController implements I
 
             //Prepare new page
             root = loader.load(getClass().getResource("/view/dormitory/DormRoomTypeList.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    
+    private void gotoRoomEditPage(ActionEvent event){
+        Button temp = (Button)event.getSource();
+        long roomId = Long.parseLong(temp.getId());
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+            DormRoomEditController.setRoomId(roomId);
+            
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormRoomEdit.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void gotoAddRoom(ActionEvent event) {
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+            
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormRoomAdd.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page

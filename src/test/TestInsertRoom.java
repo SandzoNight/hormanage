@@ -15,6 +15,6 @@ import model.DataInsert;
 public class TestInsertRoom {
     public static void main(String[] args) {
         System.out.println("######## TestInsertRoom ########");
-        RoomManage.create("2002",2,1,1);
+//        RoomManage.create("2002",2,1,1);
     }
 }
