@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -24,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormInvoiceAdd">
+<AnchorPane prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormInvoiceAdd">
    <children>
       <BorderPane prefHeight="720.0" prefWidth="1000.0">
          <left>
@@ -56,11 +50,9 @@
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
@@ -73,99 +65,99 @@
                         <Insets left="50.0" right="50.0" top="50.0" />
                      </VBox.margin>
                      <children>
-                        <Label text="เลขที่ใบแจ้งหนี้" GridPane.rowIndex="2">
+                        <Label text="เลขที่ใบแจ้งหนี้" GridPane.rowIndex="1">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="เลขที่ห้อง" GridPane.rowIndex="3">
+                        <Label text="เลขที่ห้อง" GridPane.rowIndex="2">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="ชื่อ" GridPane.rowIndex="4">
+                        <Label text="ชื่อ-นามสกุล" GridPane.rowIndex="3">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="ค่าน้ำ" GridPane.rowIndex="7">
+                        <Label text="ใช้น้ำ" GridPane.rowIndex="5">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="ค่าไฟ" GridPane.rowIndex="9">
+                        <Label text="ใช้ไฟ" GridPane.rowIndex="7">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="ค่าห้อง" GridPane.rowIndex="10">
+                        <Label text="ค่าห้อง" GridPane.rowIndex="8">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="รวมค่าใช้จ่ายทั้งหมด" GridPane.rowIndex="11">
+                        <Label text="รวมค่าใช้จ่ายทั้งหมด" GridPane.rowIndex="9">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="นามสกุล" GridPane.rowIndex="5">
+                        <Label text="ประเภทห้อง" GridPane.rowIndex="4">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="ประเภทห้อง" GridPane.rowIndex="6">
-                           <font>
-                              <Font name="Kanit" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label text="วันออกใบแจ้งหนี้">
-                           <font>
-                              <Font name="Kanit" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label text="วันครบกำหนดชำระ" GridPane.rowIndex="1">
+                        <Label text="วันครบกำหนดชำระ">
                            <font>
                               <Font name="Kanit" size="24.0" />
                            </font>
                         </Label>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <children>
-                              <DatePicker fx:id="startDate" />
+                              <DatePicker fx:id="dueDate" editable="false" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <DatePicker fx:id="dueDate" />
+                              <TextField fx:id="invoiceNo" disable="true" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <TextField fx:id="invoiceNo" />
+                              <ComboBox fx:id="roomNumber" prefWidth="150.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
-                              <TextField fx:id="roomNumber" />
+                              <TextField fx:id="name" disable="true" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <TextField fx:id="name" />
+                              <ComboBox fx:id="typeroom" onAction="#roomtypeSelected" prefWidth="150.0" promptText="เลือกประเภทห้อง..." />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <children>
-                              <TextField fx:id="surname" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <children>
-                              <ComboBox fx:id="typeroom" prefWidth="150.0" promptText="เลือกประเภทห้อง..." />
+                              <TextField fx:id="waterUnit" />
+                              <Label text="หน่วย">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                            <children>
-                              <TextField fx:id="waterBill" />
+                              <TextField fx:id="electricityUnit" />
+                              <Label text="หน่วย">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <children>
+                              <TextField fx:id="roomRates" disable="true" />
                               <Label text="บาท">
                                  <font>
                                     <Font size="24.0" />
@@ -175,7 +167,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                            <children>
-                              <TextField fx:id="electricityBill" />
+                              <TextField fx:id="total" disable="true" />
                               <Label text="บาท">
                                  <font>
                                     <Font size="24.0" />
@@ -183,32 +175,12 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
-                           <children>
-                              <TextField fx:id="roomRates" />
-                              <Label text="บาท">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
-                           <children>
-                              <TextField fx:id="total" />
-                              <Label text="บาท">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Button fx:id="confirm" mnemonicParsing="false" text="ยืนยัน" GridPane.rowIndex="12">
+                        <Button fx:id="confirm" mnemonicParsing="false" text="ยืนยัน" GridPane.rowIndex="10">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="reset" mnemonicParsing="false" text="รีเซ็ต" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                        <Button fx:id="reset" mnemonicParsing="false" text="รีเซ็ต" GridPane.columnIndex="1" GridPane.rowIndex="10">
                            <font>
                               <Font size="24.0" />
                            </font>

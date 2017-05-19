@@ -8,9 +8,12 @@ package model;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 /**
+ * 
  *
  * @author fluke
  */
@@ -128,12 +131,31 @@ public class DataInsert extends DBConnector {
             e.printStackTrace();
         }
     }
-    public void insertInvoice(String[] CreateInvoice){
-//        try{
-//            System.out.println(inserting_str);
-//            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?)";
-//            
-//        }
+    public void insertInvoice(long invoiceId,LocalDate startDate,LocalDate dueDate,ArrayList<String> data,long dormId){
+        
+        try {
+            System.out.println(inserting_str);
+            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            ps = connection.prepareStatement(sql);
+            ps.setLong(1, invoiceId);   //invoiceId
+            ps.setString(2, data.get(0));          //invoiceNo
+            ps.setDate(3, java.sql.Date.valueOf(startDate));          //startDate
+            ps.setDate(4, java.sql.Date.valueOf(dueDate));       //dueDate
+            ps.setString(5, null);                    //paidDate
+            ps.setDouble(6, Double.parseDouble(data.get(4)));       //waterUsage
+            ps.setDouble(7, Double.parseDouble(data.get(5)));                    //elecUsage
+            ps.setDouble(8, Double.parseDouble(data.get(6)));          //waterTotalPrice
+            ps.setDouble(9, Double.parseDouble(data.get(7)));           //elecTotalPrice
+            ps.setDouble(10, Double.parseDouble(data.get(8)));    //roomPrice
+            ps.setString(11, data.get(3));    //roomTypeName
+            ps.setLong(12, User_userId);    //Room_roomId
+            ps.setLong(13, User_userId);    //Renter_renterId
+            ps.setLong(14, dormId);    //Dormitory_dormId
+            ps.setInt(15, 0);    //paidStatus
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void updateId(String table, long currentId) {

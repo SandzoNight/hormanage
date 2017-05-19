@@ -7,6 +7,8 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import javafx.print.JobSettings;
 import javafx.print.PageLayout;
 import javafx.print.PageOrientation;
@@ -33,7 +35,12 @@ public class InvoiceManage {
         return res1;
     }
     
-    public static double priceCalculator(double water, double elec, double room){
+    public static double priceCalculator(double[] rate, double[] unit, double room){
+        double totalPrice = (rate[0]*unit[0])+(rate[1]*unit[1])+room;
+        return totalPrice;
+    }
+    
+    public static double getTotalPrice(double water, double elec, double room){
         double totalPrice = water+elec+room;
         return totalPrice;
     }
@@ -48,7 +55,7 @@ public class InvoiceManage {
 //        return res1;
 //    }
     
-    public static int addInvoice(String[] data, long dormId){
+    public static int addInvoice(LocalDate startDate, LocalDate dueDate, ArrayList<String> data, long dormId){
         long nextInvoiceId = 0;
         ResultSet res = DataQuery.query("nextrecordId");
         try{
@@ -61,7 +68,7 @@ public class InvoiceManage {
         }
         
         DataInsert di = new DataInsert();
-        int inserted = di.insertRenter(nextInvoiceId,dormId,data);
+        int inserted = di.insertInvoicenextInvoiceId,dormId,data);
         di.disconnect();
         return inserted;
     }

@@ -9,7 +9,6 @@ import controller.DormManage;
 import controller.RenterManage;
 import controller.RoomManage;
 import controller.RoomTypeManage;
-import static controller.view.DormDashboardController.dormId;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -81,9 +80,6 @@ public class DormRoomAddController extends DormRoomListController implements Ini
         for(int i=0;i<renters.size();i++){
             renterListBox.getItems().add(renters.get(i).getFullname());
         }
-        renterListBox.getEditor().setOnKeyTyped((KeyEvent e) -> {
-            searchRenter();
-        });
         
         ResultSet rs1 = RoomTypeManage.list(dormId);
         try{

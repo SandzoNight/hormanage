@@ -63,7 +63,7 @@ public class DormInvoiceListController extends DormDashboardController implement
                 renterFirstName.add(renterFirstNameLabel);
                 Label renterLastNameLabel = new Label(res.getString("renterLastName"));
                 renterLastName.add(renterLastNameLabel);
-                double total = InvoiceManage.priceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
+                double total = InvoiceManage.getTotalPrice(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
                 Label totalPriceLabel = new Label(total+"");
                 totalPrice.add(totalPriceLabel);
                 Button infoButtonB = new Button();
@@ -106,7 +106,7 @@ public class DormInvoiceListController extends DormDashboardController implement
                 renterFirstName2.add(renterFirstNameLabel);
                 Label renterLastNameLabel = new Label(res2.getString("renterLastName"));
                 renterLastName2.add(renterLastNameLabel);
-                double total = InvoiceManage.priceCalculator(res2.getFloat("waterTotalPrice"),res2.getFloat("elecTotalPrice"),res2.getFloat("roomPrice"));
+                double total = InvoiceManage.getTotalPrice(res2.getFloat("waterTotalPrice"),res2.getFloat("elecTotalPrice"),res2.getFloat("roomPrice"));
                 Label totalPriceLabel = new Label(total+"");
                 totalPrice2.add(totalPriceLabel);
                 Button infoButtonB = new Button();

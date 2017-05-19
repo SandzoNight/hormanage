@@ -13,6 +13,14 @@ public class RoomType {
     private long typeId;
     private String typeName;
     private double price;
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
     
     public RoomType(long typeId,String typeName,double price){
         this.typeId = typeId;
