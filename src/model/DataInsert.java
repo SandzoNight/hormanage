@@ -7,6 +7,7 @@ package model;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -52,18 +53,24 @@ public class DataInsert extends DBConnector {
         }
     }
 
-    public void insertRoom(long nextRoomId, String roomNo, int roomFloorNumber, long Roomtype_typeId, long Dormitory_dormId) {
+    public void insertRoom(long nextRoomId,ArrayList<String> data, long Dormitory_dormId) {
+        System.out.println(Dormitory_dormId);
         try {
             System.out.println(inserting_str);
             String sql = "INSERT INTO room VALUES (?,?,?,?,?,?,?)";
             ps = connection.prepareStatement(sql);
-            ps.setLong(1, nextRoomId);
-            ps.setString(2, roomNo);
-            ps.setInt(3, roomFloorNumber);
-            ps.setLong(4, Roomtype_typeId);
-            ps.setLong(5, Dormitory_dormId);
-            ps.setString(6, null);
-            ps.setInt(7, 0);
+            ps.setLong(1, nextRoomId);  //roomId
+            ps.setString(2, data.get(0));   //roomNo
+            ps.setInt(3, Integer.parseInt(data.get(1)));    //roomFloorNumber
+            ps.setLong(4, Long.parseLong(data.get(2))); //RoomType_typeId
+            ps.setLong(5, Dormitory_dormId);    //Dormitory_dormId
+            ps.setString(6, data.get(3));  //Renter_renterId
+            if(data.get(3)!=null){
+                ps.setInt(7, 1);    //roomStatus
+            }else{
+                ps.setInt(7, 0);    //roomStatus
+            }
+            
             ps.executeUpdate();
             
             updateId("room", nextRoomId);

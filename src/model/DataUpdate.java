@@ -19,20 +19,30 @@ import java.util.ArrayList;
 public abstract class DataUpdate extends DBConnector{
     static String calling_str,updating_str,updating2_str,updated_str,error_str,disconnect_str;
     private static int updated = 0;
-    public static int updateRoomDetail(String roomNo, long userId, int chargeId){
+    
+    public static int updateRoomDetail(ArrayList<String> data,long roomId){
         String tableName = "room";
         calling_str = "[DataUpdate]Calling DBConnector to connect the database";
         updated_str = "[DataUpdate]Updated";
         error_str = "[DataUpdate]Error occured! Disconnecting from DB";
         disconnect_str = "[DataUpdate]Disconnect from DB";
         updating_str = "[DataUpdate]Updating room record..";
-        String sql = "UPDATE "+tableName+" SET roomNo=?,Dormitory_User_userId=?,charges_chargeId=? WHERE roomId=?";
+        String sql = "UPDATE "+tableName+" SET roomNo=?,roomFloorNumber=?,RoomType_typeId=?,Renter_renterId=?,roomStatus=? WHERE roomId="+roomId;
         try{
             System.out.println(calling_str);
             connect();
             PreparedStatement ps;
             ps = connection.prepareStatement(sql);
-            if(roomNo==null)
+            ps.setString(1,data.get(0));
+            ps.setString(2,data.get(1));
+            ps.setString(3,data.get(2));
+            ps.setString(4,data.get(3));
+            if(data.get(3)!=null){
+                ps.setInt(5,1);
+            }else{
+                ps.setInt(5,0);
+            }
+            
             System.out.println(updating_str);
             updated = ps.executeUpdate();
             System.out.println(updated_str+" "+updated+" record(s)!");
@@ -178,6 +188,32 @@ public abstract class DataUpdate extends DBConnector{
             System.out.println(updated_str+" "+updated+" record(s)!");
             disconnect();
             
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return updated;
+    }
+    
+    public static int updateRenterRoomId(long roomId,long renterId){
+        String tableName = "renter";
+        calling_str = "[DataUpdate]Calling DBConnector to connect the database";
+        updated_str = "[DataUpdate]Updated";
+        updating_str = "[DataUpdate]Updating renter record...";
+        error_str = "[DataUpdate]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataUpdate]Disconnect from DB";
+        String sql = "UPDATE "+tableName+" SET Room_roomId=? WHERE renterId="+renterId;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            ps.setLong(1, roomId);
+            System.out.println(updating_str);
+            updated = ps.executeUpdate();
+            System.out.println(updated_str+" "+updated+" record(s)!");
+            disconnect();
         }catch(SQLException e){
             System.out.println(error_str);
             disconnect();

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRoomAddController">
+   <children>
+      <BorderPane>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="main-content" BorderPane.alignment="CENTER">
+               <top>
+                  <FlowPane prefHeight="113.0" prefWidth="842.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label styleClass="page-title" text="เพิ่มห้องพัก" />
+                     </children>
+                  </FlowPane>
+               </top>
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <GridPane prefHeight="292.0" prefWidth="840.0">
+                           <children>
+                              <Label styleClass="renter-info-title" text="เลขห้อง :  " />
+                              <Label styleClass="renter-info-title" text="ชั้น : " GridPane.rowIndex="1" />
+                              <Label styleClass="renter-info-title" text="ประเภทห้อง : " GridPane.rowIndex="2" />
+                              <Label styleClass="renter-info-title" text="ชื่อผู้เช่า :  " GridPane.rowIndex="3" />
+                              <TextField fx:id="roomNo" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="floorNo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <VBox maxHeight="-Infinity" prefHeight="151.0" prefWidth="575.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="575.0">
+                                       <children>
+                                          <TextField fx:id="searchField" onAction="#searchRenter" prefHeight="25.0" prefWidth="156.0" />
+                                          <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchRenter" text="ค้นหา" />
+                                       </children>
+                                    </HBox>
+                                    <ComboBox fx:id="renterListBox" prefHeight="25.0" prefWidth="198.0" />
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <ComboBox fx:id="roomtype" prefWidth="150.0" />
+                                    <Label fx:id="roomtypeErrorLabel" text="*กรุณาเลือกประเภทห้อง" textFill="#e41a1a" visible="false">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="386.0" minWidth="10.0" prefWidth="170.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="616.0" minWidth="10.0" prefWidth="480.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="53.666656494140625" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="62.33332824707031" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="123.33332824707031" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="183.33334350585938" minHeight="10.0" prefHeight="108.0" valignment="TOP" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="buttons">
+                           <children>
+                              <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#confirm" text="ยืนยัน" />
+                              <Button fx:id="resetBtn" disable="true" mnemonicParsing="false" onAction="#reset" text="รีเซ็ต" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </center>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="160.0" styleClass="side-bar" BorderPane.alignment="CENTER">
+               <children>
+                  <Hyperlink fx:id="backBtn" focusTraversable="false" onAction="#gotoHome" styleClass="back-btn">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Label fx:id="testUserId" text="Label" />
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+   <stylesheets>
+      
+      <!-- Use these tag when compile -->
+        <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/roomtypeeditpage.css" />
+      <!-- /////////////////////////// -->
+      
+<!--      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/rentereditpage.css" />-->
+   </stylesheets>
+</VBox>

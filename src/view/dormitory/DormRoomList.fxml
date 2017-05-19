@@ -44,7 +44,7 @@
                                  </children>
                               </HBox>
                               <Button mnemonicParsing="false" onAction="#gotoRoomTypeList" prefHeight="55.0" prefWidth="201.0" styleClass="buttons" text="จัดการประเภทห้องพัก" textAlignment="CENTER" />
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มห้องพัก" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#gotoAddRoom" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มห้องพัก" textAlignment="CENTER" />
                            </children>
                         </HBox>
                         <ScrollPane prefHeight="449.0" prefWidth="840.0" style="-fx-alignment: center;">

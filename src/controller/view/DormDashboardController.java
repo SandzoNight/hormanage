@@ -145,7 +145,7 @@ public class DormDashboardController extends DormMainController implements Initi
 
     @FXML
     private void delete(ActionEvent event) {
-        boolean answer = DeleteBox.display();
+        boolean answer = DeleteBox.display(this);
         if(answer){
             DeleteBox.answer = false;
             System.out.println("[DormDashboardController]Deleting dormitory");

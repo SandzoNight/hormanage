@@ -7,17 +7,19 @@ package controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.DataCount;
 import model.DataDelete;
 import model.DataInsert;
 import model.DataQuery;
+import model.DataUpdate;
 
 /**
  *
  * @author fluke
  */
 public class RoomManage {
-    public static void create(String roomNo, int roomFloorNumber, long Roomtype_typeId, long Dormitory_dormId){
+    public static void create(ArrayList<String> data, long Dormitory_dormId){
         System.out.println("[RoomManage]Getting next roomId...");
         ResultSet res = DataQuery.query("nextrecordId");
         long nextRoomId = 0;
@@ -31,7 +33,7 @@ public class RoomManage {
         DataQuery.disconnect();
         System.out.println("[RoomManage]Inserting new room...");
         DataInsert di = new DataInsert();
-        di.insertRoom(nextRoomId, roomNo, roomFloorNumber, Roomtype_typeId,Dormitory_dormId);
+        di.insertRoom(nextRoomId, data,Dormitory_dormId);
         di.disconnect();
         System.out.println("[RoomManage]Room Inserted!");
     }
@@ -64,5 +66,9 @@ public class RoomManage {
         int count = DataCount.countAvailableRoom(dormId);
         DataCount.disconnect();
         return count;
+    }
+    
+    public static int update(ArrayList<String> data, long roomId){
+        return DataUpdate.updateRoomDetail(data, roomId);
     }
 }

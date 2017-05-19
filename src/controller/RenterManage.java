@@ -27,6 +27,11 @@ public class RenterManage {
         return res;    
     }
     
+    public static ResultSet getAvailableRenter(long dormId){
+        ResultSet res = DataQuery.queryAvailableRenter(dormId);
+        return res;
+    }
+    
     public static int countRenter(long dormId){
         int count = DataCount.count("renter", "Dormitory_dormId", dormId+"");
         return count;
@@ -57,5 +62,9 @@ public class RenterManage {
         int inserted = di.insertRenter(nextRenterId,dormId,data);
         di.disconnect();
         return inserted;
+    }
+    
+    public static int updateRoomId(long roomId,long renterId){
+        return DataUpdate.updateRenterRoomId(roomId, renterId);
     }
 }
