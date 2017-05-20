@@ -101,7 +101,7 @@ public class DormDashboardController extends DormMainController implements Initi
             FXMLLoader loader = new FXMLLoader();
 
             //Prepare new page
-            root = loader.load(getClass().getResource("/view/dormitory/DormMain.fxml").openStream());
+            root = loader.load(getClass().getResource("/view/dormitory/DormSelectDorm.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page

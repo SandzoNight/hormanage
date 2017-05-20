@@ -5,6 +5,7 @@
  */
 package model;
 
+import controller.DormManage;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;
@@ -198,7 +199,7 @@ public abstract class DataUpdate extends DBConnector{
         return updated;
     }
     
-    public static int updateRenterRoomId(long roomId,long renterId){
+    public static int updateRenterRoomId(long roomId,String renterId){
         String tableName = "renter";
         calling_str = "[DataUpdate]Calling DBConnector to connect the database";
         updated_str = "[DataUpdate]Updated";
@@ -274,5 +275,33 @@ public abstract class DataUpdate extends DBConnector{
             e.printStackTrace();
         }
         return updated;
+    }
+    
+    public static void updateDormRoomNumber(long dormId){
+        int oldFloorNo = DormManage.getFloor(dormId);
+        
+        String tableName = "dormitory";
+        calling_str = "[DataUpdate]Calling DBConnector to connect the database";
+        updated_str = "[DataUpdate]Updated";
+        updating_str = "[DataUpdate]Updating renter record...";
+        error_str = "[DataUpdate]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataUpdate]Disconnect from DB";
+        String sql = "UPDATE "+tableName+" SET dormCountRoom="+(oldFloorNo+1)+" WHERE dormId=?";
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            System.out.println(updating_str);
+            Date date = new Date();
+            ps.setLong(1,dormId);
+            updated = ps.executeUpdate();
+            System.out.println(updated_str+" "+updated+" record(s)!");
+            disconnect();
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
     }
 }

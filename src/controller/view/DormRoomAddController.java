@@ -77,6 +77,8 @@ public class DormRoomAddController extends DormRoomListController implements Ini
         }catch(SQLException e){
             e.printStackTrace();
         }
+        renterListBox.getItems().add("ไม่มี");
+        renterListBox.setValue("ไม่มี");
         for(int i=0;i<renters.size();i++){
             renterListBox.getItems().add(renters.get(i).getFullname());
         }
@@ -130,7 +132,7 @@ public class DormRoomAddController extends DormRoomListController implements Ini
         if(roomtype.getValue()!=null){
             String renterCheckStr;
             long renterId = 0;
-            if(renterListBox.getValue()!=null){
+            if(renterListBox.getValue()!=null||!renterListBox.getValue().equals("ไม่มี")){
                 renterCheckStr = (String)renterListBox.getValue();
                 for(int i=0;i<renters.size();i++){
                     System.out.println("Checking contains");
@@ -169,22 +171,22 @@ public class DormRoomAddController extends DormRoomListController implements Ini
             }
 
             RoomManage.create(data, dormId);
+            DormManage.updateRoomNumber(dormId);
+            try{
+                //Prepare needed parameters for the new page
+                FXMLLoader loader = new FXMLLoader();
+
+                //Prepare new page
+                root = loader.load(getClass().getResource("/view/dormitory/DormRoomList.fxml").openStream());
+                Scene scene = new Scene(root);
+
+                //Change to new page
+                window.setScene(scene);
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }else{
             roomtypeErrorLabel.setVisible(true);
-        }
-        
-        try{
-            //Prepare needed parameters for the new page
-            FXMLLoader loader = new FXMLLoader();
-
-            //Prepare new page
-            root = loader.load(getClass().getResource("/view/dormitory/DormRoomList.fxml").openStream());
-            Scene scene = new Scene(root);
-
-            //Change to new page
-            window.setScene(scene);
-        }catch(IOException e){
-            e.printStackTrace();
         }
     }
 

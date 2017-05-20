@@ -223,7 +223,7 @@ public class DataInsert extends DBConnector {
         
         return inserted;
     }
-    public int inserInvoice(long[] longData, Date[] dateData, double[] doubleData, String roomTypeName, int paidStatus){
+    public int insertContract(long[] longData, Date[] dateData, double[] doubleData, String roomTypeName, int paidStatus){
         int inserted = 0;
         try {
             System.out.println(inserting_str);
@@ -254,7 +254,7 @@ public class DataInsert extends DBConnector {
         }
         return inserted;
     }
-
+    
     public static void disconnect() {
         System.out.println(disconnect_str);
         DBConnector.disconnect();

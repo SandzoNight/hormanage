@@ -70,7 +70,7 @@ public class DormRenterListController extends DormDashboardController implements
             FXMLLoader loader = new FXMLLoader();
 
             //Prepare new page
-            root = loader.load(getClass().getResource("/view/dormitory/DormMain.fxml").openStream());
+            root = loader.load(getClass().getResource("/view/dormitory/DormDashboard.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page

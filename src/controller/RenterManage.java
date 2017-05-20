@@ -65,6 +65,6 @@ public class RenterManage {
     }
     
     public static int updateRoomId(long roomId,long renterId){
-        return DataUpdate.updateRenterRoomId(roomId, renterId);
+        return DataUpdate.updateRenterRoomId(roomId, renterId+"");
     }
 }

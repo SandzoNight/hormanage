@@ -70,6 +70,11 @@ public class DormManage {
         DataUpdate.disconnect();
     }
     
+    public static void updateRoomNumber(long dormId){
+        DataUpdate.updateDormRoomNumber(dormId);
+        DataUpdate.disconnect();
+    }
+    
     public static String[] getInfo(long dormId){
         String[] dormInfo = new String[10];
         ResultSet rs = DataQuery.query("dormitory", "dormId", dormId+"");
@@ -111,9 +116,4 @@ public class DormManage {
         System.out.println("[DormManage]Finish getting facility list");
         return facilityId;
     }
-
-    public static void add(String[] CreateInvoice) {
-       
-    }
-
 }

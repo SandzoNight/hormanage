@@ -35,6 +35,12 @@ public class RoomManage {
         DataInsert di = new DataInsert();
         di.insertRoom(nextRoomId, data,Dormitory_dormId);
         di.disconnect();
+        if(data.get(3)!=null){
+            DataUpdate.updateRenterRoomId(nextRoomId-1, data.get(3));
+        }else{
+            DataUpdate.updateRenterRoomId(nextRoomId-1,null);
+        }
+        DormManage.updateRoomNumber(Dormitory_dormId);
         System.out.println("[RoomManage]Room Inserted!");
     }
     
@@ -57,6 +63,12 @@ public class RoomManage {
         return rec;
     }
     
+    public static ResultSet listRented(long dormId){
+        ResultSet rec;
+        rec = DataQuery.queryRoomListRented(dormId);
+        return rec;
+    }
+    
     public static int totalRoomByFloor(String dormId,String floor){
         int num = DataCount.countRoomByFloor(dormId, floor);
         return num;
@@ -75,6 +87,11 @@ public class RoomManage {
     }
     
     public static int update(ArrayList<String> data, long roomId){
+        if(data.get(3)!=null){
+            DataUpdate.updateRenterRoomId(roomId, data.get(3));
+        }else{
+            DataUpdate.updateRenterRoomId(roomId,null);
+        }
         return DataUpdate.updateRoomDetail(data, roomId);
     }
 }

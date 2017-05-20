@@ -26,7 +26,7 @@
                <children>
                   <Pane prefHeight="59.0" prefWidth="160.0">
                      <children>
-                        <Hyperlink fx:id="home" layoutX="4.0" layoutY="10.0" styleClass="back-btn" />
+                        <Hyperlink fx:id="home" layoutX="4.0" layoutY="10.0" onAction="#gotoHome" styleClass="back-btn" />
                      </children>
                   </Pane>
                </children>

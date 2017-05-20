@@ -91,13 +91,13 @@ public class DormRegisterController extends DormSelectDormController implements 
 
     @FXML
     private void gotoHome(ActionEvent event) {
-        System.out.println("Go back to Home from DormRenterList");
+        System.out.println("Go back to Home from DormRegister");
         try{
             //Prepare needed parameters for the new page
             FXMLLoader loader = new FXMLLoader();
 
             //Prepare new page
-            root = loader.load(getClass().getResource("/view/dormitory/DormMain.fxml").openStream());
+            root = loader.load(getClass().getResource("/view/dormitory/DormSelectDorm.fxml").openStream());
             Scene scene = new Scene(root);
 
             //Change to new page

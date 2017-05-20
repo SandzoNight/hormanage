@@ -83,7 +83,7 @@ public class DormInvoiceAdd extends DormInvoiceListController implements Initial
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ResultSet roomRes = RoomManage.listAll(dormId);
+        ResultSet roomRes = RoomManage.listRented(dormId);
         try{
             while(roomRes.next()){
                 roomArr.add(new Room(roomRes.getLong("roomId"),roomRes.getString("roomNo"),roomRes.getLong("Renter_renterId"),roomRes.getInt("roomStatus"),roomRes.getLong("RoomType_typeId")));
@@ -147,9 +147,14 @@ public class DormInvoiceAdd extends DormInvoiceListController implements Initial
         
         ResultSet invoiceRes = InvoiceManage.getAllInvoice(dormId);
         try{
-            while(invoiceRes.next()){
+            if(invoiceRes.next()){
                 invoiceNumber = invoiceRes.getInt("invoiceNo")+1;
                 invoiceNo.setText("INV-"+invoiceNumber);
+                System.out.println("invoiceNumber: "+invoiceNumber);
+            }else{
+                invoiceNumber = 1;
+                invoiceNo.setText("INV-"+invoiceNumber);
+                System.out.println("invoiceNumber: "+invoiceNumber);
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -239,5 +244,24 @@ public class DormInvoiceAdd extends DormInvoiceListController implements Initial
 
     @FXML
     private void reset(ActionEvent event) {
+    }
+
+    @FXML
+    private void gotoHome(ActionEvent event) {
+                System.out.println("Go back to Home from DormInvoiceAdd");
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormInvoiceList.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
     }
 }

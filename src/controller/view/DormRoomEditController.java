@@ -84,7 +84,7 @@ public class DormRoomEditController extends DormRoomListController implements In
         }catch(SQLException e){
             e.printStackTrace();
         }
-        renterListBox.getItems().add("");
+        renterListBox.getItems().add("ไม่มี");
         for(int i=0;i<renters.size();i++){
             renterListBox.getItems().add(renters.get(i).getRenterName()+" "+renters.get(i).getRenterLastName());
         }
@@ -120,7 +120,7 @@ public class DormRoomEditController extends DormRoomListController implements In
                         renterListBox.setValue(rs3.getString("renterFirstName")+" "+rs3.getString("renterLastName"));
                     }
                 }else{
-                    renterListBox.setValue("");
+                    renterListBox.setValue("ไม่มี");
                 }
             }
         }catch(SQLException e){
@@ -154,7 +154,7 @@ public class DormRoomEditController extends DormRoomListController implements In
     private void confirm(ActionEvent event) {
         long renterId = 0;
         String renterCheckStr;
-        if(renterListBox.getValue()!=null){
+        if(renterListBox.getValue()!=null||!renterListBox.getValue().equals("ไม่มี")){
             renterCheckStr = (String)renterListBox.getValue();
             for(int i=0;i<renters.size();i++){
                 System.out.println("Checking contains");
@@ -184,7 +184,12 @@ public class DormRoomEditController extends DormRoomListController implements In
             data.add(null);
         }
         data.add(roomType);
-        data.add(renterId+"");
+        if(renterId==0){
+            data.add(null);
+        }else{
+            data.add(renterId+"");
+        }
+        
         RoomManage.update(data, roomId);
         
         try{
