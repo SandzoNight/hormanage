@@ -80,11 +80,11 @@
    <stylesheets>
       
       <!-- Use these tag when compile -->
-<!--        <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/roomtypeeditpage.css" />-->
+        <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/roomtypeeditpage.css" />
       <!-- /////////////////////////// -->
       
-  <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/rentereditpage.css" />
+<!--  <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/rentereditpage.css" />-->
    </stylesheets>
 </VBox>

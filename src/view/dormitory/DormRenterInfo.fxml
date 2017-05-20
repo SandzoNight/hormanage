@@ -86,11 +86,11 @@
    <stylesheets>
       
       <!-- Use these tag when compile -->
-<!--      <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/renterinfopage.css" />-->
+      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/renterinfopage.css" />
       <!-- /////////////////////////// -->
       
-   <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/renterinfopage.css" />
+<!--   <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/renterinfopage.css" />-->
    </stylesheets>
 </VBox>

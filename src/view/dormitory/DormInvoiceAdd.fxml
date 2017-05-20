@@ -199,10 +199,10 @@
       </BorderPane>
    </children>
    <stylesheets>
-    <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/DormInvoiceAdd.css" />
+<!--    <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/DormInvoiceAdd.css" />-->
       
-<!--      <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/DormInvoiceAdd.css" />-->
+      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/DormInvoiceAdd.css" />
    </stylesheets>
 </AnchorPane>

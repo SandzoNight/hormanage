@@ -166,10 +166,9 @@
       </VBox>
    </left>
    <stylesheets>
-<!--      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/mainstyle.css" />
       <URL value="@/dist/css/regispage.css" />
-      -->
-      <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/regispage.css" />
+<!--      <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/regispage.css" />-->
    </stylesheets>
 </BorderPane>

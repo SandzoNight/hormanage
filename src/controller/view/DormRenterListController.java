@@ -54,8 +54,6 @@ public class DormRenterListController extends DormDashboardController implements
     private Button searchBtn;
     @FXML
     private Button resetBtn;
-    @FXML
-    private Hyperlink backBtn;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {

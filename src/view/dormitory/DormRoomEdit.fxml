@@ -59,7 +59,7 @@
                                              <graphic>
                                                 <ImageView fitHeight="17.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../dist/images/search.png" />
+                                                      <Image url="@/dist/images/search.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic></Button>
@@ -115,11 +115,11 @@
    <stylesheets>
       
       <!-- Use these tag when compile -->
-<!--        <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/roomtypeeditpage.css" />-->
+        <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/roomtypeeditpage.css" />
       <!-- /////////////////////////// -->
       
-   <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/rentereditpage.css" />
+<!--   <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/rentereditpage.css" />-->
    </stylesheets>
 </VBox>

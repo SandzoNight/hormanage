@@ -107,10 +107,10 @@
       </BorderPane>
    </children>
    <stylesheets>
-<!--       <URL value="@/dist/css/rentereditpage.css" />
-      <URL value="@/dist/css/mainstyle.css" />-->
+       <URL value="@/dist/css/rentereditpage.css" />
+      <URL value="@/dist/css/mainstyle.css" />
       
-     <URL value="@../../dist/css/rentereditpage.css" />
-      <URL value="@../../dist/css/mainstyle.css" />
+<!--     <URL value="@../../dist/css/rentereditpage.css" />
+      <URL value="@../../dist/css/mainstyle.css" />-->
    </stylesheets>
 </VBox>

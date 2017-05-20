@@ -31,7 +31,10 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#gotoAddRoomType" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มประเภทห้องพัก" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#gotoAddRoomType" prefHeight="55.0" prefWidth="218.0" styleClass="buttons" text="เพิ่มประเภทห้องพัก" textAlignment="CENTER">
+                                 <HBox.margin>
+                                    <Insets right="40.0" />
+                                 </HBox.margin></Button>
                            </children>
                         </HBox>
                         <ScrollPane prefHeight="449.0" prefWidth="840.0" style="-fx-alignment: center;">
@@ -42,10 +45,9 @@
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                       <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
@@ -54,17 +56,16 @@
                                                 <Insets />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label styleClass="td-head" text="ดำเนินการ" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                          <Label styleClass="td-head" text="ค่าห้อง" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                        </children>
                                     </GridPane>
-                                    <GridPane fx:id="roomListGridPane" alignment="CENTER" styleClass="tbody">
+                                    <GridPane fx:id="roomListGridPane" alignment="CENTER" styleClass="tbody" vgap="10.0">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                       <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                     </GridPane>

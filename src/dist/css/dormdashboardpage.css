@@ -1,5 +1,6 @@
 .main-content{
   -fx-background-image: url('../images/contentBG13.png');
+}
 .page-title-container{
     -fx-alignment: center-left;
     /*-fx-max-height: 160px;*/
