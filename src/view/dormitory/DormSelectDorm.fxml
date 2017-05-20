@@ -17,12 +17,15 @@
                <top>
                   <FlowPane prefHeight="113.0" prefWidth="842.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
                      <children>
-                        <Label styleClass="page-title" text="จัดการหอพัก" />
+                        <Label styleClass="page-title" text="จัดการหอพัก">
+                           <FlowPane.margin>
+                              <Insets left="20.0" />
+                           </FlowPane.margin></Label>
                      </children>
                   </FlowPane>
                </top>
                <center>
-                  <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" maxHeight="-Infinity" prefHeight="509.0" prefWidth="842.0" styleClass="scroll-container" vbarPolicy="ALWAYS" BorderPane.alignment="TOP_CENTER">
+                  <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" maxHeight="-Infinity" prefHeight="509.0" prefWidth="813.0" styleClass="scroll-container" vbarPolicy="ALWAYS" BorderPane.alignment="TOP_CENTER">
                      <content>
                         <VBox prefHeight="200.0" prefWidth="837.0">
                            <children>
@@ -81,16 +84,23 @@
                               </VBox>
                               <FlowPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="addDormBtn" mnemonicParsing="false" onAction="#gotoAddDorm" styleClass="adddorm-btn" text="เพิ่มหอพัก">
+                                    <Button fx:id="addDormBtn" mnemonicParsing="false" onAction="#gotoAddDorm" text="เพิ่มหอพัก">
                                        <FlowPane.margin>
                                           <Insets left="74.0" top="20.0" />
                                        </FlowPane.margin>
+                                       <styleClass>
+                                          <String fx:value="adddorm-btn" />
+                                          <String fx:value="add" />
+                                       </styleClass>
                                     </Button>
                                  </children>
                               </FlowPane>
                            </children>
                         </VBox>
                      </content>
+                     <BorderPane.margin>
+                        <Insets left="10.0" right="10.0" top="60.0" />
+                     </BorderPane.margin>
                   </ScrollPane>
                </center>
             </BorderPane>
@@ -100,7 +110,7 @@
                <children>
                   <Hyperlink fx:id="backBtn" focusTraversable="false" onAction="#gotoHome" styleClass="back-btn">
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="40.0" />
                      </VBox.margin>
                   </Hyperlink>
                </children>
@@ -113,7 +123,7 @@
       <URL value="@/dist/css/mainstyle.css" />
       <URL value="@/dist/css/selectdormpage.css" />
       <!-- /////////////////////////// -->
-<!--      <URL value="@../../dist/css/mainstyle.css" />
+<!--     <URL value="@../../dist/css/mainstyle.css" />
       <URL value="@../../dist/css/selectdormpage.css" />-->
    </stylesheets>
 </VBox>

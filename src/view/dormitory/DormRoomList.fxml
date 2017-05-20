@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -7,6 +8,8 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -23,7 +26,10 @@
                <top>
                   <FlowPane prefHeight="113.0" prefWidth="842.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
                      <children>
-                        <Label styleClass="page-title" text="จัดการห้องพัก" />
+                        <Label styleClass="page-title" text="จัดการห้องพัก">
+                           <FlowPane.margin>
+                              <Insets left="20.0" />
+                           </FlowPane.margin></Label>
                      </children>
                   </FlowPane>
                </top>
@@ -40,26 +46,39 @@
                                        </HBox.margin>
                                     </Label>
                                     <ComboBox fx:id="floorList" onAction="#floorSelected" prefHeight="40.0" prefWidth="103.0" visibleRowCount="5" />
-                                    <Button fx:id="floorSelectBtn" mnemonicParsing="false" onAction="#floorSelected" text="ยืนยัน" />
+                                    <Button fx:id="floorSelectBtn" mnemonicParsing="false" onAction="#floorSelected">
+                                       <graphic>
+                                          <ImageView fitHeight="23.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <!--<Image url="@../../dist/images/search.png" />-->
+                                                <Image url="@/dist/images/search.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
                                  </children>
                               </HBox>
                               <Button mnemonicParsing="false" onAction="#gotoRoomTypeList" prefHeight="55.0" prefWidth="201.0" styleClass="buttons" text="จัดการประเภทห้องพัก" textAlignment="CENTER" />
-                              <Button mnemonicParsing="false" onAction="#gotoAddRoom" prefHeight="55.0" prefWidth="130.0" styleClass="buttons" text="เพิ่มห้องพัก" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#gotoAddRoom" prefHeight="55.0" prefWidth="130.0" text="เพิ่มห้องพัก" textAlignment="CENTER">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="add" />
+                                 </styleClass></Button>
                            </children>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
                         </HBox>
                         <ScrollPane prefHeight="449.0" prefWidth="840.0" style="-fx-alignment: center;">
                            <content>
                               <VBox prefHeight="446.0" prefWidth="838.0">
                                  <children>
-                                    <GridPane alignment="CENTER">
+                                    <GridPane alignment="CENTER" styleClass="td-head">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                       <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
@@ -69,20 +88,23 @@
                                              </GridPane.margin>
                                           </Label>
                                           <Label styleClass="td-head" text="สถานะ (ว่าง)" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Label styleClass="td-head" text="ดำเนินการ" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                                        </children>
                                     </GridPane>
-                                    <GridPane fx:id="roomListGridPane" alignment="CENTER" styleClass="tbody">
+                                    <GridPane fx:id="roomListGridPane" alignment="CENTER" styleClass="tbody" vgap="10.0">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
                                     </GridPane>
                                  </children>
                               </VBox>
@@ -98,7 +120,7 @@
                <children>
                   <Hyperlink fx:id="backBtn" focusTraversable="false" onAction="#gotoHome" styleClass="back-btn">
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="40.0" />
                      </VBox.margin>
                   </Hyperlink>
                </children>
@@ -113,8 +135,8 @@
       <URL value="@/dist/css/roomlistpage.css" />
       <!-- /////////////////////////// -->
       
-<!--      <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/roomlistpage.css" />
-      -->
+<!--   <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/roomlistpage.css" />-->
+
    </stylesheets>
 </VBox>

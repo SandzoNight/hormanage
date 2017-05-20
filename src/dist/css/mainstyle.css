@@ -6,7 +6,8 @@
     -fx-font-family: 'Kanit';
 }
 .side-bar{
-    -fx-background-color: grey;
+    -fx-background-image: url('../images/sidebar5.png');
+}
 }
 .back-btn{
     -fx-background-image: url('../images/home-icon.png');
@@ -17,4 +18,23 @@
 }
 .back-btn:hover{
     -fx-background-image: url('../images/home-icon-onhover.png');
+}
+.add{
+    -fx-background-color:   #99CCFF;
+}
+.reset{
+    -fx-background-color:   #FFCC66;
+}
+.delete{
+    -fx-background-color:   #ff4d4d ;
+}
+.edit{
+    -fx-background-color:   #99CCFF;
+}
+.confirm{
+    -fx-background-color:   #66CC33;
+}
+
+}
+
 }

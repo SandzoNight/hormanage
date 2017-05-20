@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -19,7 +25,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormEditController">
+<BorderPane prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormEditController">
    <center>
       <BorderPane styleClass="main-content">
          <center>
@@ -116,11 +122,19 @@
                               <Insets top="30.0" />
                            </VBox.margin>
                            <children>
-                              <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#confirm" prefHeight="41.0" prefWidth="94.0" styleClass="buttons" text="ยืนยัน" />
-                              <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetField" prefHeight="41.0" prefWidth="94.0" styleClass="buttons" text="รีเซ็ท">
+                              <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#confirm" prefHeight="41.0" prefWidth="94.0" text="ยืนยัน">
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="confirm" />
+                                 </styleClass></Button>
+                              <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetField" prefHeight="41.0" prefWidth="94.0" text="รีเซ็ท">
                                  <HBox.margin>
                                     <Insets left="40.0" />
                                  </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="buttons" />
+                                    <String fx:value="reset" />
+                                 </styleClass>
                               </Button>
                            </children>
                         </HBox>
@@ -144,14 +158,16 @@
    <left>
       <VBox prefHeight="720.0" prefWidth="160.0" styleClass="side-bar" BorderPane.alignment="CENTER">
          <children>
-            <Hyperlink fx:id="backBtn" focusTraversable="false" onAction="#gotoHome" styleClass="back-btn" />
+            <Hyperlink fx:id="backBtn" focusTraversable="false" maxWidth="142.0" onAction="#gotoHome" prefWidth="142.0" styleClass="back-btn">
+               <VBox.margin>
+                  <Insets left="10.0" top="40.0" />
+               </VBox.margin></Hyperlink>
          </children>
       </VBox>
    </left>
    <stylesheets>
       <URL value="@/dist/css/mainstyle.css" />
       <URL value="@/dist/css/regispage.css" />
-      
 <!--      <URL value="@../../dist/css/mainstyle.css" />
       <URL value="@../../dist/css/regispage.css" />-->
    </stylesheets>

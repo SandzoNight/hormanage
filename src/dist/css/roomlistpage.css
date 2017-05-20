@@ -1,5 +1,5 @@
 .main-content{
-    -fx-background-color: white;
+  -fx-background-image: url('../images/contentBG13.png');
 }
 .page-title-container{
     -fx-alignment: center-left;
@@ -30,5 +30,5 @@
     -fx-font-size:18px;
 }
 .tbody{
-    -font-size: 16px;
+    -font-size: 18px;
 }
