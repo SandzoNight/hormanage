@@ -11,11 +11,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -30,11 +35,7 @@ public class DormInvoiceListInfoController extends DormInvoiceListController imp
     @FXML
     private Label infoNameL;
     @FXML
-    private Label infoWaterL;
-    @FXML
     private Label infoElecL;
-    @FXML
-    private Label infoWaterUL;
     @FXML
     private Label infoElecUL;
     @FXML
@@ -43,26 +44,44 @@ public class DormInvoiceListInfoController extends DormInvoiceListController imp
     private Label infoTotalL;
     
     private static long invoiceId;
+    @FXML
+    private Button infoPrintL;
+    @FXML
+    private Label WaterL;
+    @FXML
+    private Label WaterUL;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Button paidBtn;
+    @FXML
+    private VBox printArea;
+    
+    private static Stage window;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        ResultSet res = InvoiceManage.RenterNotPaidInfo(1+""); 
-//        try{
-//            while(res.next()){
-//                infoIdL.setText(res.getString("invoiceId"));
-//                infoNoL.setText(res.getString("Room_roomId"));
-//                infoNameL.setText(res.getString("renterFirstName") + "              " + res.getString("renterLastName"));
-//                infoWaterL.setText(res.getString("waterUsage"));
-//                infoElecL.setText(res.getString("elecUsage"));
-//                infoWaterUL.setText(res.getString("dormWaterRate"));
-//                infoElecUL.setText(res.getString("dormElecRate"));
-//                infoRoomL.setText(res.getString("roomPrice"));
-//                double total = PriceCalculator(res.getFloat("waterTotalPrice"),res.getFloat("elecTotalPrice"),res.getFloat("roomPrice"));
-//                infoTotalL.setText(total+"");  
-//            }
-//        }
-//        catch(SQLException sqle){
-//            sqle.getStackTrace();
-//        }
+        ResultSet inv = InvoiceManage.getInvoiceDetail(invoiceId);
+        try{
+            while(inv.next()){
+                infoIdL.setText("INV-"+inv.getString("invoiceNo"));
+                infoNameL.setText(inv.getString("renterFirstName")+" "+inv.getString("renterLastName"));
+                infoNoL.setText(inv.getString("roomNo"));
+                if(inv.getString("paidStatus").equals("0")){
+                    statusLabel.setText("ยังไม่จ่าย");
+                }else{
+                    statusLabel.setText("จ่ายแล้ว");
+                    paidBtn.setDisable(true);
+                }
+                WaterL.setText(inv.getString("waterUsage"));
+                infoElecL.setText(inv.getString("elecUsage"));
+                WaterUL.setText(inv.getString("dormWaterRate"));
+                infoElecUL.setText(inv.getString("dormElecRate"));
+                infoRoomL.setText(inv.getString("roomPrice"));
+                infoTotalL.setText(""+(inv.getDouble("roomPrice")+inv.getDouble("waterTotalPrice")+inv.getDouble("elecTotalPrice")));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
     public static long getInvoiceId() {
@@ -71,6 +90,28 @@ public class DormInvoiceListInfoController extends DormInvoiceListController imp
 
     public static void setInvoiceId(long invoiceId) {
         DormInvoiceListInfoController.invoiceId = invoiceId;
+    }
+
+    @FXML
+    private void printInv(ActionEvent event) {
+        InvoiceManage.printInvoice(printArea);
+    }
+
+    @FXML
+    private void cancelInv(ActionEvent event) {
+        InvoiceManage.cancel(invoiceId);
+        window.close();
+    }
+
+    @FXML
+    private void invoicePaid(ActionEvent event) {
+        InvoiceManage.paid(invoiceId);
+        window.close();
+        
+    }
+    
+    public static void setNode(Stage node){
+        DormInvoiceListInfoController.window = node;
     }
     
     

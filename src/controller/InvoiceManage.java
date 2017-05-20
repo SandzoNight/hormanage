@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import model.DataCount;
 import model.DataInsert;
 import model.DataQuery;
+import model.DataUpdate;
 
 /**
  *
@@ -35,6 +36,11 @@ public class InvoiceManage {
         return res1;
     }
     
+    public static ResultSet getInvoiceDetail(long invoiceId){
+        ResultSet res1 = DataQuery.queryInvoiceDetail(invoiceId);
+        return res1;
+    }
+    
     public static double priceCalculator(double[] rate, double[] unit, double room){
         double totalPrice = (rate[0]*unit[0])+(rate[1]*unit[1])+room;
         return totalPrice;
@@ -44,6 +50,8 @@ public class InvoiceManage {
         double totalPrice = water+elec+room;
         return totalPrice;
     }
+    
+    
     
     public static int countInvoice(long dormId){
         int count = DataCount.count("invoice", "Dormitory_dormId", dormId+"");
@@ -68,7 +76,7 @@ public class InvoiceManage {
         }
         
         DataInsert di = new DataInsert();
-        int inserted = di.insertInvoicenextInvoiceId,dormId,data);
+        int inserted = di.insertInvoice(nextInvoiceId,startDate,dueDate,data,dormId);
         di.disconnect();
         return inserted;
     }
@@ -87,5 +95,15 @@ public class InvoiceManage {
                 job.endJob();
             }
         }
+    }
+    
+    public static void cancel(long invoiceId){
+        System.out.println("Canceling invoice..");
+        DataUpdate.invoiceCancel(invoiceId);
+    }
+    
+    public static void paid(long invoiceId){
+        System.out.println("Updating invoice..");
+        DataUpdate.invoicePaid(invoiceId);
     }
 }

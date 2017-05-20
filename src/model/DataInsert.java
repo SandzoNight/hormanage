@@ -131,11 +131,11 @@ public class DataInsert extends DBConnector {
             e.printStackTrace();
         }
     }
-    public void insertInvoice(long invoiceId,LocalDate startDate,LocalDate dueDate,ArrayList<String> data,long dormId){
+    public int insertInvoice(long invoiceId,LocalDate startDate,LocalDate dueDate,ArrayList<String> data,long dormId){
         
         try {
             System.out.println(inserting_str);
-            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = connection.prepareStatement(sql);
             ps.setLong(1, invoiceId);   //invoiceId
             ps.setString(2, data.get(0));          //invoiceNo
@@ -148,14 +148,18 @@ public class DataInsert extends DBConnector {
             ps.setDouble(9, Double.parseDouble(data.get(7)));           //elecTotalPrice
             ps.setDouble(10, Double.parseDouble(data.get(8)));    //roomPrice
             ps.setString(11, data.get(3));    //roomTypeName
-            ps.setLong(12, User_userId);    //Room_roomId
-            ps.setLong(13, User_userId);    //Renter_renterId
+            ps.setLong(12, Long.parseLong(data.get(9)));    //Room_roomId
+            ps.setLong(13, Long.parseLong(data.get(1)));    //Renter_renterId
             ps.setLong(14, dormId);    //Dormitory_dormId
             ps.setInt(15, 0);    //paidStatus
-            ps.executeUpdate();
+            ps.setInt(16,0);    //cancelStatus
+            int updated = ps.executeUpdate();
+            updateId("invoice",invoiceId);
+            return updated;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return 0;
     }
 
     public static void updateId(String table, long currentId) {
@@ -223,7 +227,7 @@ public class DataInsert extends DBConnector {
         int inserted = 0;
         try {
             System.out.println(inserting_str);
-            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = connection.prepareStatement(sql);
             ps.setLong(1, longData[0]); //invoiceid
             ps.setLong(2, longData[1]); //invoiceNo
@@ -240,6 +244,7 @@ public class DataInsert extends DBConnector {
             ps.setLong(13,longData[3]); //renterId
             ps.setLong(14,longData[4]); //dormId
             ps.setInt(15,paidStatus);   
+            ps.setInt(16, 0);
             inserted = ps.executeUpdate();
             
             updateId("invoice", longData[0]);

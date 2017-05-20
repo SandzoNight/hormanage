@@ -17,11 +17,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class DormInvoiceListController extends DormDashboardController implements Initializable {
 
@@ -43,6 +45,11 @@ public class DormInvoiceListController extends DormDashboardController implement
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        initialList();
+    }
+    
+    @FXML
+    private void initialList(){
         listNotPaid.getChildren().clear();
         listAll.getChildren().clear();
         ResultSet res = InvoiceManage.getUnpaidInvoice(dormId);
@@ -55,9 +62,9 @@ public class DormInvoiceListController extends DormDashboardController implement
         ArrayList<Button> infoButton = new ArrayList<Button>();
         try{
             while(res.next()){
-                Label InvoiceNoLabel = new Label(res.getString("InvoiceNo"));
+                Label InvoiceNoLabel = new Label("INV-"+res.getString("InvoiceNo"));
                 InvoiceNo.add(InvoiceNoLabel);
-                Label roomNoLabel = new Label(res.getString("Room_roomId"));
+                Label roomNoLabel = new Label(res.getString("roomNo"));
                 roomNo.add(roomNoLabel);
                 Label renterFirstNameLabel = new Label(res.getString("renterFirstName"));
                 renterFirstName.add(renterFirstNameLabel);
@@ -98,9 +105,9 @@ public class DormInvoiceListController extends DormDashboardController implement
         ArrayList<Button> infoButton2 = new ArrayList<Button>();
         try{
             while(res2.next()){
-                Label InvoiceNoLabel = new Label(res2.getString("InvoiceNo"));
+                Label InvoiceNoLabel = new Label("INV-"+res2.getString("InvoiceNo"));
                 InvoiceNo2.add(InvoiceNoLabel);
-                Label roomNoLabel = new Label(res2.getString("Room_roomId"));
+                Label roomNoLabel = new Label(res2.getString("roomNo"));
                 roomNo2.add(roomNoLabel);
                 Label renterFirstNameLabel = new Label(res2.getString("renterFirstName"));
                 renterFirstName2.add(renterFirstNameLabel);
@@ -133,21 +140,23 @@ public class DormInvoiceListController extends DormDashboardController implement
     
     private void gotoInvoiceInfoPage(ActionEvent e){
         long invoiceId = Long.parseLong(((Button)e.getSource()).getId());
+        
         try{
             FXMLLoader loader = new FXMLLoader();
             DormInvoiceListInfoController.setInvoiceId(invoiceId);
             
-            //Prepare new page
-            System.out.println("[DormInvoiceListController]Loading new page..");
-            root = loader.load(getClass().getResource("/view/dormitory/DormInvoiceListInfo.fxml").openStream());
+            Parent root = loader.load(getClass().getResource("/view/dormitory/DormInvoiceListInfo.fxml").openStream());
+            
+            Stage newWindow = new Stage();
+            DormInvoiceListInfoController.setNode(newWindow);
+            newWindow.setTitle("ข้อมูลใบแจ้งหนี้ | HOR Manager Application");
             Scene scene = new Scene(root);
-
-            //Change to new page
-            System.out.println("[DormInvoiceListController]Changing scene..");
-            window.setScene(scene);
+            newWindow.setResizable(false);
+            newWindow.setScene(scene);
+            newWindow.show();
         }catch(IOException ex){
             ex.printStackTrace();
-        }
+        }   
     }
 
     @FXML
@@ -165,6 +174,24 @@ public class DormInvoiceListController extends DormDashboardController implement
             window.setScene(scene);
         }catch(IOException ex){
             ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void gotoHome(ActionEvent event) {
+        System.out.println("Go back to Home from DormInvoiceList");
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormDashboard.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
         }
     }
     

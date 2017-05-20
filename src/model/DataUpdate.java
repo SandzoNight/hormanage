@@ -6,10 +6,12 @@
 package model;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -211,6 +213,58 @@ public abstract class DataUpdate extends DBConnector{
             ps = connection.prepareStatement(sql);
             ps.setLong(1, roomId);
             System.out.println(updating_str);
+            updated = ps.executeUpdate();
+            System.out.println(updated_str+" "+updated+" record(s)!");
+            disconnect();
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return updated;
+    }
+    
+    public static int invoiceCancel(long invoiceId){
+        String tableName = "invoice";
+        calling_str = "[DataUpdate]Calling DBConnector to connect the database";
+        updated_str = "[DataUpdate]Updated";
+        updating_str = "[DataUpdate]Updating renter record...";
+        error_str = "[DataUpdate]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataUpdate]Disconnect from DB";
+        String sql = "UPDATE "+tableName+" SET cancelStatus=1 WHERE invoiceId="+invoiceId;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            System.out.println(updating_str);
+            updated = ps.executeUpdate();
+            System.out.println(updated_str+" "+updated+" record(s)!");
+            disconnect();
+        }catch(SQLException e){
+            System.out.println(error_str);
+            disconnect();
+            e.printStackTrace();
+        }
+        return updated;
+    }
+    
+    public static int invoicePaid(long invoiceId){
+        String tableName = "invoice";
+        calling_str = "[DataUpdate]Calling DBConnector to connect the database";
+        updated_str = "[DataUpdate]Updated";
+        updating_str = "[DataUpdate]Updating renter record...";
+        error_str = "[DataUpdate]Error occured! Disconnecting from DB";
+        disconnect_str = "[DataUpdate]Disconnect from DB";
+        String sql = "UPDATE "+tableName+" SET paidStatus=1,paidDate=? WHERE invoiceId="+invoiceId;
+        try{
+            System.out.println(calling_str);
+            connect();
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sql);
+            System.out.println(updating_str);
+            Date date = new Date();
+            ps.setDate(1, new java.sql.Date(date.getTime()));
             updated = ps.executeUpdate();
             System.out.println(updated_str+" "+updated+" record(s)!");
             disconnect();
