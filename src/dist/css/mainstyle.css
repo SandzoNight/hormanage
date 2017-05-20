@@ -8,7 +8,6 @@
 .side-bar{
     -fx-background-image: url('../images/sidebar5.png');
 }
-}
 .back-btn{
     -fx-background-image: url('../images/home-icon.png');
     -fx-pref-width: 141px;
@@ -33,8 +32,4 @@
 }
 .confirm{
     -fx-background-color:   #66CC33;
-}
-
-}
-
 }
