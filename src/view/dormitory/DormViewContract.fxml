@@ -10,9 +10,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" stylesheets="@../../dist/css/mainstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.dormitory.DormViewContractController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" stylesheets="@../../../../PROJECT%20JAVA/src/dist/css/mainstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.dormitory.DormViewContractController">
    <children>
-      <BorderPane prefHeight="800.0" prefWidth="700.0">
+      <BorderPane prefHeight="1000.0" prefWidth="700.0">
          <top>
             <HBox prefHeight="70.0" prefWidth="700.0" BorderPane.alignment="CENTER">
                <children>
@@ -40,7 +40,7 @@
                      <graphic>
                         <ImageView fx:id="print" fitHeight="24.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../dist/images/print.png" />
+                              <Image url="@../../../../PROJECT%20JAVA/src/dist/images/print.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -56,7 +56,7 @@
                </children>
             </HBox>
          </bottom>
-         <center>
+         <left>
             <Pane prefHeight="674.0" prefWidth="700.0" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="433.0" layoutY="17.0" text="เลขที่ใบสัญญา">
@@ -69,199 +69,137 @@
                         <Font name="Kanit" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="400.0" layoutY="50.0" text="วันทำสัญญา">
+                  <Label layoutX="400.0" layoutY="50.0" prefHeight="20.0" prefWidth="38.0" text="เขียนที่">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="400.0" layoutY="88.0" text="วันสิ้นสุดสัญญา">
+                  <Label layoutX="400.0" layoutY="88.0" text="วันที่">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="startDate" layoutX="502.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="154.0">
+                  <Label fx:id="startDate" layoutX="442.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="214.0" text="...........................................................................">
                      <font>
                         <Font name="Kanit" size="13.0" />
                      </font></Label>
-                  <Label fx:id="dueDate" layoutX="504.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="151.0">
+                  <Label fx:id="Date" layoutX="428.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="227.0">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font></Label>
-                  <Label layoutX="37.0" layoutY="119.0" text="ชื่อ-นามสกุลผู้เช่า">
+                  <Label layoutX="37.0" layoutY="119.0" prefHeight="20.0" prefWidth="198.0" text="หนังสือสัญญาเช่าฉบับนี้ทำขึ้นระหว่าง">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="name" layoutX="148.0" layoutY="121.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="503.0">
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
+                  <Label layoutX="39.0" layoutY="200.0" text="ซึ่งต่อไปใบสัญญานี้เรียกว่า &quot;ผู้ให้เช่า&quot; ฝ่ายหนึ่งกับ">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="38.0" layoutY="185.0" text="เลขบัตรประชาชน">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="idCard" layoutX="147.0" layoutY="187.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="163.0">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label layoutX="39.0" layoutY="154.0" text="ที่อยู่">
+                  <Label fx:id="address" layoutX="37.0" layoutY="144.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="616.0" text="อยู่บ้านเลขที่……………………..ตรอก/ซอย……………………….ถนน…………………………………..">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font></Label>
-                  <Label fx:id="address" layoutX="72.0" layoutY="154.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="578.0">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font></Label>
-                  <Label fx:id="telNumber" layoutX="435.0" layoutY="189.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="163.0">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-                  <Label layoutX="342.0" layoutY="188.0" text="เบอร์โทรศัพท์">
+                  <Label layoutX="104.0" layoutY="225.0" prefHeight="20.0" prefWidth="452.0" text="...............................................................................................................................อายุ...........ปี">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="38.0" layoutY="217.0" text="เงินประกัน">
+                  <Label layoutX="60.0" layoutY="761.0" prefHeight="23.0" prefWidth="224.0" text="ลงชื่อ.......................................................ผู้เช่า">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Bail" layoutX="104.0" layoutY="217.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                  <Label layoutX="53.0" layoutY="787.0" prefHeight="23.0" prefWidth="237.0" text="(...........................................................................)">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="224.0" layoutY="217.0" text="บาท">
+                  <Label layoutX="399.0" layoutY="789.0" prefHeight="23.0" prefWidth="238.0" text="(...........................................................................)">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="449.0" layoutY="217.0" text="บาท">
+                  <Label layoutX="400.0" layoutY="762.0" prefHeight="23.0" prefWidth="238.0" text="ลงชื่อ.......................................................ผู้ให้เช่า">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="getBail" layoutX="350.0" layoutY="217.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                  <Label layoutX="51.0" layoutY="841.0" prefHeight="23.0" prefWidth="237.0" text="(...........................................................................)">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="269.0" layoutY="217.0" text="รับเงินประกัน">
+                  <Label layoutX="55.0" layoutY="814.0" prefHeight="23.0" prefWidth="229.0" text="ลงชื่อ.......................................................พยาน">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="224.0" layoutY="250.0" text="บาท">
+                  <Label layoutX="403.0" layoutY="815.0" prefHeight="23.0" prefWidth="228.0" text="ลงชื่อ.......................................................พยาน">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="roomRate" layoutX="104.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                  <Label layoutX="398.0" layoutY="842.0" prefHeight="23.0" prefWidth="237.0" text="(...........................................................................)">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="38.0" layoutY="250.0" text="ค่าห้อง">
+                  <Label fx:id="address2" layoutX="38.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="616.0" text="ตำบล/แขวง…………………อำเภอ/เขต………………………จังหวัด…………………….………………..">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="38.0" layoutY="282.0" text="ไฟฟ้าหน่วยละ">
+                  <Label fx:id="address21" layoutX="38.0" layoutY="279.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="616.0" text="ตำบล/แขวง…………………อำเภอ/เขต………………………จังหวัด…………………….………………..">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="electricityBill" layoutX="124.0" layoutY="282.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                  <Label fx:id="address3" layoutX="37.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="616.0" text="อยู่บ้านเลขที่……………………..ตรอก/ซอย……………………….ถนน…………………………………..">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="224.0" layoutY="282.0" text="บาท">
+                  <Label layoutX="39.0" layoutY="307.0" text="ซึ่งต่อไปใบสัญญานี้เรียกว่า &quot;ผู้เช่า&quot; ฝ่ายหนึ่งกับ">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="450.0" layoutY="282.0" text="บาท">
+                  <Label layoutX="235.0" layoutY="119.0" prefHeight="20.0" prefWidth="452.0" text="..............................................................................................................อายุ...........ปี">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="waterBill" layoutX="355.0" layoutY="282.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="89.0">
+                  <Label layoutX="37.0" layoutY="332.0" prefHeight="20.0" prefWidth="616.0" text="คู่สัญญาทั้งสองฝ่ายตกลงให้เช่าและเช่า…………………………………………………………โดยทรัพย์สินดังกล่าวข้างต้น">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="269.0" layoutY="282.0" text="น้ำหน่วยละ">
+                  <Label layoutX="39.0" layoutY="357.0" prefHeight="20.0" prefWidth="425.0" text="เป็นกรรมสิทธิ์และสิทธิครอบครองของผู้ให้เช่า ซึ่งต่อไปสัญญานี้เรียกว่า “ทรัพย์สิน”">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="38.0" layoutY="315.0" text="ข้อตกลง">
+                  <Label layoutX="39.0" layoutY="382.0" prefHeight="20.0" prefWidth="425.0" text="คู่สัญญาทั้งสองฝ่ายตกลงทำสัญญากันดังมีข้อความดังต่อไปนี้">
                      <font>
                         <Font name="Kanit" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="reference" layoutX="39.0" layoutY="341.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="608.0">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="75.0" layoutY="554.0" prefHeight="23.0" prefWidth="201.0" text="ลงชื่อ.......................................................ผู้เช่า">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="75.0" layoutY="577.0" prefHeight="23.0" prefWidth="201.0" text="(...........................................................................)">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="423.0" layoutY="578.0" prefHeight="23.0" prefWidth="201.0" text="(...........................................................................)">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="415.0" layoutY="555.0" prefHeight="23.0" prefWidth="213.0" text="ลงชื่อ.......................................................ผู้ให้เช่า">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="75.0" layoutY="627.0" prefHeight="23.0" prefWidth="201.0" text="(...........................................................................)">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="70.0" layoutY="604.0" prefHeight="23.0" prefWidth="207.0" text="ลงชื่อ.......................................................พยาน">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="418.0" layoutY="604.0" prefHeight="23.0" prefWidth="207.0" text="ลงชื่อ.......................................................พยาน">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="423.0" layoutY="627.0" prefHeight="23.0" prefWidth="201.0" text="(...........................................................................)">
-                     <font>
-                        <Font name="Kanit" size="14.0" />
-                     </font>
-                  </Label>
+                  <Label layoutX="40.0" layoutY="407.0" prefHeight="20.0" prefWidth="591.0" text="ข้อ 1.  ผู้ให้เช่าตกลงให้เช่าและผู้เช่าตกลงเช่าทรัพย์สินดังกล่าวมีกำหนดระยะเวลา    ทั้งสิ้น……… ปี…………….เดือน " />
+                  <Label layoutX="70.0" layoutY="434.0" prefHeight="20.0" prefWidth="511.0" text=" โดยผู้เช่าตกลงยินยอมให้ค่าเช่าในอัตราเดือนละ…………………บาท (……………………………….) ทั้งนี้ " />
+                  <Label layoutX="75.0" layoutY="462.0" prefHeight="20.0" prefWidth="672.0" text="ผู้เช่ารับว่าจะเป็นฝ่ายนำค่าเช่าทรัพย์สินจำนวนดังกล่าวไปชำระให้แก่ผู้ให้เช่า ณ ภูมิลำเนาของผู้ให้เช่าภายในวันที่………….ของทุกเดือน" />
+                  <Label layoutX="76.0" layoutY="490.0" prefHeight="20.0" prefWidth="672.0" text="โดยเริ่มตั้งแต่เดือน………………… เป็นต้นไปจนสิ้นสุดสัญญา" />
+                  <Label layoutX="78.0" layoutY="600.0" prefHeight="20.0" prefWidth="672.0" text="ทั้งนี้ ผู้เช่ารับว่าจะให้ค่าตอบแทนดังกล่าวโดย" />
+                  <Label layoutX="77.0" layoutY="572.0" prefHeight="20.0" prefWidth="672.0" text="และให้ถือว่าเป็นการให้เปล่าหรือให้โดยเสน่หาไม่มีข้อผูกพันใดๆ ที่จะให้ผู้ให้เช่าคืนให้แก่ผู้เช่าไม่ว่ากรณีใดๆ ทั้งสิ้น " />
+                  <Label layoutX="77.0" layoutY="544.0" prefHeight="20.0" prefWidth="579.0" text="ผู้เช่าตกลงให้เงินเพื่อเป็นการตอบแทนแก่ผู้ให้เช่าต่างหากจากค่าเช่าเป็นจำนวนเงิน……………………บาท (………………………………….)" />
+                  <Label layoutX="42.0" layoutY="517.0" prefHeight="20.0" prefWidth="591.0" text="ข้อ 2.   เพื่อเป็นการตอบแทนแก่ผู้ให้เช่าที่ผู้ให้เช่าตกลงยินยอมให้ผู้เช่าได้ทรัพย์สินตามสัญญานี้" />
+                  <Label layoutX="78.0" layoutY="627.0" prefHeight="20.0" prefWidth="579.0" text="- ชำระเป็นเงินสดครั้งเดียว" />
+                  <Label layoutX="78.0" layoutY="655.0" prefHeight="20.0" prefWidth="672.0" text="-ชำระเป็นเงินสด  โดยการผ่อนชำระเป็นระยะเวลา…………….งวดเดือน " />
+                  <Label layoutX="79.0" layoutY="683.0" prefHeight="20.0" prefWidth="672.0" text=" เริ่มตั้งแต่เดือน…………………………ถึงเดือน……………………….ชำระก่อนวันที่……………..ของเดือนนั้น" />
                </children>
             </Pane>
-         </center>
+         </left>
       </BorderPane>
    </children>
 </AnchorPane>
