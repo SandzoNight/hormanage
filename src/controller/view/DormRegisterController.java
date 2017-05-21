@@ -81,7 +81,7 @@ public class DormRegisterController extends DormSelectDormController implements 
                 });
                 facilityList.getItems().addAll(facility[objIndex]);
                 objIndex++;
-                facilityCount++;
+                facilityCount++; 
             }
         }catch(Exception e){
             e.printStackTrace();

@@ -69,7 +69,7 @@ public class DormRoomEditController extends DormRoomListController implements In
     private ChoiceBox floorNo;
     @FXML
     private Label roomtypeErrorLabel;
-    
+    long tempRenterId = 0;
 
     /**
      * Initializes the controller class.
@@ -118,6 +118,7 @@ public class DormRoomEditController extends DormRoomListController implements In
                     ResultSet rs3 = RenterManage.getRenterInfo(rs2.getLong("Renter_renterId"));
                     if(rs3.next()){
                         renterListBox.setValue(rs3.getString("renterFirstName")+" "+rs3.getString("renterLastName"));
+                        tempRenterId = rs3.getLong("renterId");
                     }
                 }else{
                     renterListBox.setValue("ไม่มี");
@@ -153,6 +154,7 @@ public class DormRoomEditController extends DormRoomListController implements In
     @FXML
     private void confirm(ActionEvent event) {
         long renterId = 0;
+        
         String renterCheckStr;
         if(renterListBox.getValue()!=null||!renterListBox.getValue().equals("ไม่มี")){
             renterCheckStr = (String)renterListBox.getValue();
@@ -191,6 +193,12 @@ public class DormRoomEditController extends DormRoomListController implements In
         }
         
         RoomManage.update(data, roomId);
+        if(renterId==0){
+            RenterManage.updateRoomId(null, tempRenterId);
+        }else{
+            RenterManage.updateRoomId(roomId+"", renterId);
+        }
+        
         
         try{
             //Prepare needed parameters for the new page

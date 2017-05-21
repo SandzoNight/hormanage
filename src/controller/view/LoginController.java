@@ -79,7 +79,6 @@ public class LoginController extends HorProject implements Initializable {
                             FXMLLoader loader = new FXMLLoader();
 //                            DormMainController dormMainController = (DormMainController)loader.getController();
                             DormMainController.setUserId(userId);
-                            
                             //Prepare new page
                             root = loader.load(getClass().getResource("/view/dormitory/DormMain.fxml").openStream());
                             Scene scene = new Scene(root);

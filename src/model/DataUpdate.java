@@ -199,7 +199,7 @@ public abstract class DataUpdate extends DBConnector{
         return updated;
     }
     
-    public static int updateRenterRoomId(long roomId,String renterId){
+    public static int updateRenterRoomId(String roomId,String renterId){
         String tableName = "renter";
         calling_str = "[DataUpdate]Calling DBConnector to connect the database";
         updated_str = "[DataUpdate]Updated";
@@ -212,7 +212,7 @@ public abstract class DataUpdate extends DBConnector{
             connect();
             PreparedStatement ps;
             ps = connection.prepareStatement(sql);
-            ps.setLong(1, roomId);
+            ps.setString(1, roomId);
             System.out.println(updating_str);
             updated = ps.executeUpdate();
             System.out.println(updated_str+" "+updated+" record(s)!");

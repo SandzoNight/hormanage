@@ -26,6 +26,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import model.DataQuery;
 import model.Renter;
 import model.RoomType;
 
@@ -59,7 +60,7 @@ public class DormRoomAddController extends DormRoomListController implements Ini
     
     private ArrayList<Renter> renters = new ArrayList<Renter>();
     private ArrayList<RoomType> roomTypes = new ArrayList<RoomType>();
-    private static long roomId;
+//    private static long roomId;
     ArrayList<Renter> searchedRenters = new ArrayList<Renter>(); 
     @FXML
     private Label roomtypeErrorLabel;
@@ -80,7 +81,7 @@ public class DormRoomAddController extends DormRoomListController implements Ini
         renterListBox.getItems().add("ไม่มี");
         renterListBox.setValue("ไม่มี");
         for(int i=0;i<renters.size();i++){
-            renterListBox.getItems().add(renters.get(i).getFullname());
+            renterListBox.getItems().add(renters.get(i));
         }
         
         ResultSet rs1 = RoomTypeManage.list(dormId);
@@ -133,7 +134,7 @@ public class DormRoomAddController extends DormRoomListController implements Ini
             String renterCheckStr;
             long renterId = 0;
             if(renterListBox.getValue()!=null||!renterListBox.getValue().equals("ไม่มี")){
-                renterCheckStr = (String)renterListBox.getValue();
+                renterCheckStr = (renterListBox.getValue().toString());
                 for(int i=0;i<renters.size();i++){
                     System.out.println("Checking contains");
                     if((renters.get(i).getFullname()).contains(renterCheckStr)){
@@ -163,13 +164,24 @@ public class DormRoomAddController extends DormRoomListController implements Ini
             data.add((String)floorNo.getValue());
             data.add(roomType);
 
+            
+
+            
+            
             if(renterId==0){
                 data.add(null);
+//                RenterManage.updateRoomId(null, renterId);
             }else{
                 data.add(renterId+"");
-                RenterManage.updateRoomId(roomId, renterId);
+                ResultSet rs = DataQuery.query("nextrecordid");
+                try{
+                    if(rs.next()){
+                        RenterManage.updateRoomId((Long.parseLong(rs.getString("nextroomId"))-1)+"", renterId);
+                    }
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
             }
-
             RoomManage.create(data, dormId);
             DormManage.updateRoomNumber(dormId);
             try{
@@ -198,9 +210,9 @@ public class DormRoomAddController extends DormRoomListController implements Ini
         
     }
 
-    public static void setRoomId(long roomId) {
-        DormRoomAddController.roomId = roomId;
-    }
+//    public static void setRoomId(long roomId) {
+//        DormRoomAddController.roomId = roomId;
+//    }
 
     @FXML
     private void searchRenter() {

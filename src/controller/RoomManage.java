@@ -36,9 +36,9 @@ public class RoomManage {
         di.insertRoom(nextRoomId, data,Dormitory_dormId);
         di.disconnect();
         if(data.get(3)!=null){
-            DataUpdate.updateRenterRoomId(nextRoomId-1, data.get(3));
+            DataUpdate.updateRenterRoomId(nextRoomId-1+"", data.get(3));
         }else{
-            DataUpdate.updateRenterRoomId(nextRoomId-1,null);
+            DataUpdate.updateRenterRoomId(nextRoomId-1+"",null);
         }
         DormManage.updateRoomNumber(Dormitory_dormId);
         System.out.println("[RoomManage]Room Inserted!");
@@ -88,9 +88,9 @@ public class RoomManage {
     
     public static int update(ArrayList<String> data, long roomId){
         if(data.get(3)!=null){
-            DataUpdate.updateRenterRoomId(roomId, data.get(3));
+            DataUpdate.updateRenterRoomId(roomId+"", data.get(3));
         }else{
-            DataUpdate.updateRenterRoomId(roomId,null);
+            DataUpdate.updateRenterRoomId(null,data.get(3));
         }
         return DataUpdate.updateRoomDetail(data, roomId);
     }
