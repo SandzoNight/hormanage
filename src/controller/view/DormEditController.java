@@ -172,6 +172,19 @@ public class DormEditController extends DormDashboardController implements Initi
             System.out.println(facilityIds[i]);
         }
         DormManage.update(info, facilityIds);
+        try{
+            //Prepare needed parameters for the new page
+            FXMLLoader loader = new FXMLLoader();
+
+            //Prepare new page
+            root = loader.load(getClass().getResource("/view/dormitory/DormDashboard.fxml").openStream());
+            Scene scene = new Scene(root);
+
+            //Change to new page
+            window.setScene(scene);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
