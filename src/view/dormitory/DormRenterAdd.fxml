@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -16,7 +21,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRenterAddController">
+<VBox prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormRenterAddController">
    <children>
       <BorderPane>
          <center>
@@ -24,7 +29,10 @@
                <top>
                   <FlowPane prefHeight="113.0" prefWidth="842.0" styleClass="page-title-container" BorderPane.alignment="CENTER">
                      <children>
-                        <Label styleClass="page-title" text="เพิ่มประวัติผู้เข้าพัก" />
+                        <Label styleClass="page-title" text="เพิ่มประวัติผู้เข้าพัก">
+                           <FlowPane.margin>
+                              <Insets left="20.0" />
+                           </FlowPane.margin></Label>
                      </children>
                   </FlowPane>
                </top>
@@ -33,17 +41,32 @@
                      <children>
                         <GridPane prefHeight="467.0" prefWidth="840.0">
                            <children>
-                              <Label styleClass="renter-info-title" text="ชื่อ :  " />
-                              <Label styleClass="renter-info-title" text="เพศ : " GridPane.rowIndex="2" />
-                              <Label styleClass="renter-info-title" text="ที่อยู่ : " GridPane.rowIndex="3" />
-                              <Label styleClass="renter-info-title" text="เบอร์โทรศัพท์ : " GridPane.rowIndex="4" />
-                              <Label styleClass="renter-info-title" text="อีเมล : " GridPane.rowIndex="5" />
-                              <Label styleClass="renter-info-title" text="นามสกุล : " GridPane.rowIndex="1" />
-                              <TextField fx:id="renterFirstNameField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" />
-                              <TextField fx:id="renterLastNameField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextArea fx:id="renterAddrField" onKeyTyped="#edited" prefHeight="200.0" prefWidth="200.0" styleClass="renter-info-desc" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField fx:id="renterTelField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <TextField fx:id="renterEmailField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="278.0" styleClass="renter-info-title" text="ชื่อ :  " />
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="391.0" styleClass="renter-info-title" text="เพศ : " GridPane.rowIndex="2" />
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="342.0" styleClass="renter-info-title" text="ที่อยู่ : " GridPane.rowIndex="3" />
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="316.0" styleClass="renter-info-title" text="เบอร์โทรศัพท์ : " GridPane.rowIndex="4" />
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="312.0" styleClass="renter-info-title" text="อีเมล : " GridPane.rowIndex="5" />
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="320.0" styleClass="renter-info-title" text="นามสกุล : " GridPane.rowIndex="1" />
+                              <TextField fx:id="renterFirstNameField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="renterLastNameField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin></TextField>
+                              <TextArea fx:id="renterAddrField" onKeyTyped="#edited" prefHeight="200.0" prefWidth="200.0" styleClass="renter-info-desc" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin></TextArea>
+                              <TextField fx:id="renterTelField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="renterEmailField" onKeyTyped="#edited" styleClass="renter-info-desc" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin></TextField>
                               <ComboBox fx:id="renterGenderField" onAction="#choiceSelected" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                            <columnConstraints>
@@ -61,8 +84,8 @@
                         </GridPane>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="buttons">
                            <children>
-                              <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#confirm" text="ยืนยัน" />
-                              <Button fx:id="resetBtn" disable="true" mnemonicParsing="false" onAction="#reset" text="รีเซ็ต" />
+                              <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#confirm" styleClass="confirm" text="ยืนยัน" />
+                              <Button fx:id="resetBtn" disable="true" mnemonicParsing="false" onAction="#reset" styleClass="reset" text="รีเซ็ต" />
                            </children>
                         </HBox>
                      </children>
@@ -75,20 +98,19 @@
                <children>
                   <Hyperlink fx:id="backBtn" focusTraversable="false" onAction="#gotoHome" styleClass="back-btn">
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="40.0" />
                      </VBox.margin>
                   </Hyperlink>
-                  <Label fx:id="testUserId" text="Label" />
                </children>
             </VBox>
          </left>
       </BorderPane>
    </children>
    <stylesheets>
-       <URL value="@/dist/css/rentereditpage.css" />
-      <URL value="@/dist/css/mainstyle.css" />
+<!--       <URL value="@/dist/css/rentereditpage.css" />
+      <URL value="@/dist/css/mainstyle.css" />-->
       
-<!--      <URL value="@../../dist/css/rentereditpage.css" />
-      <URL value="@../../dist/css/mainstyle.css" />-->
+     <URL value="@../../dist/css/rentereditpage.css" />
+      <URL value="@../../dist/css/mainstyle.css" />
    </stylesheets>
 </VBox>

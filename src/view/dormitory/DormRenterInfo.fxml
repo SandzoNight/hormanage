@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -33,7 +34,13 @@
                            <children>
                               <FlowPane alignment="TOP_RIGHT">
                                  <children>
-                                    <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editRenter" styleClass="edit-btn" text="แก้ไข" />
+                                    <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editRenter" prefHeight="41.0" prefWidth="62.0" styleClass="edit" text="แก้ไข">
+                                       <FlowPane.margin>
+                                          <Insets right="20.0" />
+                                       </FlowPane.margin>
+                                       <font>
+                                          <Font name="Kanit" size="18.0" />
+                                       </font></Button>
                                  </children>
                               </FlowPane>
                               <GridPane prefHeight="385.0" prefWidth="650.0">
@@ -79,11 +86,11 @@
    <stylesheets>
       
       <!-- Use these tag when compile -->
-      <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/renterinfopage.css" />
+<!--      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/renterinfopage.css" />-->
       <!-- /////////////////////////// -->
       
-<!--      <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/renterinfopage.css" />-->
+   <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/renterinfopage.css" />
    </stylesheets>
 </VBox>

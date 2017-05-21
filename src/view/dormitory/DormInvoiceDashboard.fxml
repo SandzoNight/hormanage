@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormInvoiceDashboardController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1000.0" stylesheets="@../../dist/css/selectdormpage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormInvoiceDashboardController">
    <children>
       <Pane prefHeight="720.0" prefWidth="160.0" styleClass="side-bar">
          <stylesheets>

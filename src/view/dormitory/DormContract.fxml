@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormAgreementController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1000.0" stylesheets="@../../dist/css/mainstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormAgreementController">
    <children>
       <BorderPane prefHeight="720.0" prefWidth="1000.0">
          <left>
@@ -19,9 +19,9 @@
                   <URL value="@../../dist/css/dormagreement.css" />
                </stylesheets>
                <children>
-                  <Hyperlink styleClass="back-btn">
+                  <Hyperlink maxHeight="47.0" prefHeight="47.0" prefWidth="140.0" styleClass="back-btn">
                      <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
                      </VBox.margin>
                   </Hyperlink>
                </children>
@@ -305,7 +305,7 @@
                         </GridPane>
                         <HBox prefHeight="93.0" prefWidth="840.0">
                            <children>
-                              <Button fx:id="confirm" mnemonicParsing="false" text="ยืนยัน">
+                              <Button fx:id="confirm" mnemonicParsing="false" styleClass="confirm" text="ยืนยัน">
                                  <font>
                                     <Font name="Kanit" size="24.0" />
                                  </font>
@@ -313,7 +313,7 @@
                                     <Insets left="230.0" top="20.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="reset" mnemonicParsing="false" text="รีเซ็ต">
+                              <Button fx:id="reset" mnemonicParsing="false" styleClass="reset" text="รีเซ็ต">
                                  <font>
                                     <Font name="Kanit" size="24.0" />
                                  </font>

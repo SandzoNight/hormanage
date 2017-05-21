@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -18,7 +24,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormInvoiceAdd">
+<AnchorPane prefHeight="720.0" prefWidth="1000.0" styleClass="body" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.view.DormInvoiceAdd">
    <children>
       <BorderPane prefHeight="720.0" prefWidth="1000.0">
          <left>
@@ -175,12 +181,12 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#confirm" text="ยืนยัน" GridPane.rowIndex="10">
+                        <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#confirm" styleClass="confirm" text="ยืนยัน" GridPane.rowIndex="10">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#reset" text="รีเซ็ต" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                        <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#reset" styleClass="reset" text="รีเซ็ต" GridPane.columnIndex="1" GridPane.rowIndex="10">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -193,10 +199,10 @@
       </BorderPane>
    </children>
    <stylesheets>
-<!--      <URL value="@../../dist/css/mainstyle.css" />
-      <URL value="@../../dist/css/DormInvoiceAdd.css" />-->
+    <URL value="@../../dist/css/mainstyle.css" />
+      <URL value="@../../dist/css/DormInvoiceAdd.css" />
       
-      <URL value="@/dist/css/mainstyle.css" />
-      <URL value="@/dist/css/DormInvoiceAdd.css" />
+<!--      <URL value="@/dist/css/mainstyle.css" />
+      <URL value="@/dist/css/DormInvoiceAdd.css" />-->
    </stylesheets>
 </AnchorPane>
