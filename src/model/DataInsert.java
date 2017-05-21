@@ -195,6 +195,11 @@ public class DataInsert extends DBConnector {
                 DataUpdate.disconnect();
                 break;
             }
+            case "contract": {
+                DataUpdate.updateNextRecordId("nextContractId", nextId);
+                DataUpdate.disconnect();
+                break;
+            }
         }
     }
     
@@ -223,31 +228,19 @@ public class DataInsert extends DBConnector {
         
         return inserted;
     }
-    public int insertContract(long[] longData, Date[] dateData, double[] doubleData, String roomTypeName, int paidStatus){
+    public int insertContract(long contractId,long contractNo,LocalDate createdDate,long dormId){
         int inserted = 0;
         try {
             System.out.println(inserting_str);
-            String sql = "INSERT INTO invoice VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO contract VALUES(?,?,?,?)";
             ps = connection.prepareStatement(sql);
-            ps.setLong(1, longData[0]); //invoiceid
-            ps.setLong(2, longData[1]); //invoiceNo
-            ps.setDate(3, dateData[0]); //startDate
-            ps.setDate(4, dateData[1]); //dueDate
-            ps.setDate(5, dateData[2]); //paidDate
-            ps.setDouble(6,doubleData[0]);  //waterUsage
-            ps.setDouble(7,doubleData[1]);  //elecUsage
-            ps.setDouble(8,doubleData[2]);  //waterTotalPrice
-            ps.setDouble(9,doubleData[3]);  //elecTotalPrice
-            ps.setDouble(10,doubleData[4]); //roomPrice
-            ps.setString(11,roomTypeName);  
-            ps.setLong(12,longData[2]); //roomId
-            ps.setLong(13,longData[3]); //renterId
-            ps.setLong(14,longData[4]); //dormId
-            ps.setInt(15,paidStatus);   
-            ps.setInt(16, 0);
+            ps.setLong(1, contractId);
+            ps.setLong(2, contractNo);
+            ps.setDate(3, Date.valueOf(createdDate));
+            ps.setLong(4, dormId);
             inserted = ps.executeUpdate();
             
-            updateId("invoice", longData[0]);
+            updateId("contract", contractId);
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -45,3 +45,7 @@
 .scroll-container{
     -fx-background-color: white;
 }
+.text{
+    -fx-font-size: 16px;
+    -fx-font-family: 'Angsana New';
+}
