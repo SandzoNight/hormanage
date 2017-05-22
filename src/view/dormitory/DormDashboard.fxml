@@ -71,7 +71,6 @@
                               <GridPane prefHeight="496.0" prefWidth="809.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -79,10 +78,10 @@
                                  <children>
                                     <FlowPane columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <VBox alignment="TOP_CENTER" prefHeight="387.0" prefWidth="398.0">
+                                          <VBox alignment="TOP_CENTER" prefHeight="387.0" prefWidth="805.0">
                                              <children>
                                                 <Label styleClass="card-title" text="ข้อมูลเบื้องต้น" />
-                                                <GridPane prefHeight="239.0" prefWidth="398.0">
+                                                <GridPane alignment="TOP_CENTER" prefHeight="239.0" prefWidth="732.0">
                                                   <columnConstraints>
                                                     <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="105.0" />
                                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="293.0" />
@@ -108,36 +107,6 @@
                                           </VBox>
                                        </children>
                                     </FlowPane>
-                                    <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                                       <children>
-                                          <VBox alignment="TOP_CENTER" prefHeight="387.0" prefWidth="398.0">
-                                             <children>
-                                                <Label styleClass="card-title" text="ข้อมูลเบื้องต้น" />
-                                                <GridPane prefHeight="239.0" prefWidth="398.0">
-                                                   <children>
-                                                      <Label styleClass="info-text" text="ประเภทหอ : " />
-                                                      <Label styleClass="info-text" text="ที่อยู่ : " GridPane.rowIndex="1" />
-                                                      <Label styleClass="info-text" text="เรทค่าน้ำ : " GridPane.rowIndex="2" />
-                                                      <Label styleClass="info-text" text="เรทค่าไฟ : " GridPane.rowIndex="3" />
-                                                      <Label fx:id="dormType1" styleClass="info-text" text="text_text" GridPane.columnIndex="1" />
-                                                      <Label fx:id="dormAddr1" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                      <Label fx:id="dormWaterRate1" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                      <Label fx:id="dormElecRate1" styleClass="info-text" text="text_text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                   </children>
-                                                   <columnConstraints>
-                                                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="105.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="293.0" />
-                                                   </columnConstraints>
-                                                   <rowConstraints>
-                                                      <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
-                                                      <RowConstraints maxHeight="119.0" minHeight="10.0" prefHeight="97.0" valignment="TOP" vgrow="SOMETIMES" />
-                                                      <RowConstraints maxHeight="96.0" minHeight="7.0" prefHeight="47.0" vgrow="SOMETIMES" />
-                                                      <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                                                   </rowConstraints>
-                                                </GridPane>
-                                             </children>
-                                          </VBox>
-                                       </children></FlowPane>
                                  </children>
                               </GridPane>
                            </content>
